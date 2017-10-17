@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 var NavBar = require('./components/NavBar');
  import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import Paper from 'material-ui/Paper';
 
 
 var App = React.createClass({

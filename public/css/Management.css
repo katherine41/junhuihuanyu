@@ -1,0 +1,10 @@
+.mng_container{
+    margin-top: 10px;
+}
+
+.mng_container .nav-tabs{
+    cursor: pointer;
+}
+
+.newArticleWtrapper{
+}

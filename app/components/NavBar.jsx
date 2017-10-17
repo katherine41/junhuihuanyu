@@ -38,7 +38,7 @@ var NavBar = React.createClass({
           <IndexLink to="/"><MenuItem primaryText="文章" style = {style.menuItemStyle}/></IndexLink>
           <Link to="/statistics"><MenuItem primaryText="数据"  style = {style.menuItemStyle}/></Link>
           <MenuItem primaryText="让我想想"  style = {style.menuItemStyle}/>
-          <Link to="/management"><MenuItem primaryText="管理"  style = {style.menuItemStyle}/></Link>
+          <Link to="/management/"><MenuItem primaryText="管理"  style = {style.menuItemStyle}/></Link>
         </Menu>
 
        </AppBar>
