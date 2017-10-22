@@ -1,8 +1,26 @@
 .article_container{
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .articleList{
     list-style:none;
     padding-left:0;
+}
+
+.articleBlog .thumbnail{
+    background-color: #f7f7f9;
+}
+
+.articleBlog h3{
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.81);
+}
+
+.articleBlog h3 small{
+    margin-left: 10px;
+}
+
+.articleBlog #readMoreBtn{
+    margin-top: 15px;
+    /*border: 1px solid red;*/
 }

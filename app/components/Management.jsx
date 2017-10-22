@@ -17,6 +17,16 @@ class Management extends React.Component {
                 break;
         }
     }
+    componentDidMount(){
+        var currentPath=this.props.location.pathname;
+        if(currentPath.split('/')[1]==="management"&&currentPath.split('/')[2]==="video"){
+            $("#articleTab").removeClass("active");
+            $("#videoTab").addClass("active");
+        }else if(currentPath.split('/')[2]===""){
+            $("#articleTab").addClass("active");
+            $("#videoTab").removeClass("active");
+        }
+    }
     render() {
         return (
         <div className="mng_container container">
@@ -31,4 +41,5 @@ class Management extends React.Component {
         )
     }
 }
+
 module.exports = Management;

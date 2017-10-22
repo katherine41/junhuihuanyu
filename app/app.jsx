@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var NavBar = require('./components/NavBar');
  import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-
+import '../public/css/style.css';
 
 var App = React.createClass({
     getChildContext() {
