@@ -87,7 +87,7 @@
     display:table;
 }
 
-.newVideoWrapper button[type=submit]{
+.newVideoWrapper input[type=button]{
     color: white;
     cursor:pointer;
     position:relative;
@@ -98,4 +98,11 @@
     background-color: #52b9d1;
     border: 0;
     text-transform:uppercase;
+}
+
+#progressContainer{
+    display: none;
+}
+#progressBar{
+    width: 0%;
 }

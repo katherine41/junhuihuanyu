@@ -1,33 +1,38 @@
 var React = require('react');
-// http://codular.com/javascript-ajax-file-upload-with-progress
-// http://www.dave-bond.com/blog/2010/01/JQuery-ajax-progress-HMTL5/
 $(document).ready(function(){
-    $("#videoForm").submit(function(e) {
-        e.preventDefault();
-        var formData = new FormData(this);
+    // upload files and progress bar
+    $("#submitVideo").click(function(){
+        $( "#submitVideo" ).prop( "disabled", true );
+        var formData = new FormData();
         formData.append('fileName',$('#videoName').val());
-        formData.append('cover', $('#videoCoverBtn')[0]);
-        formData.append('video', $('#uploadVideoBtn')[0]);
-        $.ajax({
-            type:'POST',
-            url: "http://41159a93.ngrok.io/rest/video",
-            data:formData,
-            cache:false,
-            contentType: false,
-            processData: false,
+        formData.append('cover', document.getElementById('videoCoverBtn').files[0]);
+        formData.append('video', document.getElementById('uploadVideoBtn').files[0]);
 
-            success:function(data)
-            {
-                console.log(data);
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function(){
+            if(request.readyState === 4){
+                console.log(request.response);
+                $( "#submitVideo" ).prop( "disabled", false );
+                $("#progressContainer").css("display","none");
             }
-        });
+        };
 
+        //dynamically display progress
+        request.upload.addEventListener('progress', function(e){
+            var completePercent=Math.round(e.loaded/e.total * 100)+ "%";
+            $("#progressBar").width(completePercent);
+            $("#progressBar").text(completePercent);
+        }, false);
+
+        request.open('POST', 'http://41159a93.ngrok.io/rest/video');
+        request.send(formData);
+        $("#progressContainer").css("display","block");
     });
+
     $("#uploadVideoBtn").change(function() {
         var videoName=this.files[0].name;
         var videoSize=formatBytes(this.files[0].size);
         $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+")");
-        console.log(this.files[0]);
 
     });
     $("#videoCoverBtn").change(function() {
@@ -59,7 +64,7 @@ var AddVideo = React.createClass({
     render:function(){
         return (
             <div className="newVideoWrapper">
-                <form id="videoForm" method="POST" action="http://b979401a.ngrok.io/rest/video" encType="multipart/form-data">
+                <form id="videoForm">
                     <div className="form-group row">
                         <label htmlFor="videoName" className="col-xs-2 col-form-label">视频标题</label>
                         <div className="col-xs-4">
@@ -84,12 +89,10 @@ var AddVideo = React.createClass({
 
                         <small className="form-text text-muted">图片格式：.jpg, .jpeg, .png</small>
                     </div>
-                    {/*<div className="progress progress-striped active">*/}
-                        {/*<div id="progressBar" className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={style}>*/}
-                            {/*60%*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    <button type="submit">Submit</button>
+                    <div id="progressContainer" className="progress progress-striped active">
+                        <div id="progressBar" className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"> </div>
+                    </div>
+                    <input type='button' id='submitVideo' value='Submit'/>
                 </form>
             </div>
         )
