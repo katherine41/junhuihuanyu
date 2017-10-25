@@ -1,13 +1,16 @@
 var React = require('react');
+import env_variables from '../components/environment.js';
+
 $(document).ready(function(){
     // upload files and progress bar
+    var videoLength=0;
     $("#submitVideo").click(function(){
         $( "#submitVideo" ).prop( "disabled", true );
         var formData = new FormData();
         formData.append('fileName',$('#videoName').val());
         formData.append('cover', document.getElementById('videoCoverBtn').files[0]);
         formData.append('video', document.getElementById('uploadVideoBtn').files[0]);
-
+        // formData.append('videoLength', videoLength);
         var request = new XMLHttpRequest();
         request.onreadystatechange = function(){
             if(request.readyState === 4){
@@ -20,20 +23,31 @@ $(document).ready(function(){
         //dynamically display progress
         request.upload.addEventListener('progress', function(e){
             var completePercent=Math.round(e.loaded/e.total * 100)+ "%";
-            $("#progressBar").width(completePercent);
-            $("#progressBar").text(completePercent);
+            $("#progressBar").width(completePercent).text(completePercent);
         }, false);
 
-        request.open('POST', 'http://41159a93.ngrok.io/rest/video');
+        request.open('POST', env_variables.apiEndpoint+'/rest/video');
         request.send(formData);
         $("#progressContainer").css("display","block");
     });
 
+    var vid = document.createElement('video');
     $("#uploadVideoBtn").change(function() {
+        var videoDuration=0;
+        // var fileURL = URL.createObjectURL(this.files[0]);
+        // vid.src = fileURL;
+        // console.log(fileURL);
+
         var videoName=this.files[0].name;
         var videoSize=formatBytes(this.files[0].size);
-        $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+")");
+        $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+" "+videoDuration+")");
 
+        // vid.ondurationchange = function() {
+        //     videoLength=Math.ceil(this.duration);
+        //     videoDuration=Math.ceil(this.duration);
+        //     $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+" "+fmtMSS(videoDuration)+")");
+        //
+        // };
     });
     $("#videoCoverBtn").change(function() {
         var input=this;
@@ -72,13 +86,13 @@ var AddVideo = React.createClass({
                         </div>
                     </div>
                     <div className="form-group row uploadContainer" id="uploadVideoBtnContainer">
-                        <label htmlFor="uploadVideoBtn" className="col-form-label"><img src="../../video.svg"/>选择视频</label>
+                        <label htmlFor="uploadVideoBtn" className="col-form-label"><img src="../../image/video.svg"/>选择视频</label>
                         <input type="file" name="video" className="form-control-file" id="uploadVideoBtn" accept=".mov, .mp4, .avi"/>
                         <small className="form-text text-muted">视频格式：.avi, .mp4, .mov</small>
                     </div>
                     <div className="form-group row uploadContainer" id="videoCoverBtnContainer">
                         <div id="videoCoverBtnWrapper">
-                            <label htmlFor="videoCoverBtn" className="col-form-label"><img src="../../upload.svg"/>选择封面</label>
+                            <label htmlFor="videoCoverBtn" className="col-form-label"><img src="../../image/upload.svg"/>选择封面</label>
                             <input type="file" name="cover" className="form-control-file" id="videoCoverBtn" accept=".jpg, .jpeg, .png"/>
                         </div>
                         <div id="videoCoverImgWrapper">
@@ -108,4 +122,6 @@ function formatBytes(bytes) {
     else if(bytes < 1048576) return(bytes / 1024).toFixed(1) + " KB";
     else if(bytes < 1073741824) return(bytes / 1048576).toFixed(1) + " MB";
     else return(bytes / 1073741824).toFixed(1) + " GB";
-};
+}
+
+function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}

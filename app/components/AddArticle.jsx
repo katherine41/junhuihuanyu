@@ -1,5 +1,6 @@
 var React = require('react');
 import 'react-trumbowyg/dist/trumbowyg.min.css';
+import env_variables from '../components/environment.js';
 import Trumbowyg from 'react-trumbowyg';
 import { FormGroup,InputGroup,FormControl,Button } from 'react-bootstrap';
 
@@ -20,7 +21,7 @@ class Management extends React.Component {
         };
         $.ajax({
             type:'POST',
-            url:'http://b181a96c.ngrok.io/article',
+            url:env_variables.apiEndpoint+'/article',
             // url:'/article',
             data: JSON.stringify(articleObj),
             contentType: "application/json",

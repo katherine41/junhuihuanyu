@@ -36,7 +36,7 @@ var NavBar = React.createClass({
        <AppBar  title="Jun Hui Huan Yu" showMenuIconButton = {false} style = {style.appBarStyle}>
         <Menu style = {style.menuStyle}>
           <Link to="/articles/"><MenuItem primaryText="文章" style = {style.menuItemStyle}/></Link>
-          <Link to="/statistics/"><MenuItem primaryText="数据"  style = {style.menuItemStyle}/></Link>
+          <Link to="/videos/"><MenuItem primaryText="视频"  style = {style.menuItemStyle}/></Link>
           <MenuItem primaryText="让我想想"  style = {style.menuItemStyle}/>
           <Link to="/management/"><MenuItem primaryText="管理"  style = {style.menuItemStyle}/></Link>
         </Menu>
