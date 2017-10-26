@@ -28,6 +28,7 @@ function VideosList(props) {
         function (video) {
             var formattedVideo={
                 imageUrl:env_variables.apiEndpoint+video.imageUrl,
+                // imageUrl:video.imageUrl,
                 videoLength:fmtMSS(video.videoLength),
                 createdDate:formatDate(new Date(video.createdDate))
             };
@@ -40,19 +41,23 @@ function VideosList(props) {
 }
 var Videos = React.createClass({
     getInitialState: function() {
-        return { videos:[]
+        return { videos:
+            [],
             // [{
             //     "videoId":1,
             //     "videoName":"视频1",
             //     "imageUrl":"../../image/star.jpg",
-            //     "videoLength":256,
-            //     "createdDate":1508725377000
+            //     "videoUrl":"../../image/output.MOV",
+            //     "videoLength":10,
+            //     "createdDate":1508725377000,
+            //
             // },{
             //     "videoId":2,
-            //     "videoName":"视频2",
-            //     "cover":"../../image/star.jpg",
+            //     "videoName":"视频1",
+            //     "imageUrl":"../../image/star.jpg",
+            //     "videoUrl":"../../image/output.MOV",
             //     "videoLength":10,
-            //     "createdDate":1508725377000
+            //     "createdDate":1508725377000,
             // }]
         };
     },

@@ -37,9 +37,13 @@ var AnArticle = React.createClass({
         };
         return (
                 <div className="container">
-                    <h3>{formattedPost.title}</h3>
-                    <p>{formattedPost.createDate}</p>
-                    <div>{formattedPost.content}</div>
+                    <div className="page-header">
+                        <h3>{formattedPost.title} <small>{formattedPost.createDate}</small></h3>
+                    </div>
+                    <div>
+                        <div>{formattedPost.content}</div>
+                    </div>
+
                 </div>
         )
     }

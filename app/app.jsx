@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var NavBar = require('./components/NavBar');
+var TopNav = require('./components/TopNav');
+var BottomNav = require('./components/BottomNav');
+
  import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import '../public/css/style.css';
@@ -12,10 +14,11 @@ var App = React.createClass({
   render:function(){
     return(
     <div>
-      <NavBar/>
+        <TopNav/>
         <div>
             {this.props.children}
         </div>
+        <BottomNav/>
     </div>)
   }
 });

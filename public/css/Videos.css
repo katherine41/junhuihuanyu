@@ -34,6 +34,34 @@
     color:white;
 }
 
+/*a video page*/
+.tutorialVideo_container{
+    margin-top: 40px;
+
+}
+
+.tutorialVideo_container .videoContainer{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+    /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
+    /*border-radius: 6px;*/
+}
+
+
+.tutorialVideo_container .tutorialVideo{
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 6px;
+}
+
+.tutorialVideo_container .videos_container{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eee;
+}
+
 /*large*/
 .videoCoverImgContainer{
     background-image: url("../../public/image/star.jpg");

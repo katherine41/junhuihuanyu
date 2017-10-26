@@ -102,7 +102,50 @@ var AllArticles = React.createClass({
     render: function () {
         return (
             <div className="article_container container">
-                <ArticleList posts={this.state.posts} readMore={this.readMore}/>
+                <div className="row">
+                    <div className="col-sm-8">
+                        <ArticleList posts={this.state.posts} readMore={this.readMore}/>
+                        <nav>
+                            <ul className="pagination">
+                                <li className="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+                                <li className="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#" aria-label="Next"><span aria-hidden="true">&laquo;</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div className="col-sm-4">
+                        <div className="articleCategory_container">
+                            <h4>文章分类：</h4>
+                            <ul className="list-group">
+                                <li className="list-group-item">
+                                    <span className="badge">14</span>
+                                    外汇学习
+                                </li>
+                                <li className="list-group-item">
+                                    <span className="badge">12</span>
+                                    汇评
+                                </li>
+                                <li className="list-group-item">
+                                    <span className="badge">6</span>
+                                    操作教程
+                                </li>
+                            </ul>
+                            <div>
+                                <h4>我的收藏：</h4>
+                                <ul className="list-group">
+                                    <li className="list-group-item">
+                                        外汇操作软件MT4使用教程
+                                    </li>
+                                    <li className="list-group-item">
+                                        2017年6月8日指尖收入
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         )
