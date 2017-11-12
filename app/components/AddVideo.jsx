@@ -1,80 +1,63 @@
 var React = require('react');
 import env_variables from '../components/environment.js';
 
-$(document).ready(function(){
-    // upload files and progress bar
-    var videoLength=0;
-    $("#submitVideo").click(function(){
-        $( "#submitVideo" ).prop( "disabled", true );
-        var formData = new FormData();
-        formData.append('fileName',$('#videoName').val());
-        formData.append('cover', document.getElementById('videoCoverBtn').files[0]);
-        formData.append('video', document.getElementById('uploadVideoBtn').files[0]);
-        // formData.append('videoLength', videoLength);
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function(){
-            if(request.readyState === 4){
-                console.log(request.response);
-                $( "#submitVideo" ).prop( "disabled", false );
-                $("#progressContainer").css("display","none");
-            }
-        };
-
-        //dynamically display progress
-        request.upload.addEventListener('progress', function(e){
-            var completePercent=Math.round(e.loaded/e.total * 100)+ "%";
-            $("#progressBar").width(completePercent).text(completePercent);
-        }, false);
-
-        request.open('POST', env_variables.apiEndpoint+'/rest/video');
-        request.send(formData);
-        $("#progressContainer").css("display","block");
-    });
-
-    var vid = document.createElement('video');
-    $("#uploadVideoBtn").change(function() {
-        var videoDuration=0;
-        // var fileURL = URL.createObjectURL(this.files[0]);
-        // vid.src = fileURL;
-        // console.log(fileURL);
-
-        var videoName=this.files[0].name;
-        var videoSize=formatBytes(this.files[0].size);
-        $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+" "+videoDuration+")");
-
-        // vid.ondurationchange = function() {
-        //     videoLength=Math.ceil(this.duration);
-        //     videoDuration=Math.ceil(this.duration);
-        //     $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+" "+fmtMSS(videoDuration)+")");
-        //
-        // };
-    });
-    $("#videoCoverBtn").change(function() {
-        var input=this;
-        var videoCoverName=this.files[0].name;
-        var videoSize=formatBytes(this.files[0].size);
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#videoCoverImgWrapper img').attr('src', e.target.result);
-                $("#videoCoverBtnWrapper").css("display","none");
-                $("#videoCoverImgWrapper").css("display","block");
-                $("#videoCoverBtnContainer .form-text").text("已选择图片："+videoCoverName+" ("+videoSize+")");
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    });
-    $("#videoCoverImgWrapper span").click(function(){
-
-        $("#videoCoverBtnWrapper").css("display","block");
-        $("#videoCoverImgWrapper").css("display","none");
-        $("#videoCoverBtnContainer .form-text").text("图片格式：.jpg, .jpeg, .png");
-    });
-
-});
 
 
 var AddVideo = React.createClass({
+    componentDidMount:function(){
+        $("#submitVideo").click(function(){
+            $( "#submitVideo" ).prop( "disabled", true );
+            var formData = new FormData();
+            formData.append('fileName',$('#videoName').val());
+            formData.append('cover', document.getElementById('videoCoverBtn').files[0]);
+            formData.append('video', document.getElementById('uploadVideoBtn').files[0]);
+            // formData.append('videoLength', videoLength);
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function(){
+                if(request.readyState === 4){
+                    console.log(request.response);
+                    $( "#submitVideo" ).prop( "disabled", false );
+                    $("#progressContainer").css("display","none");
+                }
+            };
+
+            //dynamically display progress
+            request.upload.addEventListener('progress', function(e){
+                var completePercent=Math.round(e.loaded/e.total * 100)+ "%";
+                $("#progressBar").width(completePercent).text(completePercent);
+            }, false);
+
+            request.open('POST', env_variables.apiEndpoint+'/rest/video');
+            request.send(formData);
+            $("#progressContainer").css("display","block");
+        });
+        $("#uploadVideoBtn").change(function() {
+            var videoName=this.files[0].name;
+            var videoSize=formatBytes(this.files[0].size);
+            $("#uploadVideoBtnContainer .form-text").text("已选择视频："+videoName+" ("+videoSize+")");
+        });
+        $("#videoCoverBtn").change(function() {
+            var input=this;
+            var videoCoverName=this.files[0].name;
+            var videoSize=formatBytes(this.files[0].size);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#videoCoverImgWrapper img').attr('src', e.target.result);
+                    $("#videoCoverBtnWrapper").css("display","none");
+                    $("#videoCoverImgWrapper").css("display","block");
+                    $("#videoCoverBtnContainer .form-text").text("已选择图片："+videoCoverName+" ("+videoSize+")");
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        $("#videoCoverImgWrapper span").click(function(){
+
+            $("#videoCoverBtnWrapper").css("display","block");
+            $("#videoCoverImgWrapper").css("display","none");
+            $("#videoCoverBtnContainer .form-text").text("图片格式：.jpg, .jpeg, .png");
+        });
+    },
     render:function(){
         return (
             <div className="newVideoWrapper">
@@ -123,5 +106,3 @@ function formatBytes(bytes) {
     else if(bytes < 1073741824) return(bytes / 1048576).toFixed(1) + " MB";
     else return(bytes / 1073741824).toFixed(1) + " GB";
 }
-
-function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}

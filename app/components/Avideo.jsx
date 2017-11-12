@@ -93,8 +93,8 @@ var Avideo = React.createClass({
             videoLength:fmtMSS(video.videoLength),
             createdDate:formatDate(new Date(video.createdDate))
         };
-        // var url=env_variables.apiEndpoint+"/rest/video/"+videoId+"/videostream";
-        var url="../../image/output.MOV";
+        var url=env_variables.apiEndpoint+"/rest/video/"+videoId+"/videostream";
+        // var url="../../image/output.MOV";
         return (
             <div className="container tutorialVideo_container">
                 <div className="row">

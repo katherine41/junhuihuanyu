@@ -1,41 +1,33 @@
 var React = require('react');
 import 'react-trumbowyg/dist/trumbowyg.min.css';
-import env_variables from '../components/environment.js';
 import Trumbowyg from 'react-trumbowyg';
 import { FormGroup,InputGroup,FormControl,Button } from 'react-bootstrap';
+import '../../node_modules/trumbowyg/dist/ui/trumbowyg.min.css';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import allActions from '../actions/index';
 
-class Management extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {content: '123'};
-        this.submitArticle = this.submitArticle.bind(this);
-    }
-    submitArticle(){
-        var articleHeader=$("#articleHeader").val();
-        var articleSummary=$("#articleSummary").val();
-        var articleContent="<div>"+$("#react-trumbowyg").html()+"</div>";
-        var articleObj={
-            title:articleHeader,
-            summary:articleSummary,
-            content:articleContent
-        };
-        $.ajax({
-            type:'POST',
-            url:env_variables.apiEndpoint+'/article',
-            // url:'/article',
-            data: JSON.stringify(articleObj),
-            contentType: "application/json",
-            dataType: 'text',
-            success: function(data) {
-                console.log(data);
-                // $("#articleContainer").html($("#react-trumbowyg").html());
-            },
-            error:function(err){
-                console.log(2);
-                console.log("error");
-            }
-        });
-    }
+function Category(props) {
+    return (
+        <option id={props.cateId}>{props.cateName}</option>
+    );
+}
+function CategoryList(props){
+    var categories=Array.from(props.categories);
+    const listItems=categories.map(
+        function (category) {
+            return <Category key={category.id} cateId={category.id} cateName={category.categoryName}/>
+        }
+    );
+    return (
+    <select className="form-control" id="formSelect">{listItems}</select>
+    );
+}
+
+var Management = React.createClass({
+    componentDidMount() {
+        this.props.fetchCategory();
+    },
     render() {
         return (
             <div className="newVideoWrapper">
@@ -54,6 +46,24 @@ class Management extends React.Component {
                         {/*<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">*/}
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-sm-6">
+                        <div className="input-group">
+                            <span className="input-group-addon">分类</span>
+                            <CategoryList categories={this.props.categories}/>
+                        </div>
+                    </div>
+                    <div className="col-sm-6">
+                        <div className="input-group">
+                            <input type="text" className="form-control" id="newCateName" placeholder="请添加分类"/>
+                            <span className="input-group-btn">
+                                    <button className="btn btn-default" type="button" onClick={()=>this.props.addCategory($("#newCateName").val())}>添加分类</button>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <Trumbowyg id='react-trumbowyg' buttons={
                     [
                         ['viewHTML'],
@@ -67,12 +77,26 @@ class Management extends React.Component {
                            data=''
                            placeholder='请输入文章内容'
                 />
-                <Button bsStyle="primary" onClick={this.submitArticle}>发布</Button>
+                <Button bsStyle="primary" onClick={()=>this.props.addArticle()}>发布</Button>
 
                 {/*<div id="articleContainer"></div>*/}
             </div>
         )
     }
+});
+
+function mapStatsToProps(state){
+    return {
+        categories:state.categories
+    }
 }
 
-module.exports = Management;
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        fetchCategory:allActions.categoryAction.fetchCategory,
+        addCategory:allActions.categoryAction.addCategory,
+        addArticle:allActions.articleAction.addArticle
+    },dispatch)
+}
+
+module.exports = connect(mapStatsToProps,matchDispatchToProps)(Management);

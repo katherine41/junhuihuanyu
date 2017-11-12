@@ -1,0 +1,33 @@
+视频上传刷新bug				zyx
+视频/文章   相关单位前端设计		zyx
+文章/视频分类 前端post以及显示		zyx
+	    后端保存			dh
+文章中有图片：（上传图片到服务器）		dh/zyx
+	    服务器存储管理图片		dh
+  	    前端显示ALL ARTICLE with 图片zyx
+首页设计   整合经济日历/静态介绍页面	zyx
+
+
+
+经济日历：   调用api 			dh
+	    做前端设计			zyx
+用户注册   注册页面			zyx
+	   后端				dh
+	   微信注册research		dh/zyx
+	   微信注册实施			zyx	
+
+
+
+管理员权限设计 
+	   管理文章/视频/edit/delete	dh/zyx
+	   管理其他用户			dh/zyx
+用户支付	   research			dh/zyx
+	   implement 			zyx
+用户权限设置back end 			dh
+	   前端routing			zyx
+
+
+上传视频结束换style
+视频加载前loading
+		
+
