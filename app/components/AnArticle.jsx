@@ -8,41 +8,28 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../actions/index';
 import env_variables from '../components/environment';
-
 var React = require('react');
-function RelatedBlog(props) {
-    return (
-        <Link to={`/articles/${props.articleId}`}><li className="list-group-item">{props.title}</li></Link>
-    );
-}
-function RelatedArticlesList(props){
-    var posts=props.posts;
-    if(posts.length>3){
-        posts=posts.slice(0,3);  //0,1,2
-    }
-    const listItems=posts.map(
-        function (post1) {
-            var formattedPost={
+var CategoryList = require('../components/articles/CategoryList');
+var RelatedArticlesList = require('../components/articles/RelatedArticlesList');
 
-                title:post1.title,
-                summary:post1.summary,
-                content:ReactHtmlParser(post1.content),
-                createDate:env_variables.formatDate(new Date(post1.createDate))
-            };
-            return <RelatedBlog key={post1.articleId} articleId={post1.articleId} title={formattedPost.title} summary={formattedPost.summary} content={ formattedPost.content } createDate={formattedPost.createDate}/>
-        }
-    );
-    return (
-        <ul className="list-group">{listItems}</ul>
-    );
-}
+
 var AnArticle = React.createClass({
     getInitialState: function() {
         return { post: {},posts:[]};
     },
-    componentDidMount:function () {
+    changeArticle:function(){
         var articleId=this.props.location.pathname.split('/')[2];
         this.props.fetchArticle(articleId);
+    },
+    componentDidMount:function () {
+        var articleId=this.props.location.pathname.split('/')[2];
+        this.props.fetchArticles();
+        this.props.fetchArticle(articleId);
+        this.props.fetchCategory();
+        window.addEventListener("hashchange", this.changeArticle);
+    },
+    componentWillUnmount() {
+        window.removeEventListener("hashchange", this.changeArticle);
     },
     render:function(){
         var post=this.props.article;
@@ -51,10 +38,12 @@ var AnArticle = React.createClass({
             summary:post.summary,
             content:ReactHtmlParser(post.content),
             category:'',
+            categoryId:1,
             createDate:env_variables.formatDate(new Date(post.createDate))
         };
         if(post.articleCategory!==undefined){
-            formattedPost.category=post.articleCategory.categoryName
+            formattedPost.category=post.articleCategory.categoryName;
+            formattedPost.categoryId=post.articleCategory.id
         }
 
         return (
@@ -62,18 +51,21 @@ var AnArticle = React.createClass({
                     <div className="row">
                         <div className="col-sm-8">
                             <div className="page-header">
-                                <h3>{formattedPost.title}<small><Link to={`/articles/${post.articleId}`}>{formattedPost.category}</Link></small></h3>
+                                <h3>{formattedPost.title}<small><Link to={`/articleCates/${formattedPost.categoryId}`}>{formattedPost.category}</Link></small></h3>
                                 <small>{formattedPost.createDate}</small>
                             </div>
                             <div>
                                 <div>{formattedPost.content}</div>
                             </div>
-
                         </div>
                         <div className="col-sm-4">
                             <div className="articleCategory_container">
-                                <h4>相关文章：</h4>
-                                <RelatedArticlesList posts={this.state.posts}/>
+                                <h4>文章分类：</h4>
+                                <CategoryList categories={this.props.categories}/>
+                            </div>
+                            <div className="articleCategory_container">
+                                <h4>最新文章：</h4>
+                                <RelatedArticlesList posts={this.props.articles}/>
                             </div>
                         </div>
                     </div>
@@ -85,7 +77,9 @@ var AnArticle = React.createClass({
 
 function mapStatsToProps(state){
     return {
+        articles:state.articles,
         article:state.currentArticle,
+        categories:state.categories
     }
 }
 
@@ -93,6 +87,7 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         fetchArticles:allActions.articleAction.fetchArticles,
         fetchArticle:allActions.articleAction.fetchArticle,
+        fetchCategory:allActions.categoryAction.fetchCategory
     },dispatch)
 }
 

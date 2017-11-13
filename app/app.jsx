@@ -30,7 +30,7 @@ var App = React.createClass({
             <div>
                 {this.props.children}
             </div>
-        </Provider>,
+        </Provider>
 
         <BottomNav/>
     </div>)

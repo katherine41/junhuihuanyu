@@ -8,92 +8,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../actions/index';
 import env_variables from '../components/environment';
-
-
-function ArticleBlog(props){
-    return (
-        <li className="articleBlog">
-            <div className="thumbnail">
-                <div className="caption">
-                    <h3>{props.title}<small>{props.createDate}</small></h3>
-                    <div>{props.summary}</div>
-                    <div>
-                        <span>文章分类：<Link to={`/articles/${props.articleId}`}>{props.category.categoryName}</Link></span>
-                        <Link to={`/articles/${props.articleId}`}>
-                            <button type="button" className="btn btn-default btn-info readMoreBtn">
-                                点击阅读&nbsp;&nbsp;>
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </li>
-);
-}
-function RencentBlog(props) {
-    return (
-        <Link to={`/articles/${props.articleId}`}><li className="list-group-item">{props.title}</li></Link>
-    );
-}
-function CategoryItem(props) {
-    return (
-    <li className="list-group-item">
-        <span className="badge">{props.cateNum}</span>
-        {props.categoryName}
-    </li>
-    );
-}
-function ArticleList(props) {
-    const posts=props.posts;
-    const listItems=posts.map(
-        function (post) {
-            var formattedPost={
-
-                title:post.title,
-                summary:post.summary,
-                content:ReactHtmlParser(post.content),
-                createDate:env_variables.formatDate(new Date(post.createDate))
-            };
-            return <ArticleBlog key={post.articleId} articleId={post.articleId} title={formattedPost.title} summary={formattedPost.summary} content={ formattedPost.content } createDate={formattedPost.createDate} category={post.articleCategory}/>
-        }
-    );
-    return (
-        <ul className="articleList">{listItems}</ul>
-    );
-}
-function RecentArticlesList(props){
-    var posts=Array.from(props.posts);
-    if(posts.length>3){
-        posts=posts.reverse().slice(0,3);  //0,1,2
-    }
-    const listItems=posts.map(
-        function (post) {
-            var formattedPost={
-
-                title:post.title,
-                summary:post.summary,
-                category:post.category,
-                content:ReactHtmlParser(post.content),
-                createDate:env_variables.formatDate(new Date(post.createDate))
-            };
-            return <RencentBlog key={post.articleId} articleId={post.articleId} title={formattedPost.title} summary={formattedPost.summary} content={ formattedPost.content } createDate={formattedPost.createDate}  category={post.category}/>
-        }
-    );
-    return (
-        <ul className="list-group">{listItems}</ul>
-    );
-}
-function CategoriesList(props){
-    var categories=Array.from(props.categories);
-    const listItems=categories.map(
-        function (category) {
-            return <CategoryItem key={category.id} categoryId={category.id} categoryName={category.categoryName} cateNum={category.articlesNum}/>
-        }
-    );
-    return (
-        <ul className="list-group">{listItems}</ul>
-    );
-}
+var ArticleList = require('../components/articles/ArticleList');
+var CategoryList = require('../components/articles/CategoryList');
+var RelatedArticlesList = require('../components/articles/RelatedArticlesList');
 
 var AllArticles = React.createClass({
     componentDidMount() {
@@ -119,13 +36,13 @@ var AllArticles = React.createClass({
                     <div className="col-sm-4">
                         <div className="articleCategory_container">
                             <h4>文章分类：</h4>
-                            <CategoriesList categories={this.props.categories}/>
+                            <CategoryList categories={this.props.categories}/>
                         </div>
                         <div className="articleCategory_container">
                             <h4>最新文章：</h4>
-                            <RecentArticlesList posts={this.props.articles}/>
+                            <RelatedArticlesList posts={this.props.articles}/>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
 

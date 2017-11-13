@@ -31,6 +31,13 @@ const completeArticleFetch=(article)=>{
     }
 };
 
+const getCurrentCate=(category)=>{
+    return {
+        type:'GET_CURRENT_CATEGORY',
+        payload:category
+    }
+};
+
 export const addArticle=()=>{
     return (dispatch)=>{
         var articleHeader = $("#articleHeader").val();
@@ -67,5 +74,27 @@ export const fetchArticle=(articleId)=>{
     return (dispatch)=>{
         dispatch(startArticleFetch());
         actionFunctions.ajaxGetFetch(dispatch,completeArticleFetch,'/article/'+articleId);
+    }
+};
+
+
+export const fetchArticleByCate=(cateId)=>{
+    return (dispatch)=>{
+        dispatch(startArticlesFetch());
+        $.ajax({
+            type: 'GET',
+            url: env_variables.apiEndpoint + "/article/category/"+cateId,
+            success: function (res) {
+                var categoryName=res.categoryName;
+                res.articles.forEach(function(item){
+                    item.articleCategory={"categoryName":categoryName,"id":cateId}
+                });
+                dispatch(completeArticlesFetch(res.articles));
+                dispatch(getCurrentCate({"categoryName":categoryName,"id":cateId}));
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
     }
 };

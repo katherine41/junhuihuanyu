@@ -9,6 +9,7 @@ var Avideo = require('./components/Avideo.jsx');
 var Article = require('./components/Article');
 var AllArticles = require('./components/AllArticles.jsx');
 var AnArticle = require('./components/AnArticle.jsx');
+var ArticleCates = require('./components/ArticleCates');
 var Management = require('./components/Management');
 var AboutUs = require('./components/AboutUs');
 var AddArticle = require('./components/AddArticle');
@@ -35,6 +36,7 @@ ReactDOM.render(
                 <IndexRoute component={AllArticles}/>
                 <Route path=":topicId" component={AnArticle}/>
             </Route>
+            <Route path="articleCates/:cateId" component={ArticleCates}/>
             <Route path="aboutUs/" component={AboutUs}/>
             <Route path="login/" component={Login}/>
             <Route path="register/" component={Register}/>
