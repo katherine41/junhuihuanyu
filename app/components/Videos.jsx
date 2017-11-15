@@ -30,7 +30,7 @@ function VideosList(props) {
                 imageUrl:env_variables.apiEndpoint+video.imageUrl,
                 // imageUrl:video.imageUrl,
                 videoLength:fmtMSS(video.videoLength),
-                createdDate:formatDate(new Date(video.createdDate))
+                createdDate:env_variables.formatDate(new Date(video.createdDate))
             };
             return <VideoPost key={video.videoId} videoId={video.videoId} videoName={video.videoName} imageUrl={formattedVideo.imageUrl} videoLength={formattedVideo.videoLength} createdDate={formattedVideo.createdDate}/>
         }
@@ -42,23 +42,7 @@ function VideosList(props) {
 var Videos = React.createClass({
     getInitialState: function() {
         return { videos:
-            [],
-            // [{
-            //     "videoId":1,
-            //     "videoName":"视频1",
-            //     "imageUrl":"../../image/star.jpg",
-            //     "videoUrl":"../../image/output.MOV",
-            //     "videoLength":10,
-            //     "createdDate":1508725377000,
-            //
-            // },{
-            //     "videoId":2,
-            //     "videoName":"视频1",
-            //     "imageUrl":"../../image/star.jpg",
-            //     "videoUrl":"../../image/output.MOV",
-            //     "videoLength":10,
-            //     "createdDate":1508725377000,
-            // }]
+            []
         };
     },
     componentDidMount(){
@@ -86,28 +70,6 @@ var Videos = React.createClass({
 
 });
 
-function formatDate(date){
-    var dd = date.getDate();
-    var mm = date.getMonth()+1; //January is 0!
-    if (dd < 10){
-        dd = "0"+dd;
-    }
-    if (mm < 10){
-        mm = "0"+mm;
-    }
-    var yyyy = date.getFullYear();
-    var hh=date.getHours();
-    var min=date.getMinutes();
-    var ss=date.getSeconds();
-    if(min>=0&&min<10){
-        min="0"+min;
-    }
-    if(ss>=0&&ss<10){
-        ss="0"+ss;
-    }
-    // return yyyy+"-"+mm+"-"+dd+" "+hh+":"+min+":"+ss;
-    return yyyy+"-"+mm+"-"+dd;
-}
 function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 
 module.exports = Videos;

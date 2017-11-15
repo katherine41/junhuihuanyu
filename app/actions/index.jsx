@@ -4,6 +4,7 @@ import {fetchArticles} from './action-articles';
 import {fetchArticle} from './action-articles';
 import {fetchArticleByCate} from './action-articles';
 import {addArticle} from './action-articles';
+import {fetchVideos} from './action-videos';
 
 
 var allActions={
@@ -16,6 +17,9 @@ var allActions={
         fetchArticle:fetchArticle,
         fetchArticleByCate:fetchArticleByCate,
         addArticle:addArticle
+    },
+    videoAction:{
+        fetchVideos:fetchVideos
     }
 };
 export default allActions;
