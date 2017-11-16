@@ -73,7 +73,20 @@ export const fetchArticles=()=>{
 export const fetchArticle=(articleId)=>{
     return (dispatch)=>{
         dispatch(startArticleFetch());
-        actionFunctions.ajaxGetFetch(dispatch,completeArticleFetch,'/article/'+articleId);
+        // actionFunctions.ajaxGetFetch(dispatch,completeArticleFetch,'/article/'+articleId);
+        $.ajax({
+            type: 'GET',
+            url: env_variables.apiEndpoint + '/article/'+articleId,
+            success: function (res) {
+                dispatch(completeArticleFetch(res));
+                $("#articleHeader").val(res.title);
+                $("#articleSummary").val(res.summary);
+                $("#react-trumbowyg").html(res.content);
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
     }
 };
 
@@ -97,4 +110,22 @@ export const fetchArticleByCate=(cateId)=>{
             }
         });
     }
+};
+
+export const deleteArticle=(articleId)=>{
+    console.log(articleId);
+    return (dispatch)=>{
+        actionFunctions.ajaxDeleteObj(dispatch,completeArticleFetch,'/article/'+articleId);
+    }
+};
+
+export const modifyArticle=(articleId)=>{
+    console.log(articleId);
+    return {
+        type:'COMPLETE_CURRENTARTICLE_FETCH',
+        payload:1
+    }
+    // return (dispatch)=>{
+    //     actionFunctions.ajaxDeleteObj(dispatch,completeArticleFetch,'/article/'+articleId);
+    // }
 };

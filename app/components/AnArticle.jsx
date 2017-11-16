@@ -14,9 +14,6 @@ var RelatedArticlesList = require('../components/articles/RelatedArticlesList');
 
 
 var AnArticle = React.createClass({
-    getInitialState: function() {
-        return { post: {},posts:[]};
-    },
     changeArticle:function(){
         var articleId=this.props.location.pathname.split('/')[2];
         this.props.fetchArticle(articleId);
@@ -53,6 +50,11 @@ var AnArticle = React.createClass({
                             <div className="page-header">
                                 <h3>{formattedPost.title}<small><Link to={`/articleCates/${formattedPost.categoryId}`}>{formattedPost.category}</Link></small></h3>
                                 <small>{formattedPost.createDate}</small>
+                                <Link to={`/editArticle/${props.articleId}`}>
+                                    <span className="editArticleBtn pull-right" onClick={() =>this.props.modifyArticle(post.articleId)}>
+                                        <img src="../../image/edit.svg"/>
+                                    </span>
+                                </Link>
                             </div>
                             <div>
                                 <div>{formattedPost.content}</div>
@@ -87,7 +89,8 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         fetchArticles:allActions.articleAction.fetchArticles,
         fetchArticle:allActions.articleAction.fetchArticle,
-        fetchCategory:allActions.categoryAction.fetchCategory
+        fetchCategory:allActions.categoryAction.fetchCategory,
+        modifyArticle:allActions.articleAction.modifyArticle
     },dispatch)
 }
 

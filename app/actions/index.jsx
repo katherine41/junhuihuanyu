@@ -4,6 +4,8 @@ import {fetchArticles} from './action-articles';
 import {fetchArticle} from './action-articles';
 import {fetchArticleByCate} from './action-articles';
 import {addArticle} from './action-articles';
+import {deleteArticle} from './action-articles';
+import {modifyArticle} from './action-articles';
 import {fetchVideos} from './action-videos';
 
 
@@ -16,7 +18,9 @@ var allActions={
         fetchArticles:fetchArticles,
         fetchArticle:fetchArticle,
         fetchArticleByCate:fetchArticleByCate,
-        addArticle:addArticle
+        addArticle:addArticle,
+        deleteArticle:deleteArticle,
+        modifyArticle:modifyArticle
     },
     videoAction:{
         fetchVideos:fetchVideos

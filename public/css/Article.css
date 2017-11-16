@@ -17,6 +17,14 @@
 .articleBlog .thumbnail{
     background-color: #f7f7f9;
 }
+.anArticle_container .editArticleBtn, .articleBlog .deleteArticleBtn{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.anArticle_container .editArticleBtn img, .articleBlog .deleteArticleBtn img{
+    width: 18px;
+}
+
 
 .articleBlog h3{
     padding-bottom: 10px;

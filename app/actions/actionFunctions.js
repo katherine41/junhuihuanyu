@@ -30,6 +30,21 @@ var actionFunctions = {
                 console.log("Post error",err);
             }
         });
+    },
+    ajaxDeleteObj:function(dispatch, fetchType,fetchPath){
+        $.ajax({
+            type:'DELETE',
+            url:env_variables.apiEndpoint+fetchPath,
+            contentType: "application/json",
+            dataType: 'text',
+            success: function(res) {
+                dispatch(fetchType(res));
+                console.log("DELETE success",res)
+            },
+            error:function(err){
+                console.log("DELETE error",err);
+            }
+        });
     }
 }
 module.exports = actionFunctions;

@@ -22,7 +22,7 @@ var AllArticles = React.createClass({
             <div className="article_container container">
                 <div className="row">
                     <div className="col-sm-8">
-                        <ArticleList posts={this.props.articles}/>
+                        <ArticleList posts={this.props.articles} deleteArticle={this.props.deleteArticle}/>
                         <nav>
                             <ul className="pagination">
                                 <li className="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
@@ -63,6 +63,7 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         fetchArticles:allActions.articleAction.fetchArticles,
         fetchCategory:allActions.categoryAction.fetchCategory,
+        deleteArticle:allActions.articleAction.deleteArticle
     },dispatch)
 }
 

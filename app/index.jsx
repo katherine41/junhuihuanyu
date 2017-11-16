@@ -13,6 +13,7 @@ var ArticleCates = require('./components/ArticleCates');
 var Management = require('./components/Management');
 var AboutUs = require('./components/AboutUs');
 var AddArticle = require('./components/AddArticle');
+var EditArticle = require('./components/articles/EditArticle');
 var AddVideo = require('./components/AddVideo');
 // user management
 var Login = require('./components/userMgt/Login');
@@ -37,6 +38,7 @@ ReactDOM.render(
                 <Route path=":topicId" component={AnArticle}/>
             </Route>
             <Route path="articleCates/:cateId" component={ArticleCates}/>
+            <Route path="editArticle/:cateId" component={EditArticle}/>
             <Route path="aboutUs/" component={AboutUs}/>
             <Route path="login/" component={Login}/>
             <Route path="register/" component={Register}/>
