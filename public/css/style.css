@@ -2,6 +2,7 @@ body{
     position:relative;
     height: 100%;
     width: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     /*background-color:black;*/
     /*font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;*/
 }
@@ -13,20 +14,29 @@ html, body, #app, #app>div {
 .navbar-default{
     background-color: #52bad1;
     /*background-color: #6e879b;*/
+    padding: 0;
     margin:0;
     border:0;
     border-radius:0;
     color:white;
+    z-index:5;
 }
 .navbar-default .navbar-nav > .active > a{
     background-color: #6e879b;
     color:white;
 }
 
-.navbar-default .navbar-brand{
-    color:white;
+#topLogoContainer{
+    margin-top: -16px;
+    background-color: #f3f3f3;
+    padding: 10px 10px 20px 10px;
+    border-radius: 0 0 30px 30px;
 
 }
+#topLogoContainer img{
+    width: 80px;
+}
+
 .navbar-default .navbar-nav >li > a{
     color:white;
 }
@@ -55,6 +65,7 @@ html, body, #app, #app>div {
 #indexTop{
     position:relative;
     padding: 20px;
+    margin:0;
     /*background-color: #999999;*/
     background-size:cover;
     width: 100%;

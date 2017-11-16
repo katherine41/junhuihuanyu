@@ -60531,7 +60531,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, "body{\n    position:relative;\n    height: 100%;\n    width: 100%;\n    /*background-color:black;*/\n    /*font-family: \"Arial\",\"Microsoft YaHei\",\"黑体\",\"宋体\",sans-serif;*/\n}\nhtml, body, #app, #app>div {\n    height: 100%\n}\n\n/*top nav*/\n.navbar-default{\n    background-color: #52bad1;\n    /*background-color: #6e879b;*/\n    margin:0;\n    border:0;\n    border-radius:0;\n    color:white;\n}\n.navbar-default .navbar-nav > .active > a{\n    background-color: #6e879b;\n    color:white;\n}\n\n.navbar-default .navbar-brand{\n    color:white;\n\n}\n.navbar-default .navbar-nav >li > a{\n    color:white;\n}\n\n.navbar-default .pull-right{\n    margin-right:40px;\n}\n\n/*bottom nav*/\n.bottomNav_container{\n    position: fixed;\n    bottom: 0;\n    padding: 20px 40px;\n    background-color: #3a3a3a;\n    color: #eee;\n    width:100%;\n    z-index:5;\n\n}\n/*indexPage*/\n.indexTop_container{\n    position:relative;\n    height: 100%;\n    width: 100%;\n}\n#indexTop{\n    position:relative;\n    padding: 20px;\n    /*background-color: #999999;*/\n    background-size:cover;\n    width: 100%;\n    height: 200px;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n\n#indexTop .caption{\n    /*background-color: #999999;*/\n    display:table;\n}\n\n#indexBottom{\n    padding:20px;\n    background-color: #52b9d1;\n}", ""]);
+exports.push([module.i, "body{\n    position:relative;\n    height: 100%;\n    width: 100%;\n    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    /*background-color:black;*/\n    /*font-family: \"Arial\",\"Microsoft YaHei\",\"黑体\",\"宋体\",sans-serif;*/\n}\nhtml, body, #app, #app>div {\n    height: 100%\n}\n\n/*top nav*/\n.navbar-default{\n    background-color: #52bad1;\n    /*background-color: #6e879b;*/\n    padding: 0;\n    margin:0;\n    border:0;\n    border-radius:0;\n    color:white;\n    z-index:5;\n}\n.navbar-default .navbar-nav > .active > a{\n    background-color: #6e879b;\n    color:white;\n}\n\n#topLogoContainer{\n    margin-top: -16px;\n    background-color: #f3f3f3;\n    padding: 10px 10px 20px 10px;\n    border-radius: 0 0 30px 30px;\n\n}\n#topLogoContainer img{\n    width: 80px;\n}\n\n.navbar-default .navbar-nav >li > a{\n    color:white;\n}\n\n.navbar-default .pull-right{\n    margin-right:40px;\n}\n\n/*bottom nav*/\n.bottomNav_container{\n    position: fixed;\n    bottom: 0;\n    padding: 20px 40px;\n    background-color: #3a3a3a;\n    color: #eee;\n    width:100%;\n    z-index:5;\n\n}\n/*indexPage*/\n.indexTop_container{\n    position:relative;\n    height: 100%;\n    width: 100%;\n}\n#indexTop{\n    position:relative;\n    padding: 20px;\n    margin:0;\n    /*background-color: #999999;*/\n    background-size:cover;\n    width: 100%;\n    height: 200px;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n\n#indexTop .caption{\n    /*background-color: #999999;*/\n    display:table;\n}\n\n#indexBottom{\n    padding:20px;\n    background-color: #52b9d1;\n}", ""]);
 
 // exports
 
@@ -62097,7 +62097,11 @@ var TopNav = React.createClass({
                     React.createElement(
                         'a',
                         { className: 'navbar-brand', href: '#' },
-                        '\u9A8F\u6C47\u5BF0\u5B87'
+                        React.createElement(
+                            'div',
+                            { id: 'topLogoContainer' },
+                            React.createElement('img', { src: '../../image/huanyulogo.png' })
+                        )
                     )
                 ),
                 React.createElement(
@@ -62242,13 +62246,10 @@ var IndexPage = React.createClass({
             { className: 'indexTop_container' },
             React.createElement(
                 'div',
-                { id: 'indexTop', style: { backgroundImage: 'url("../../image/chongqing-min.jpg")' } },
-                React.createElement(
-                    'div',
-                    { className: 'caption' },
-                    React.createElement('img', { src: '../../image/title.png' })
-                )
-            )
+                { id: 'indexTop', style: { zIndex: 1, backgroundImage: 'url("../../image/chongqing-min.jpg")' } },
+                React.createElement('div', { className: 'caption' })
+            ),
+            React.createElement('div', { className: 'container' })
         );
     }
 

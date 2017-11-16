@@ -10,7 +10,11 @@ var TopNav = React.createClass({
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="#">骏汇寰宇</a>
+                        <a className="navbar-brand" href="#">
+                            <div id="topLogoContainer">
+                                <img src="../../image/huanyulogo.png"/>
+                            </div>
+                        </a>
                     </div>
 
                     <div>
