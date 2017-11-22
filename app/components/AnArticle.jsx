@@ -30,6 +30,7 @@ var AnArticle = React.createClass({
     },
     render:function(){
         var post=this.props.article;
+        var articleId=this.props.location.pathname.split('/')[2];
         var formattedPost={
             title:post.title,
             summary:post.summary,
@@ -50,8 +51,8 @@ var AnArticle = React.createClass({
                             <div className="page-header">
                                 <h3>{formattedPost.title}<small><Link to={`/articleCates/${formattedPost.categoryId}`}>{formattedPost.category}</Link></small></h3>
                                 <small>{formattedPost.createDate}</small>
-                                <Link to={`/editArticle/${props.articleId}`}>
-                                    <span className="editArticleBtn pull-right" onClick={() =>this.props.modifyArticle(post.articleId)}>
+                                <Link to={`/editArticle/${articleId}`}>
+                                    <span className="editArticleBtn pull-right">
                                         <img src="../../image/edit.svg"/>
                                     </span>
                                 </Link>
@@ -89,8 +90,7 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         fetchArticles:allActions.articleAction.fetchArticles,
         fetchArticle:allActions.articleAction.fetchArticle,
-        fetchCategory:allActions.categoryAction.fetchCategory,
-        modifyArticle:allActions.articleAction.modifyArticle
+        fetchCategory:allActions.categoryAction.fetchCategory
     },dispatch)
 }
 

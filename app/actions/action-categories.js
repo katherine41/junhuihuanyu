@@ -60,3 +60,10 @@ export const addCategory=(newCateName)=>{
         }
     }
 };
+
+export const deleteCategory=(cateId)=>{
+    console.log(cateId);
+    return (dispatch)=>{
+        actionFunctions.ajaxDeleteObj(dispatch,completeCategoryFetch,'/article/category/'+cateId,'/article/category');
+    }
+};

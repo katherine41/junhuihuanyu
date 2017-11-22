@@ -2300,7 +2300,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
  * Created by Katherine on 10/22/17.
  */
 var env_variables = {
-    apiEndpoint: "http://726ca932.ngrok.io",
+    apiEndpoint: "http://ac6ca20f.ngrok.io",
     formatDate: function formatDate(date) {
         var dd = date.getDate();
         var mm = date.getMonth() + 1; //January is 0!
@@ -16782,7 +16782,8 @@ var _actionVideos = __webpack_require__(592);
 var allActions = {
     categoryAction: {
         fetchCategory: _actionCategories.fetchCategory,
-        addCategory: _actionCategories.addCategory
+        addCategory: _actionCategories.addCategory,
+        deleteCategory: _actionCategories.deleteCategory
     },
     articleAction: {
         fetchArticles: _actionArticles.fetchArticles,
@@ -25934,14 +25935,30 @@ var actionFunctions = {
             }
         });
     },
-    ajaxDeleteObj: function ajaxDeleteObj(dispatch, fetchType, fetchPath) {
+    ajaxPutObj: function ajaxPutObj(obj, fetchPath) {
+        $.ajax({
+            type: 'PUT',
+            url: _environment2.default.apiEndpoint + fetchPath,
+            data: JSON.stringify(obj),
+            contentType: "application/json",
+            dataType: 'text',
+            success: function success(data) {
+                console.log("Put success", data);
+            },
+            error: function error(err) {
+                console.log("Put error", err);
+            }
+        });
+    },
+    ajaxDeleteObj: function ajaxDeleteObj(dispatch, fetchType, fetchPath, getPath) {
+        var that = this;
         $.ajax({
             type: 'DELETE',
             url: _environment2.default.apiEndpoint + fetchPath,
             contentType: "application/json",
             dataType: 'text',
             success: function success(res) {
-                dispatch(fetchType(res));
+                that.ajaxGetFetch(dispatch, fetchType, getPath);
                 console.log("DELETE success", res);
             },
             error: function error(err) {
@@ -62688,7 +62705,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".article_container{\n    margin-top: 40px;\n    width: 80%;\n    margin-bottom: 200px;\n}\n\n.articleCategory_container .list-group a{\n    color: #333;\n    text-decoration: none;\n}\n\n.articleList{\n    list-style:none;\n    padding-left:0;\n}\n\n.articleBlog .thumbnail{\n    background-color: #f7f7f9;\n}\n.anArticle_container .editArticleBtn, .articleBlog .deleteArticleBtn{\n    margin-right: 10px;\n    cursor: pointer;\n}\n.anArticle_container .editArticleBtn img, .articleBlog .deleteArticleBtn img{\n    width: 18px;\n}\n\n\n.articleBlog h3{\n    padding-bottom: 10px;\n    border-bottom: 1px solid rgba(221, 221, 221, 0.81);\n}\n\n.articleBlog h3 small{\n    margin-left: 10px;\n}\n\n.articleBlog .readMoreBtn{\n    margin-top: -10px;\n    position:absolute;\n    right:0;\n    margin-right: 30px;\n}\n\n.articleCategory_container{\n    background-color: #f7f7f9;\n    border: 1px solid #ddd;\n    border-radius:4px;\n    padding: 9px;\n    color:#333;\n    margin-bottom: 30px;\n}\n.articleCategory_container h4{\n    padding-bottom: 10px;\n    border-bottom: 1px solid rgba(221, 221, 221, 0.81);\n}\n\n/*an article*/\n.anArticle_container{\n    margin-bottom: 200px;\n}\n\n.anArticle_container .articleCategory_container{\n    margin-top: 40px;\n}\n\n.anArticle_container .page-header h3 small{\n    margin-left: 10px;\n}\n\n.cateSelected{\n    background-color: #5fc0dd;\n    color:white\n}", ""]);
+exports.push([module.i, ".article_container{\n    margin-top: 40px;\n    width: 80%;\n    margin-bottom: 200px;\n}\n\n.articleCategory_container .list-group a{\n    color: #333;\n    text-decoration: none;\n}\n\n.articleList{\n    list-style:none;\n    padding-left:0;\n}\n\n.articleBlog .thumbnail{\n    background-color: #f7f7f9;\n}\n.anArticle_container .editArticleBtn, .articleBlog .deleteArticleBtn{\n    margin-right: 10px;\n    cursor: pointer;\n}\n.anArticle_container .editArticleBtn img, .articleBlog .deleteArticleBtn img{\n    width: 18px;\n}\n\n\n.articleBlog h3{\n    padding-bottom: 10px;\n    border-bottom: 1px solid rgba(221, 221, 221, 0.81);\n}\n\n.articleBlog h3 small{\n    margin-left: 10px;\n}\n\n.articleBlog .readMoreBtn{\n    margin-top: -10px;\n    position:absolute;\n    right:0;\n    margin-right: 30px;\n}\n\n.articleCategory_container{\n    background-color: #f7f7f9;\n    border: 1px solid #ddd;\n    border-radius:4px;\n    padding: 9px;\n    color:#333;\n    margin-bottom: 30px;\n}\n.articleCategory_container h4{\n    padding-bottom: 10px;\n    border-bottom: 1px solid rgba(221, 221, 221, 0.81);\n}\n\n/*an article*/\n.anArticle_container{\n    margin-bottom: 200px;\n}\n\n.anArticle_container .page-header{\n    margin-top:70px;\n}\n.anArticle_container .articleCategory_container{\n    margin-top: 40px;\n}\n\n.anArticle_container .page-header h3 small{\n    margin-left: 10px;\n}\n\n.cateSelected{\n    background-color: #5fc0dd;\n    color:white\n}", ""]);
 
 // exports
 
@@ -65713,7 +65730,7 @@ function HtmlParser(html) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.addCategory = exports.fetchCategory = undefined;
+exports.deleteCategory = exports.addCategory = exports.fetchCategory = undefined;
 
 var _environment = __webpack_require__(28);
 
@@ -65781,6 +65798,13 @@ var addCategory = exports.addCategory = function addCategory(newCateName) {
                 }
             });
         }
+    };
+};
+
+var deleteCategory = exports.deleteCategory = function deleteCategory(cateId) {
+    console.log(cateId);
+    return function (dispatch) {
+        _actionFunctions2.default.ajaxDeleteObj(dispatch, completeCategoryFetch, '/article/category/' + cateId, '/article/category');
     };
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
@@ -65921,18 +65945,34 @@ var fetchArticleByCate = exports.fetchArticleByCate = function fetchArticleByCat
 var deleteArticle = exports.deleteArticle = function deleteArticle(articleId) {
     console.log(articleId);
     return function (dispatch) {
-        _actionFunctions2.default.ajaxDeleteObj(dispatch, completeArticleFetch, '/article/' + articleId);
+        _actionFunctions2.default.ajaxDeleteObj(dispatch, completeArticlesFetch, '/article/' + articleId, '/article/all');
     };
 };
 
 var modifyArticle = exports.modifyArticle = function modifyArticle(articleId) {
     console.log(articleId);
-    return {
-        type: 'COMPLETE_CURRENTARTICLE_FETCH',
-        payload: 1
-        // return (dispatch)=>{
-        //     actionFunctions.ajaxDeleteObj(dispatch,completeArticleFetch,'/article/'+articleId);
-        // }
+
+    return function (dispatch) {
+        var articleHeader = $("#articleHeader").val();
+        var articleSummary = $("#articleSummary").val();
+        var articleContent = "<div>" + $("#react-trumbowyg").html() + "</div>";
+        var articleCate = $("#formSelect").val();
+        var articleIndex = document.getElementById("formSelect").selectedIndex;
+        var articleOptions = document.getElementById("formSelect").options;
+        var articleCateId = articleOptions[articleIndex].id;
+        var articleObj = {
+            title: articleHeader,
+            articleCategory: {
+                id: articleCateId,
+                categoryName: articleCate
+            },
+            summary: articleSummary,
+            content: articleContent
+        };
+        console.log(articleObj);
+        if (articleHeader !== "") {
+            _actionFunctions2.default.ajaxPutObj(articleObj, '/article/' + articleId);
+        }
     };
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
@@ -66039,9 +66079,8 @@ var AnArticle = React.createClass({
     },
 
     render: function render() {
-        var _this = this;
-
         var post = this.props.article;
+        var articleId = this.props.location.pathname.split('/')[2];
         var formattedPost = {
             title: post.title,
             summary: post.summary,
@@ -66088,12 +66127,10 @@ var AnArticle = React.createClass({
                         ),
                         React.createElement(
                             Link,
-                            { to: '/editArticle/' + props.articleId },
+                            { to: '/editArticle/' + articleId },
                             React.createElement(
                                 'span',
-                                { className: 'editArticleBtn pull-right', onClick: function onClick() {
-                                        return _this.props.modifyArticle(post.articleId);
-                                    } },
+                                { className: 'editArticleBtn pull-right' },
                                 React.createElement('img', { src: '../../image/edit.svg' })
                             )
                         )
@@ -66150,8 +66187,7 @@ function matchDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
         fetchArticles: _index2.default.articleAction.fetchArticles,
         fetchArticle: _index2.default.articleAction.fetchArticle,
-        fetchCategory: _index2.default.categoryAction.fetchCategory,
-        modifyArticle: _index2.default.articleAction.modifyArticle
+        fetchCategory: _index2.default.categoryAction.fetchCategory
     }, dispatch);
 }
 
@@ -66392,7 +66428,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".mng_container{\n    margin-top: 10px;\n}\n\n.mng_container .nav-tabs{\n    cursor: pointer;\n}\n\n.newVideoWrapper{\n    border: 1px solid #ddd;\n    padding: 20px;\n    margin-top: 0;\n    margin-bottom: 200px;\n}\n\n/*add video*/\n\n.newVideoWrapper .col-form-label{\n    text-align:right;\n}\n\n/*form*/\n.newVideoWrapper .form-control-file{\n    width: 0.1px;\n    height: 0.1px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    z-index: -1;\n}\n.uploadContainer{\n    background-color: #f9f9f9;\n    padding: 30px 0;\n    border: 1px dashed #eef0f3;\n    width: 100%;\n    margin:20px auto;\n}\n\n.uploadContainer .form-text{\n    display:table;\n    margin:5px auto 0 auto;\n}\n\n.newVideoWrapper label img{\n    width: 30px;\n    margin-right: 10px;\n}\n.newVideoWrapper label[for=videoCoverBtn], .newVideoWrapper label[for=uploadVideoBtn]\n{\n    color: white;\n    cursor:pointer;\n    position:relative;\n    margin:0 auto;\n    padding:6px 12px;\n    border-radius:4px;\n    display: table;\n    background-color: #52b9d1;\n    /*display: inline-block;*/\n}\n#videoCoverImgWrapper{\n    margin: 10px auto 0 auto;\n    position:relative;\n    width: 200px;\n    display: none;\n}\n\n#videoCoverImgWrapper span{\n    position: absolute;\n    right:0;\n    float:right;\n    background-color: rgba(172, 172, 172, 0.8);\n    width:30px;\n    height:30px;\n    border-radius:0 0 0 6px;\n    text-align:center;\n    font-size: 20px;\n    font-weight:700;\n    cursor:pointer;\n    color:white;\n}\n\n#videoCoverImgWrapper span:hover{\n    background-color: rgba(130, 130, 130, 0.8);\n}\n\n#videoCoverImgWrapper img{\n    width: 100%;\n    display:table;\n}\n\n.newVideoWrapper input[type=button]{\n    color: white;\n    cursor:pointer;\n    position:relative;\n    margin:0 auto;\n    padding:6px 12px;\n    border-radius:4px;\n    display: table;\n    background-color: #52b9d1;\n    border: 0;\n    text-transform:uppercase;\n}\n\n#progressContainer{\n    display: none;\n}\n#progressBar{\n    width: 0%;\n}", ""]);
+exports.push([module.i, ".mng_container{\n    margin-top: 40px;\n}\n\n.mng_container .nav-tabs{\n    cursor: pointer;\n}\n\n.newVideoWrapper{\n    border: 1px solid #ddd;\n    padding: 20px;\n    margin-top: 0;\n    margin-bottom: 200px;\n}\n\n.editArticleWrapper{\n    padding: 20px;\n    margin-top: 30px;\n    margin-bottom: 200px;\n}\n\n\n.cateMgtContainer{\n\n}\n\n.cateMgtContainer {\n    display: none;\n    position: fixed;\n    z-index: 15;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    overflow: auto;\n    background-color: rgb(0,0,0);\n    background-color: rgba(0,0,0,0.4);\n}\n\n.cateMgtContainer .modal-content{\n    background-color: rgba(255, 255, 255, 0.953);\n    margin: 25% auto;\n    padding: 8px 8px 20px 8px;\n    width: 360px;\n}\n\n.modal-content .closeModalBtn{\n    cursor: pointer;\n}\n.cateMgtDelete{\n    width: 18px;\n    cursor: pointer;\n}\n\n/*add video*/\n\n.newVideoWrapper .col-form-label{\n    text-align:right;\n}\n\n/*form*/\n.newVideoWrapper .form-control-file{\n    width: 0.1px;\n    height: 0.1px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    z-index: -1;\n}\n.uploadContainer{\n    background-color: #f9f9f9;\n    padding: 30px 0;\n    border: 1px dashed #eef0f3;\n    width: 100%;\n    margin:20px auto;\n}\n\n.uploadContainer .form-text{\n    display:table;\n    margin:5px auto 0 auto;\n}\n\n.newVideoWrapper label img{\n    width: 30px;\n    margin-right: 10px;\n}\n.newVideoWrapper label[for=videoCoverBtn], .newVideoWrapper label[for=uploadVideoBtn]\n{\n    color: white;\n    cursor:pointer;\n    position:relative;\n    margin:0 auto;\n    padding:6px 12px;\n    border-radius:4px;\n    display: table;\n    background-color: #52b9d1;\n    /*display: inline-block;*/\n}\n#videoCoverImgWrapper{\n    margin: 10px auto 0 auto;\n    position:relative;\n    width: 200px;\n    display: none;\n}\n\n#videoCoverImgWrapper span{\n    position: absolute;\n    right:0;\n    float:right;\n    background-color: rgba(172, 172, 172, 0.8);\n    width:30px;\n    height:30px;\n    border-radius:0 0 0 6px;\n    text-align:center;\n    font-size: 20px;\n    font-weight:700;\n    cursor:pointer;\n    color:white;\n}\n\n#videoCoverImgWrapper span:hover{\n    background-color: rgba(130, 130, 130, 0.8);\n}\n\n#videoCoverImgWrapper img{\n    width: 100%;\n    display:table;\n}\n\n.newVideoWrapper input[type=button]{\n    color: white;\n    cursor:pointer;\n    position:relative;\n    margin:0 auto;\n    padding:6px 12px;\n    border-radius:4px;\n    display: table;\n    background-color: #52b9d1;\n    border: 0;\n    text-transform:uppercase;\n}\n\n#progressContainer{\n    display: none;\n}\n#progressBar{\n    width: 0%;\n}\n", ""]);
 
 // exports
 
@@ -66454,6 +66490,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var React = __webpack_require__(1);
 
+var _require = __webpack_require__(26),
+    Link = _require.Link;
 
 function Category(props) {
     return React.createElement(
@@ -66474,10 +66512,59 @@ function CategoryList(props) {
     );
 }
 
+function CategoryMgtItem(props) {
+    return React.createElement(
+        'li',
+        { className: 'list-group-item' },
+        props.categoryName,
+        React.createElement(
+            'span',
+            null,
+            React.createElement('img', { src: '../../../image/delete.svg', className: 'cateMgtDelete pull-right', onClick: function onClick() {
+                    return props.deleteCategory(props.categoryId);
+                } })
+        )
+    );
+}
+function CategoryMgtList(props) {
+    var categories = Array.from(props.categories);
+    var listItems = categories.map(function (category) {
+        return React.createElement(CategoryMgtItem, { key: category.id, categoryId: category.id, categoryName: category.categoryName, cateNum: category.articlesNum, deleteCategory: props.deleteCategory });
+    });
+    return React.createElement(
+        'ul',
+        { className: 'list-group' },
+        listItems,
+        React.createElement(
+            'li',
+            { className: 'input-group' },
+            React.createElement('input', { type: 'text', className: 'form-control', id: 'newCateName', placeholder: '\u8BF7\u6DFB\u52A0\u5206\u7C7B' }),
+            React.createElement(
+                'span',
+                { className: 'input-group-btn' },
+                React.createElement(
+                    'button',
+                    { className: 'btn btn-default', type: 'button',
+                        onClick: function onClick() {
+                            props.addCategory($("#newCateName").val());$("#newCateName").val('');
+                        } },
+                    '\u6DFB\u52A0\u5206\u7C7B'
+                )
+            )
+        )
+    );
+}
+
 var Management = React.createClass({
     displayName: 'Management',
     componentDidMount: function componentDidMount() {
         this.props.fetchCategory();
+    },
+    closeCateMgtModal: function closeCateMgtModal() {
+        $("#cateMgtModal").css({ display: 'none' });
+    },
+    openCateMgtModal: function openCateMgtModal() {
+        $("#cateMgtModal").css({ display: 'block' });
     },
     render: function render() {
         var _this = this;
@@ -66539,20 +66626,11 @@ var Management = React.createClass({
                     'div',
                     { className: 'col-sm-6' },
                     React.createElement(
-                        'div',
-                        { className: 'input-group' },
-                        React.createElement('input', { type: 'text', className: 'form-control', id: 'newCateName', placeholder: '\u8BF7\u6DFB\u52A0\u5206\u7C7B' }),
-                        React.createElement(
-                            'span',
-                            { className: 'input-group-btn' },
-                            React.createElement(
-                                'button',
-                                { className: 'btn btn-default', type: 'button', onClick: function onClick() {
-                                        return _this.props.addCategory($("#newCateName").val());
-                                    } },
-                                '\u6DFB\u52A0\u5206\u7C7B'
-                            )
-                        )
+                        'button',
+                        { className: 'btn btn-default', type: 'button', onClick: function onClick() {
+                                return _this.openCateMgtModal();
+                            } },
+                        '\u7BA1\u7406\u5206\u7C7B'
                     )
                 )
             ),
@@ -66566,6 +66644,27 @@ var Management = React.createClass({
                         return _this.props.addArticle();
                     } },
                 '\u53D1\u5E03'
+            ),
+            React.createElement(
+                'div',
+                { className: 'cateMgtContainer modal', id: 'cateMgtModal' },
+                React.createElement(
+                    'div',
+                    { className: 'modal-content' },
+                    React.createElement(
+                        'span',
+                        { className: 'pull-right closeModalBtn', onClick: function onClick() {
+                                return _this.closeCateMgtModal();
+                            } },
+                        'x'
+                    ),
+                    React.createElement(
+                        'h5',
+                        null,
+                        '\u7BA1\u7406\u5206\u7C7B\uFF1A'
+                    ),
+                    React.createElement(CategoryMgtList, { categories: this.props.categories, deleteCategory: this.props.deleteCategory, addCategory: this.props.addCategory })
+                )
             )
         );
     }
@@ -66581,6 +66680,7 @@ function matchDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
         fetchCategory: _index2.default.categoryAction.fetchCategory,
         addCategory: _index2.default.categoryAction.addCategory,
+        deleteCategory: _index2.default.categoryAction.deleteCategory,
         addArticle: _index2.default.articleAction.addArticle
     }, dispatch);
 }
@@ -77431,6 +77531,7 @@ var EditArticle = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            var articleId = this.props.location.pathname.split('/')[2];
             // var categories=this.props.categories;
             // var cateId=this.props.currentCateId;
             // const listItems=categories.map(
@@ -77441,11 +77542,11 @@ var EditArticle = function (_React$Component) {
             // var articleId=this.props.article.articleId;
             return React.createElement(
                 'div',
-                { className: 'newVideoWrapper' },
+                { className: 'editArticleWrapper container' },
                 React.createElement(
                     'h4',
                     null,
-                    '\u6DFB\u52A0\u65B0\u6587\u7AE0'
+                    '\u7F16\u8F91\u6587\u7AE0'
                 ),
                 React.createElement(
                     'div',
@@ -77518,11 +77619,16 @@ var EditArticle = function (_React$Component) {
                     placeholder: '\u8BF7\u8F93\u5165\u6587\u7AE0\u5185\u5BB9'
                 }),
                 React.createElement(
-                    _reactBootstrap.Button,
-                    { bsStyle: 'primary', onClick: function onClick() {
-                            return _this2.props.addArticle();
+                    'button',
+                    { className: 'btn btn-default', type: 'button', onClick: function onClick() {
+                            return _this2.props.modifyArticle(articleId);
                         } },
-                    '\u53D1\u5E03'
+                    '\u4FDD\u5B58\u4FEE\u6539'
+                ),
+                React.createElement(
+                    'button',
+                    { className: 'btn btn-default', type: 'button' },
+                    '\u53D6\u6D88'
                 )
             );
         }
@@ -77537,7 +77643,6 @@ function mapStatsToProps(state) {
     return {
         article: state.currentArticle,
         categories: state.categories
-
     };
 }
 
@@ -77546,7 +77651,7 @@ function matchDispatchToProps(dispatch) {
         fetchCategory: _index2.default.categoryAction.fetchCategory,
         addCategory: _index2.default.categoryAction.addCategory,
         fetchArticle: _index2.default.articleAction.fetchArticle,
-        addArticle: _index2.default.articleAction.addArticle
+        modifyArticle: _index2.default.articleAction.modifyArticle
     }, dispatch);
 }
 

@@ -60,6 +60,9 @@
     margin-bottom: 200px;
 }
 
+.anArticle_container .page-header{
+    margin-top:70px;
+}
 .anArticle_container .articleCategory_container{
     margin-top: 40px;
 }

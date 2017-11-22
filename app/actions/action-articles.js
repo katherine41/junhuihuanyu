@@ -115,17 +115,33 @@ export const fetchArticleByCate=(cateId)=>{
 export const deleteArticle=(articleId)=>{
     console.log(articleId);
     return (dispatch)=>{
-        actionFunctions.ajaxDeleteObj(dispatch,completeArticleFetch,'/article/'+articleId);
+        actionFunctions.ajaxDeleteObj(dispatch,completeArticlesFetch,'/article/'+articleId,'/article/all');
     }
 };
 
 export const modifyArticle=(articleId)=>{
     console.log(articleId);
-    return {
-        type:'COMPLETE_CURRENTARTICLE_FETCH',
-        payload:1
+
+    return (dispatch)=>{
+        var articleHeader = $("#articleHeader").val();
+        var articleSummary = $("#articleSummary").val();
+        var articleContent = "<div>" + $("#react-trumbowyg").html() + "</div>";
+        var articleCate = $("#formSelect").val();
+        var articleIndex = document.getElementById("formSelect").selectedIndex;
+        var articleOptions = document.getElementById("formSelect").options;
+        var articleCateId = articleOptions[articleIndex].id;
+        var articleObj={
+            title:articleHeader,
+            articleCategory:{
+                id: articleCateId,
+                categoryName: articleCate
+            },
+            summary:articleSummary,
+            content:articleContent
+        };
+        console.log(articleObj);
+        if(articleHeader!==""){
+            actionFunctions.ajaxPutObj(articleObj,'/article/'+articleId);
+        }
     }
-    // return (dispatch)=>{
-    //     actionFunctions.ajaxDeleteObj(dispatch,completeArticleFetch,'/article/'+articleId);
-    // }
 };

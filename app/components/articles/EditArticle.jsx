@@ -42,6 +42,7 @@ class EditArticle extends React.Component{
 
     };
     render() {
+        var articleId=this.props.location.pathname.split('/')[2];
         // var categories=this.props.categories;
         // var cateId=this.props.currentCateId;
         // const listItems=categories.map(
@@ -51,8 +52,8 @@ class EditArticle extends React.Component{
         // );
         // var articleId=this.props.article.articleId;
         return (
-            <div className="newVideoWrapper">
-                <h4>添加新文章</h4>
+            <div className="editArticleWrapper container">
+                <h4>编辑文章</h4>
                 <div className="form-group">
                     <div className="input-group">
                         <span className="input-group-addon">标题</span>
@@ -63,8 +64,6 @@ class EditArticle extends React.Component{
                     <div className="input-group">
                         <span className="input-group-addon">摘要</span>
                         <textarea id="articleSummary" className="form-control" rows="2" placeholder="请输入文章摘要"/>
-
-                        {/*<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">*/}
                     </div>
                 </div>
                 <div className="row">
@@ -98,9 +97,8 @@ class EditArticle extends React.Component{
                            data=''
                            placeholder='请输入文章内容'
                 />
-                <Button bsStyle="primary" onClick={()=>this.props.addArticle()}>发布</Button>
-
-                {/*<div id="articleContainer"></div>*/}
+                <button className="btn btn-default" type="button" onClick={()=>this.props.modifyArticle(articleId)}>保存修改</button>
+                <button className="btn btn-default" type="button">取消</button>
             </div>
         );
     }
@@ -112,7 +110,6 @@ function mapStatsToProps(state){
     return {
         article:state.currentArticle,
         categories:state.categories,
-
     }
 }
 
@@ -121,7 +118,7 @@ function matchDispatchToProps(dispatch){
         fetchCategory:allActions.categoryAction.fetchCategory,
         addCategory:allActions.categoryAction.addCategory,
         fetchArticle:allActions.articleAction.fetchArticle,
-        addArticle:allActions.articleAction.addArticle
+        modifyArticle:allActions.articleAction.modifyArticle
     },dispatch)
 }
 

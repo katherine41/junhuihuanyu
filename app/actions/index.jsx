@@ -1,5 +1,6 @@
 import {fetchCategory} from './action-categories';
 import {addCategory} from './action-categories';
+import {deleteCategory} from './action-categories';
 import {fetchArticles} from './action-articles';
 import {fetchArticle} from './action-articles';
 import {fetchArticleByCate} from './action-articles';
@@ -12,7 +13,8 @@ import {fetchVideos} from './action-videos';
 var allActions={
     categoryAction:{
         fetchCategory:fetchCategory,
-        addCategory:addCategory
+        addCategory:addCategory,
+        deleteCategory:deleteCategory
     },
     articleAction:{
         fetchArticles:fetchArticles,

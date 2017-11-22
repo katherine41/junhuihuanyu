@@ -2,7 +2,7 @@
  * Created by Katherine on 10/22/17.
  */
 var env_variables = {
-    apiEndpoint: "http://726ca932.ngrok.io",
+    apiEndpoint: "http://ac6ca20f.ngrok.io",
     formatDate:function (date){
         var dd = date.getDate();
         var mm = date.getMonth()+1; //January is 0!

@@ -6,6 +6,7 @@ import '../../node_modules/trumbowyg/dist/ui/trumbowyg.min.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../actions/index';
+var {Link} = require('react-router');
 
 function Category(props) {
     return (
@@ -24,9 +25,47 @@ function CategoryList(props){
     );
 }
 
+function CategoryMgtItem(props) {
+    return (
+        <li className="list-group-item">
+            {props.categoryName}
+            <span>
+                <img src="../../../image/delete.svg" className="cateMgtDelete pull-right" onClick={()=>props.deleteCategory(props.categoryId)}/>
+            </span>
+        </li>
+    )
+}
+function CategoryMgtList(props) {
+    var categories=Array.from(props.categories);
+    const listItems=categories.map(
+        function (category) {
+            return <CategoryMgtItem key={category.id} categoryId={category.id} categoryName={category.categoryName} cateNum={category.articlesNum} deleteCategory={props.deleteCategory}/>
+        }
+    );
+    return (
+
+        <ul className="list-group">
+            {listItems}
+            <li className="input-group">
+                <input type="text" className="form-control" id="newCateName" placeholder="请添加分类"/>
+                <span className="input-group-btn">
+                    <button className="btn btn-default" type="button"
+                            onClick={() => {props.addCategory($("#newCateName").val());$("#newCateName").val('')}}>添加分类</button>
+                </span>
+            </li>
+        </ul>
+    )
+}
+
 var Management = React.createClass({
     componentDidMount() {
         this.props.fetchCategory();
+    },
+    closeCateMgtModal(){
+        $("#cateMgtModal").css({display:'none'});
+    },
+    openCateMgtModal(){
+        $("#cateMgtModal").css({display:'block'});
     },
     render() {
         return (
@@ -54,12 +93,7 @@ var Management = React.createClass({
                         </div>
                     </div>
                     <div className="col-sm-6">
-                        <div className="input-group">
-                            <input type="text" className="form-control" id="newCateName" placeholder="请添加分类"/>
-                            <span className="input-group-btn">
-                                    <button className="btn btn-default" type="button" onClick={()=>this.props.addCategory($("#newCateName").val())}>添加分类</button>
-                                </span>
-                        </div>
+                        <button className="btn btn-default" type="button" onClick={()=>this.openCateMgtModal()}>管理分类</button>
                     </div>
                 </div>
 
@@ -79,6 +113,13 @@ var Management = React.createClass({
                 />
                 <Button bsStyle="primary" onClick={()=>this.props.addArticle()}>发布</Button>
 
+                <div className="cateMgtContainer modal" id="cateMgtModal">
+                        <div className="modal-content">
+                            <span className="pull-right closeModalBtn" onClick={()=>this.closeCateMgtModal()}>x</span>
+                            <h5>管理分类：</h5>
+                            <CategoryMgtList categories={this.props.categories} deleteCategory={this.props.deleteCategory} addCategory={this.props.addCategory}/>
+                        </div>
+                </div>
                 {/*<div id="articleContainer"></div>*/}
             </div>
         )
@@ -95,6 +136,7 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         fetchCategory:allActions.categoryAction.fetchCategory,
         addCategory:allActions.categoryAction.addCategory,
+        deleteCategory:allActions.categoryAction.deleteCategory,
         addArticle:allActions.articleAction.addArticle
     },dispatch)
 }

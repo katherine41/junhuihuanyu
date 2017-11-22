@@ -31,14 +31,30 @@ var actionFunctions = {
             }
         });
     },
-    ajaxDeleteObj:function(dispatch, fetchType,fetchPath){
+    ajaxPutObj:function(obj,fetchPath){
+        $.ajax({
+            type:'PUT',
+            url:env_variables.apiEndpoint+fetchPath,
+            data: JSON.stringify(obj),
+            contentType: "application/json",
+            dataType: 'text',
+            success: function(data) {
+                console.log("Put success",data)
+            },
+            error:function(err){
+                console.log("Put error",err);
+            }
+        });
+    },
+    ajaxDeleteObj:function(dispatch, fetchType,fetchPath,getPath){
+        var that=this;
         $.ajax({
             type:'DELETE',
             url:env_variables.apiEndpoint+fetchPath,
             contentType: "application/json",
             dataType: 'text',
             success: function(res) {
-                dispatch(fetchType(res));
+                that.ajaxGetFetch(dispatch,fetchType,getPath);
                 console.log("DELETE success",res)
             },
             error:function(err){
