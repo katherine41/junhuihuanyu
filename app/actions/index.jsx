@@ -8,6 +8,7 @@ import {addArticle} from './action-articles';
 import {deleteArticle} from './action-articles';
 import {modifyArticle} from './action-articles';
 import {fetchVideos} from './action-videos';
+import {deleteVideo} from './action-videos';
 
 
 var allActions={
@@ -25,7 +26,8 @@ var allActions={
         modifyArticle:modifyArticle
     },
     videoAction:{
-        fetchVideos:fetchVideos
+        fetchVideos:fetchVideos,
+        deleteVideo:deleteVideo
     }
 };
 export default allActions;

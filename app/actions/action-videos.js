@@ -23,3 +23,10 @@ export const fetchVideos=()=>{
         actionFunctions.ajaxGetFetch(dispatch,completeVideosFetch,'/rest/video/all');
     }
 };
+
+export const deleteVideo=(videoId)=>{
+    console.log(videoId);
+    return (dispatch)=>{
+        actionFunctions.ajaxDeleteObj(dispatch,completeVideosFetch,'/rest/video/'+videoId,'/rest/video/all');
+    }
+};

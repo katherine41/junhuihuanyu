@@ -31,7 +31,6 @@ var App = React.createClass({
                 {this.props.children}
             </div>
         </Provider>
-
         <BottomNav/>
     </div>)
   }

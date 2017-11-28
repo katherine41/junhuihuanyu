@@ -19,8 +19,8 @@ var TopNav = React.createClass({
 
                     <div>
                         <ul className="nav navbar-nav">
-                            <li><Link to="/articles/">文章</Link></li>
-                            <li><Link to="/videos/">视频</Link></li>
+                            <li><Link to="/articles/">汇评</Link></li>
+                            <li><Link to="/videos/">视频解析</Link></li>
                             <li><Link to="/management/">管理</Link></li>
                             <li><Link to="/aboutUs/">关于我们</Link></li>
                         </ul>

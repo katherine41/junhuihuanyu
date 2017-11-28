@@ -2,12 +2,9 @@
  * Created by Katherine on 10/17/17.
  */
 var React = require('react');
-var {Link} = require('react-router');
-import ReactHtmlParser from 'react-html-parser';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../actions/index';
-import env_variables from '../components/environment';
 var ArticleList = require('../components/articles/ArticleList');
 var CategoryList = require('../components/articles/CategoryList');
 var RelatedArticlesList = require('../components/articles/RelatedArticlesList');

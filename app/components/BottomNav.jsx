@@ -8,7 +8,7 @@ var BottomNav = React.createClass({
         return (
             <div className="bottomNav_container">
                 <h4>骏汇寰宇</h4>
-                <p>专注普及外汇理财方式，外汇市场分析</p>
+                <p>页脚文字 页脚文字 页脚文字 页脚文字 页脚文字 页脚文字 页脚文字</p>
             </div>
         )
     }
