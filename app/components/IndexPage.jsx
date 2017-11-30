@@ -103,7 +103,7 @@ var IndexPage = React.createClass({
                                 <h4>财经日历<small>ECONOMIC CALENDAR</small></h4>
                             </div>
                         </div>
-                        <iframe width="100%" height="500px" frameBorder="0" scrolling="yes" src="https://rili-d.jin10.com/open.php/20171126"></iframe>
+                        <iframe width="100%" height="500px" frameBorder="0" scrolling="yes" src="https://rili-d.jin10.com/open.php"></iframe>
                     </div>
                 </div>
 

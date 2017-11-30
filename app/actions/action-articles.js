@@ -58,7 +58,7 @@ export const addArticle=()=>{
         };
 
         if(articleHeader!==""){
-            actionFunctions.ajaxPostObj(articleObj,'/article');
+            actionFunctions.ajaxPostObj(articleObj,'/rest/article');
         }
     }
 };
@@ -66,17 +66,17 @@ export const addArticle=()=>{
 export const fetchArticles=()=>{
     return (dispatch)=>{
         dispatch(startArticlesFetch());
-        actionFunctions.ajaxGetFetch(dispatch,completeArticlesFetch,'/article/all');
+        actionFunctions.ajaxGetFetch(dispatch,completeArticlesFetch,'/rest/article/all');
     }
 };
 
 export const fetchArticle=(articleId)=>{
     return (dispatch)=>{
         dispatch(startArticleFetch());
-        // actionFunctions.ajaxGetFetch(dispatch,completeArticleFetch,'/article/'+articleId);
+        // actionFunctions.ajaxGetFetch(dispatch,completeArticleFetch,'/rest/article/'+articleId);
         $.ajax({
             type: 'GET',
-            url: env_variables.apiEndpoint + '/article/'+articleId,
+            url: env_variables.apiEndpoint + '/rest/article/'+articleId,
             success: function (res) {
                 dispatch(completeArticleFetch(res));
                 $("#articleHeader").val(res.title);
@@ -96,7 +96,7 @@ export const fetchArticleByCate=(cateId)=>{
         dispatch(startArticlesFetch());
         $.ajax({
             type: 'GET',
-            url: env_variables.apiEndpoint + "/article/category/"+cateId,
+            url: env_variables.apiEndpoint + "/rest/article/category/"+cateId,
             success: function (res) {
                 var categoryName=res.categoryName;
                 res.articles.forEach(function(item){
@@ -115,7 +115,7 @@ export const fetchArticleByCate=(cateId)=>{
 export const deleteArticle=(articleId)=>{
     console.log(articleId);
     return (dispatch)=>{
-        actionFunctions.ajaxDeleteObj(dispatch,completeArticlesFetch,'/article/'+articleId,'/article/all');
+        actionFunctions.ajaxDeleteObj(dispatch,completeArticlesFetch,'/rest/article/'+articleId,'/rest/article/all');
     }
 };
 
@@ -141,7 +141,7 @@ export const modifyArticle=(articleId)=>{
         };
         console.log(articleObj);
         if(articleHeader!==""){
-            actionFunctions.ajaxPutObj(articleObj,'/article/'+articleId);
+            actionFunctions.ajaxPutObj(articleObj,'/rest/article/'+articleId);
         }
     }
 };

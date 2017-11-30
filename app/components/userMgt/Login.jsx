@@ -6,7 +6,7 @@ var Login = React.createClass({
 
     render:function(){
         return (
-            <div className="login_container container" style={{backgroundImage:`url("../../image/stock-min.jpg")`}}>
+            <div className="login_container container" style={{backgroundImage:`url("../../image/login_back.jpg")`}}>
                 <div className="loginPanel">
                     <div className="page-header">
                         <h1>骏汇寰宇 <small>登录</small></h1>
