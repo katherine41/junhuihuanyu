@@ -26,7 +26,8 @@
     margin-bottom: 20px;
 }
 
-.loginPanel .loginBtn{
+.loginBtn{
+    text-align:center;
     position: relative;
     margin-top:40px;
     padding: 10px 0;
@@ -37,6 +38,11 @@
     font-size: 18px;
 }
 
+#cancelEdit{
+    margin-top: 10px;
+    background-color:#eee;
+    color: #3a3a39;
+}
 /*profile*/
 .profile_container{
     width: 100%;
@@ -46,7 +52,7 @@
     width:600px;
     /*height: 100%;*/
     position:relative;
-    margin:60px auto 0 auto;
+    margin:60px auto 200px auto;
     background-color: rgba(255, 255, 255, 0.953);
     border:1px solid #eeeeee;
     padding: 0 0 40px 0;
@@ -58,14 +64,24 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.profileContent{
-    width: 80%;
-    margin: 30px auto 0 auto;
-}
 
 #profleContent{
     width: 80%;
     margin: 30px auto 0 auto;
 }
 
+#profileBeforeEdit{
+    display:block;
+}
+#profileAfterEdit{
+    display:none;
+}
+.editUserBtn{
+    margin-right: 10px;
+    margin-top:10px;
+    cursor: pointer;
+}
+.editUserBtn img{
+    width: 20px;
+}
 

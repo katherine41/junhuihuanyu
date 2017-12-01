@@ -9,6 +9,7 @@ import {deleteArticle} from './action-articles';
 import {modifyArticle} from './action-articles';
 import {fetchVideos} from './action-videos';
 import {deleteVideo} from './action-videos';
+import {fetchUser} from './action-users';
 
 
 var allActions={
@@ -28,6 +29,9 @@ var allActions={
     videoAction:{
         fetchVideos:fetchVideos,
         deleteVideo:deleteVideo
+    },
+    userAction:{
+        fetchCurrentUser:fetchUser
     }
 };
 export default allActions;
