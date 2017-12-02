@@ -24,15 +24,15 @@ var App = React.createClass({
             },
   render:function(){
     return(
-    <div>
-        <TopNav/>
-        <Provider store={store}>
-            <div>
-                {this.props.children}
-            </div>
-        </Provider>
-        <BottomNav/>
-    </div>)
+        <div>
+            <TopNav/>
+            <Provider store={store}>
+                <div>
+                    {this.props.children}
+                </div>
+            </Provider>
+            <BottomNav/>
+        </div>)
   }
 });
 

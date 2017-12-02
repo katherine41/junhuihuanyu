@@ -7,7 +7,7 @@ var TopNav = React.createClass({
 
     render:function(){
         return (
-            <nav className="navbar navbar-default">
+            <nav className="navbar navbar-default navbar-fixed-top">
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <a className="navbar-brand" href="#">
@@ -19,6 +19,8 @@ var TopNav = React.createClass({
 
                     <div>
                         <ul className="nav navbar-nav">
+                            <li><a href="#">主页</a></li>
+                            <li><Link to="/calendar/">财经日历</Link></li>
                             <li><Link to="/articles/">汇评</Link></li>
                             <li><Link to="/videos/">视频解析</Link></li>
                             <li><Link to="/management/">管理</Link></li>

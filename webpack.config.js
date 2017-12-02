@@ -14,7 +14,6 @@ module.exports = {
           "node_modules"
     ],
     alias:{
-      "~NavBar":path.resolve(__dirname,'./components/NavBar.jsx'),
       "~App":path.resolve(__dirname,'./app.jsx')
    
       },
