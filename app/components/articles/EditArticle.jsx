@@ -1,11 +1,13 @@
-var React = require('react');
-import '../../../public/css/Management.css';
-import Trumbowyg from 'react-trumbowyg';
-import { FormGroup,InputGroup,FormControl,Button } from 'react-bootstrap';
-var {Link} = require('react-router');
+// bind actions
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../../actions/index';
+
+var React = require('react');
+import '../../../public/css/Management.css';
+import Trumbowyg from 'react-trumbowyg';
+
+var TitleLine = require('../TitleLine');
 
 function Category(props) {
     if(props.currentCategory.id===props.cateId){
@@ -52,8 +54,10 @@ class EditArticle extends React.Component{
         // );
         // var articleId=this.props.article.articleId;
         return (
-            <div className="editArticleWrapper container">
-                <h4>编辑文章</h4>
+        <div>
+            <div className="contentTop"></div>
+            <div className="contentMiddle editArticle_container container">
+                <TitleLine titleNameChn="编辑文章" titleNameEng="EDIT"/>
                 <div className="form-group">
                     <div className="input-group">
                         <span className="input-group-addon">标题</span>
@@ -100,10 +104,10 @@ class EditArticle extends React.Component{
                 <button className="btn btn-default" type="button" onClick={()=>this.props.modifyArticle(articleId)}>保存修改</button>
                 <button className="btn btn-default" type="button">取消</button>
             </div>
+        </div>
         );
     }
-
-};
+}
 
 
 function mapStatsToProps(state){

@@ -1,43 +1,30 @@
-.videos_container{
-    margin-top: 40px;
-    margin-bottom: 200px;
-}
-
+/*====================videos page===========================*/
 .videos_container .col-sm-3{
     padding:6px 5px;
 }
-.videos_container .col-sm-3 a{
-    text-decoration: none;
-}
-.videos_container .thumbnail{
+
+.videos_container .thumbnail, .relatedVideos_container .thumbnail{
     padding:0;
     margin:0;
-}
-
-.videos_container .caption{
     text-align: center;
 }
 
-.videos_container .caption p img{
-    width: 20px;
-    margin-right: 5px;
-}
-
-.videos_container .videoLengthDiv{
+.videoLengthDiv{
     position:absolute;
     right:6px;
     margin-top:-24px;
     padding: 4px 6px;
     background-color: rgba(20, 20, 19, 0.71);
-    /*width: 30px;*/
     height:24px;
     font-size:12px;
-    color:white;
+    color:#fff;
 }
 
 .deleteVideoBtn{
     cursor: pointer;
-    background-color: white;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     padding: 5px;
     border-radius: 0 0 0 5px;
 }
@@ -45,23 +32,8 @@
     width: 18px;
 }
 
-
-/*a video page*/
-.tutorialVideo_container{
-    margin-top: 60px;
-
-}
-
-.tutorialVideo_container .videoContainer{
-    width:100%;
-    margin:0 auto;
-    text-align:center;
-    /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
-    /*border-radius: 6px;*/
-}
-
-
-.tutorialVideo_container .tutorialVideo{
+/*====================a video page===========================*/
+.tutorialVideo_container video{
     width: 100%;
     height: auto;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -77,13 +49,9 @@
 /*large*/
 .videoCoverImgContainer{
     background-image: url("../../public/image/star.jpg");
-    background-size:cover;
     width: 100%;
     height: 140px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
-
 
 /*mid*/
 @media screen and (max-width: 991px) {
@@ -99,4 +67,16 @@
         width: 100%;
         height: 140px;
     }
+}
+
+/*====================related videos block===========================*/
+.relatedVideos_container .thumbnail{
+    margin-bottom: 10px;
+}
+
+.relatedVideos_container .caption{
+    padding:0;
+}
+.relatedVideos_container .caption p{
+    display: none;
 }

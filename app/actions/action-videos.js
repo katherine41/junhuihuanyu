@@ -17,10 +17,44 @@ const completeVideosFetch=(videos)=>{
     }
 };
 
+const startVideoFetch=()=>{
+    return {
+        type:'START_CURRENTVIDEO_FETCH',
+        payload:{}
+    }
+};
+
+const completeVideoFetch=(video)=>{
+    return {
+        type:'COMPLETE_CURRENTVIDEO_FETCH',
+        payload:video
+    }
+};
 export const fetchVideos=()=>{
     return (dispatch)=>{
         dispatch(startVideosFetch());
         actionFunctions.ajaxGetFetch(dispatch,completeVideosFetch,'/rest/video/all');
+    }
+};
+
+export const fetchVideo=(videoId)=>{
+    return (dispatch)=>{
+        dispatch(startVideoFetch());
+        $.ajax({
+            type: 'GET',
+            url: env_variables.apiEndpoint + '/rest/video/'+videoId,
+            success: function (res) {
+                // var categoryName=res.articleCategory.categoryName;
+                // var cateId=res.articleCategory.id;
+                dispatch(completeVideoFetch(res));
+                // $("#articleHeader").val(res.title);
+                // $("#articleSummary").val(res.summary);
+                // $("#react-trumbowyg").html(res.content);
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
     }
 };
 

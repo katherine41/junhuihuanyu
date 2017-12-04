@@ -5,16 +5,16 @@ var App = require('./app.jsx');
 import 'bootstrap/dist/css/bootstrap.css';
 var IndexPage = require('./components/IndexPage.jsx');
 var Calendar = require('./components/Calendar.jsx');
-var Videos = require('./components/Videos.jsx');
-var Avideo = require('./components/Avideo.jsx');
+var Videos = require('./components/videos/Videos.jsx');
+var AVideo = require('./components/videos/AVideo.jsx');
 var Articles = require('./components/articles/Articles.jsx');
 var AnArticle = require('./components/articles/AnArticle.jsx');
-var ArticleCates = require('./components/ArticleCates');
-var Management = require('./components/Management');
+var ArticleCates = require('./components/articles/ArticleCates');
+var Management = require('./components/management/Management');
 var AboutUs = require('./components/AboutUs');
-var AddArticle = require('./components/AddArticle');
+var AddArticle = require('./components/management/AddArticle');
 var EditArticle = require('./components/articles/EditArticle');
-var AddVideo = require('./components/AddVideo');
+var AddVideo = require('./components/management/AddVideo');
 // user management
 var Login = require('./components/userMgt/Login');
 var Register = require('./components/userMgt/Register');
@@ -34,7 +34,7 @@ ReactDOM.render(
             <Route path="editArticle/:cateId" component={EditArticle}/>
             <Route path="videos/">
                 <IndexRoute component={Videos}/>
-                <Route path=":videoId" component={Avideo}/>
+                <Route path=":videoId" component={AVideo}/>
             </Route>
             <Route path="management/" component={Management}>
                 <IndexRoute component={AddArticle}/>

@@ -1,13 +1,16 @@
 var React = require('react');
-import '../../public/css/style.css';
-
+var TitleLine = require('./TitleLine');
 
 var AboutUs = React.createClass({
 
     render:function(){
         return (
-            <div>
-                about us
+            <div >
+                <div className="contentTop"></div>
+                <div className="contentMiddle container">
+                    <TitleLine titleNameChn="关于我们" titleNameEng="ABOUT US"/>
+                    about us
+                </div>
             </div>
         )
     }

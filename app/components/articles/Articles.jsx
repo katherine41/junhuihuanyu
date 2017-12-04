@@ -9,6 +9,7 @@ var React = require('react');
 var ArticleList = require('./ArticleList');
 var CategoryList = require('./CategoryList');
 var RelatedArticlesList = require('./RelatedArticlesList');
+var TitleLine = require('../TitleLine');
 
 //=======================component details================================
 var Articles = React.createClass({
@@ -23,11 +24,7 @@ var Articles = React.createClass({
                 <div className="contentMiddle article_container container">
                     <div className="row">
                         <div className="col-sm-8">
-                            <div className="titleLine">
-                                <span></span>
-                                <h4>汇评<small>ARTICLES</small></h4>
-                            </div>
-                            <hr/>
+                            <TitleLine titleNameChn="汇评" titleNameEng="ARTICLES"/>
                             <ArticleList posts={this.props.articles} deleteArticle={this.props.deleteArticle}/>
                             <nav>
                                 <ul className="pagination">
@@ -40,14 +37,8 @@ var Articles = React.createClass({
                             </nav>
                         </div>
                         <div className="col-sm-4">
-                            <div className="articleCategory_container">
-                                <h4>文章分类：</h4>
-                                <CategoryList categories={this.props.categories}/>
-                            </div>
-                            <div className="articleCategory_container">
-                                <h4>最新文章：</h4>
-                                <RelatedArticlesList posts={this.props.articles}/>
-                            </div>
+                            <CategoryList categories={this.props.categories}/>
+                            <RelatedArticlesList posts={this.props.articles}/>
                         </div>
                     </div>
                 </div>

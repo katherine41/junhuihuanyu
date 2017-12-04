@@ -3,6 +3,8 @@
  */
 var React = require('react');
 var {Link} = require('react-router');
+var TitleLine = require('../TitleLine');
+
 import ReactHtmlParser from 'react-html-parser';
 import env_variables from '../../components/environment';
 
@@ -30,7 +32,10 @@ var RelatedArticlesList = React.createClass({
             }
         );
         return (
-        <ul className="list-group">{listItems}</ul>
+        <div className="articleCategory_container">
+            <TitleLine titleNameChn="最新文章" titleNameEng=""/>
+            <ul className="list-group">{listItems}</ul>
+        </div>
         );
     }
 

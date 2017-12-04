@@ -3,6 +3,7 @@
  */
 var React = require('react');
 var {Link} = require('react-router');
+var TitleLine = require('../TitleLine');
 
 function CategoryItem(props) {
     if(props.currentCateId==props.categoryId){
@@ -37,7 +38,10 @@ var CategoryList = React.createClass({
         }
     );
     return (
+    <div className="articleCategory_container">
+        <TitleLine titleNameChn="文章分类" titleNameEng=""/>
         <ul className="list-group">{listItems}</ul>
+    </div>
     );
     }
 

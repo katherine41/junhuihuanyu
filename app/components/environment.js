@@ -2,7 +2,7 @@
  * Created by Katherine on 10/22/17.
  */
 var env_variables = {
-    apiEndpoint: "http://a0db4fb9.ngrok.io",
+    apiEndpoint: "http://d5a42809.ngrok.io",
     formatDate:function (date){
         var dd = date.getDate();
         var mm = date.getMonth()+1; //January is 0!
@@ -24,7 +24,8 @@ var env_variables = {
         }
         return yyyy+"-"+mm+"-"+dd+" "+hh+":"+min+":"+ss;
         // return yyyy+"-"+mm+"-"+dd;
-    }
+    },
+    fmtMSS:function(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
     // apiEndpoint:""
 }
 module.exports = env_variables;

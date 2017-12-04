@@ -1,10 +1,14 @@
-var React = require('react');
-import '../../../public/css/style.css';
-import env_variables from '../../components/environment.js';
+// bind actions
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../../actions/index';
 
+var React = require('react');
+import '../../../public/css/style.css';
+
+var TitleLine = require('../TitleLine');
+
+//=======================component details================================
 var Register = React.createClass({
     editUser:function(){
         $("#profileBeforeEdit").css("display","none");
@@ -37,10 +41,7 @@ var Register = React.createClass({
                         <span className="editUserBtn pull-right" id="editUserBtn">
                             <img src="../../image/edit.svg"/>
                         </span>
-                        <div className="titleLine calendarTitleLine">
-                            <span></span>
-                            <h4>用户信息<small>PROFILE</small></h4>
-                        </div>
+                        <TitleLine titleNameChn="用户信息" titleNameEng="PROFILE"/>
 
                         <form id="profileBeforeEdit">
                             <div className="form-group row">
@@ -67,7 +68,7 @@ var Register = React.createClass({
                                     <p>pswd pswd pswd</p>
                                 </div>
                             </div>
-                            <div className="loginBtn">退出登录</div>
+                            <div className="blockBtn">退出登录</div>
                         </form>
                         <form id="profileAfterEdit">
                             <div className="form-group row">
@@ -94,8 +95,8 @@ var Register = React.createClass({
                                     <input type="password" className="form-control" id="profilePassword" placeholder="密码"/>
                                 </div>
                             </div>
-                            <div className="loginBtn" id="confirmEdit">确认修改</div>
-                            <div className="loginBtn" id="cancelEdit">取消</div>
+                            <div className="blockBtn" id="confirmEdit">确认修改</div>
+                            <div className="blockBtn" id="cancelEdit">取消</div>
                         </form>
                     </div>
 

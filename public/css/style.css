@@ -3,27 +3,74 @@ body{
     height: 100%;
     width: 100%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
 }
 html, body, #app, #app>div {
     height: 100%
+}
+
+/*list style*/
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+/*anchor style*/
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover, a:visited{
+    text-decoration: none;
+}
+
+/*background Image*/
+.contentTop,
+#indexTop,
+.indexBlocks,
+.login_container,
+.profileHeader,
+.videoCoverImgContainer{
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*blue background*/
+.titleLine span,
+.cateSelected,
+.blockBtn,
+.addNewWrapper label[for=videoCoverBtn],
+.addNewWrapper label[for=uploadVideoBtn]
+{
+    background-color: #1E76AB;
+    color:#fff
+}
+
+.cateSelected:hover,
+.blockBtn:hover,
+.addNewWrapper label[for=videoCoverBtn]:hover,
+.addNewWrapper label[for=uploadVideoBtn]:hover{
+    background-color: #185d86;
 }
 /*===========================common define==========================*/
 .contentTop{
     width:100%;
     height:200px;
     background-image: url("/image/policyBlock.jpg");
-    background-size:cover;
-    background-repeat: no-repeat;
     background-position: bottom;
     -moz-box-shadow:    inset 1px -4px 9px -6px;
     -webkit-box-shadow: inset 1px -4px 9px -6px;
     box-shadow:  inset 1px -4px 9px -6px;
 }
 
-.contentMiddle,#indexTop_container{
+.contentMiddle, #indexTop_container{
     margin-top: 30px;
     margin-bottom: 200px;
     position:relative;
+}
+
+.article_container, .editArticle_container, .mng_container{
+    width: 80%;
 }
 
 .titleLine{
@@ -36,7 +83,6 @@ html, body, #app, #app>div {
     width: 8px;
     margin-top: 10px;
     height: 18px;
-    background-color: rgb(30, 118, 171);
 }
 
 .titleLine h4{
@@ -45,25 +91,32 @@ html, body, #app, #app>div {
     margin-left:14px;
     margin-bottom: 0;
 }
-.titleLine h4 small{
+.titleLine h4 small, .anArticle_container .page-header h3 small{
     margin-left:10px;
+    text-transform: uppercase;
 }
 
-/*.seeMore{*/
-    /*font-size:12px;*/
-    /*cursor:pointer;*/
-    /*color:black;*/
-/*}*/
+/*blocks style*/
+.articleBlog .thumbnail,
+.articleCategory_container{
+    background-color: #f7f7f9;
+    border: 1px solid #ddd;
+    border-radius:4px;
+}
 
-/*.seeMore small{*/
-    /*margin-left: 5px;*/
-/*}*/
-
-
+/*button style*/
+.blockBtn{
+    display:inline-block;
+    padding: 6px 12px;
+    font-size:14px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor:pointer;
+}
 /*=====================top nav and bottom nav===============================*/
 .navbar-default{
     background-color: rgba(30, 118, 171, 0.96);
-    /*background-color: #6e879b;*/
     padding: 0;
     margin:0;
     border:0;
@@ -112,11 +165,8 @@ html, body, #app, #app>div {
     padding: 100px 0 0 0;
     margin:0 0 20px 0;
     color:white;
-    background-size:cover;
     width: 100%;
     height: 300px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #indexTop p{
@@ -139,9 +189,6 @@ html, body, #app, #app>div {
 
 .indexBlocks{
     text-align:center;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
     cursor: pointer;
     transition: all .2s ease-in-out;
 }

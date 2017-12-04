@@ -22,7 +22,7 @@ export const fetchCategory=()=>{
         dispatch(startCategoryFetch());
         $.ajax({
             type: 'GET',
-            url: env_variables.apiEndpoint + '/article/category',
+            url: env_variables.apiEndpoint + '/rest/article/category',
             success: function (res) {
                 res.forEach(function(item){
                     item.articlesNum=item.articles.length;
@@ -46,12 +46,12 @@ export const addCategory=(newCateName)=>{
         if(newCateName!==""){
             $.ajax({
                 type: 'POST',
-                url: env_variables.apiEndpoint + '/article/category',
+                url: env_variables.apiEndpoint + '/rest/article/category',
                 data: JSON.stringify(newCateObj),
                 contentType: "application/json",
                 dataType: 'text',
                 success: function () {
-                    actionFunctions.ajaxGetFetch(dispatch,completeCategoryFetch,'/article/category');
+                    actionFunctions.ajaxGetFetch(dispatch,completeCategoryFetch,'/rest/article/category');
                 },
                 error: function (err) {
                     console.log("error", err);
@@ -64,6 +64,6 @@ export const addCategory=(newCateName)=>{
 export const deleteCategory=(cateId)=>{
     console.log(cateId);
     return (dispatch)=>{
-        actionFunctions.ajaxDeleteObj(dispatch,completeCategoryFetch,'/article/category/'+cateId,'/article/category');
+        actionFunctions.ajaxDeleteObj(dispatch,completeCategoryFetch,'/rest/article/category/'+cateId,'/rest/article/category');
     }
 };

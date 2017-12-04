@@ -78,7 +78,10 @@ export const fetchArticle=(articleId)=>{
             type: 'GET',
             url: env_variables.apiEndpoint + '/rest/article/'+articleId,
             success: function (res) {
+                var categoryName=res.articleCategory.categoryName;
+                var cateId=res.articleCategory.id;
                 dispatch(completeArticleFetch(res));
+                dispatch(getCurrentCate({"categoryName":categoryName,"id":cateId}));
                 $("#articleHeader").val(res.title);
                 $("#articleSummary").val(res.summary);
                 $("#react-trumbowyg").html(res.content);

@@ -1,7 +1,5 @@
 var React = require('react');
 var {Link} = require('react-router');
-import '../../public/css/style.css';
-
 
 var TopNav = React.createClass({
 

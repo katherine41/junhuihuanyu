@@ -65,14 +65,9 @@ var AnArticle = React.createClass({
                         </div>
                     </div>
                     <div className="col-sm-4">
-                        <div className="articleCategory_container">
-                            <h4>文章分类：</h4>
-                            <CategoryList categories={this.props.categories}/>
-                        </div>
-                        <div className="articleCategory_container">
-                            <h4>最新文章：</h4>
-                            <RelatedArticlesList posts={this.props.articles}/>
-                        </div>
+                        <CategoryList categories={this.props.categories}
+                                      currentCateId={this.props.currentCategory.id}/>
+                        <RelatedArticlesList posts={this.props.articles}/>
                     </div>
                 </div>
             </div>
@@ -86,7 +81,8 @@ function mapStatsToProps(state){
     return {
         articles:state.articles,
         article:state.currentArticle,
-        categories:state.categories
+        categories:state.categories,
+        currentCategory:state.currentCategory
     }
 }
 

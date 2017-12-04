@@ -11,7 +11,7 @@ var Register = React.createClass({
             userId:registerUserEmail,
             userName:registerUsername,
             password:registerUserPassword,
-        }
+        };
         $.ajax({
             type:'POST',
             url:env_variables.apiEndpoint+"/rest/user",
@@ -47,7 +47,7 @@ var Register = React.createClass({
                         <div className="form-group">
                             <input type="text" className="form-control" id="registerUsername" placeholder="用户昵称"/>
                         </div>
-                        <div className="loginBtn" onClick={()=>this.registerUser()}>注册</div>
+                        <div className="blockBtn" onClick={()=>this.registerUser()}>注册</div>
                     </form>
                 </div>
             </div>

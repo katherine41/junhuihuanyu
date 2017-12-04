@@ -1,17 +1,24 @@
 /**
  * Created by Katherine on 11/12/17.
  */
-var initialArticles = [
-    {
-        "videoId": 1,
-        "videoName": "avc",
-        "videoLength": 395,
-        "createDate": 1508815216000,
-        "imageUrl":"/rest/image/1",
-        "videoUrl": "/rest/video/1",
-    }];
+var initialVideos = [{
+    "videoId":1,
+    "videoName":"视频1",
+    "imageUrl":"../../image/star.jpg",
+    "videoUrl":"../../image/output.MOV",
+    "videoLength":10,
+    "createdDate":1508725377000,
 
-export default function (state = initialArticles,action) {
+},{
+    "videoId":2,
+    "videoName":"视频1",
+    "imageUrl":"../../image/star.jpg",
+    "videoUrl":"../../image/output.MOV",
+    "videoLength":10,
+    "createdDate":1508725377000,
+}];
+
+export default function (state = initialVideos,action) {
     switch (action.type){
         case "START_VIDEOS_FETCH":
             console.log("Fetching Videos...");

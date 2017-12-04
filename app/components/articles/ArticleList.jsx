@@ -23,7 +23,7 @@ function ArticleBlog(props) {
                     <div>
                         <span>文章分类：<Link to={`/articleCates/${props.category.id}`}>{props.category.categoryName}</Link></span>
                         <Link to={`/articles/${props.articleId}`}>
-                            <button type="button" className="btn btn-default btn-info readMoreBtn">
+                            <button type="button" className="blockBtn">
                                 点击阅读&nbsp;&nbsp;>
                             </button>
                         </Link>
