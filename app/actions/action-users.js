@@ -2,8 +2,6 @@
  * Created by Katherine on 11/30/17.
  */
 import env_variables from '../components/environment.js';
-import actionFunctions from './actionFunctions';
-
 
 const startUserFetch=()=>{
     return {

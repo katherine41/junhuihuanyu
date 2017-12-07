@@ -22,7 +22,9 @@ var Register = React.createClass({
     },
     componentDidMount() {
         var that=this;
-        this.props.fetchCurrentUser("dh102907407");
+        var userId=JSON.parse(localStorage.getItem("user")).userId;
+        // userId
+        this.props.fetchCurrentUser(userId);
         document.getElementById("editUserBtn").addEventListener('click',that.editUser);
         document.getElementById("confirmEdit").addEventListener('click',that.confirmEditUser);
     },

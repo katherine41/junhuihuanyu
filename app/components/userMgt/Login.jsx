@@ -18,7 +18,8 @@ var Login = React.createClass({
             dataType: 'text',
             success: function(data) {
                 console.log("Login success",data);
-                localStorage.setItem("user", JSON.stringify(data));
+                window.location.hash="#/profile/";
+                localStorage.setItem("user", data);
             },
             error:function(err){
                 console.log("Login error",err);

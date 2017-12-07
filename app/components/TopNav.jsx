@@ -1,6 +1,9 @@
 var React = require('react');
 var {Link} = require('react-router');
 
+// function UserMgtNav(){
+//     isLoggedIn
+// },
 var TopNav = React.createClass({
 
     render:function(){
@@ -26,7 +29,7 @@ var TopNav = React.createClass({
                         </ul>
                         <ul id="loginRegisterNav" className="nav navbar-nav pull-right">
                             <li><Link to="/login/">登录</Link></li>
-                            <li><Link to="/register/">注册</Link></li>
+                            <li><Link to="/register/">注册{this.props.isLoggedIn}</Link></li>
                         </ul>
                         <ul id="profileNav" className="nav navbar-nav pull-right">
                             <li><Link to="/profile/">用户信息</Link></li>

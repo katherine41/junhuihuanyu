@@ -1,9 +1,5 @@
 var React = require('react');
 var {Link} = require('react-router');
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import allActions from '../actions/index';
-import '../../public/css/style.css';
 
 var IndexPage = React.createClass({
     componentDidMount(){
@@ -77,41 +73,6 @@ var IndexPage = React.createClass({
                         </div>
                     </div>
                 </div>
-                {/*<div className="container">*/}
-                    {/*<div className="indexTop_articleVideo">*/}
-                        {/*<div className="row">*/}
-                            {/*<div className="col-sm-6">*/}
-                                {/*<div>*/}
-                                    {/*<div className="titleLine">*/}
-                                        {/*<span></span>*/}
-                                        {/*<h4>汇评<small>ARTICLES</small></h4>*/}
-                                    {/*</div>*/}
-                                    {/*<IndexArticleList posts={this.props.articles}/>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
-                            {/*<div className="col-sm-6">*/}
-                                {/*<div>*/}
-                                    {/*<div className="titleLine">*/}
-                                        {/*<span></span>*/}
-                                        {/*<h4>视频解析<small>VIDEOS</small></h4>*/}
-                                    {/*</div>*/}
-                                    {/*<IndexVideoList videos={this.props.videos}/>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    {/*<hr/>*/}
-                    {/*<div className="indexTop_calendar">*/}
-                        {/*<div>*/}
-                            {/*<div className="titleLine calendarTitleLine">*/}
-                                {/*<span></span>*/}
-                                {/*<h4>财经日历<small>ECONOMIC CALENDAR</small></h4>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                        {/*<iframe width="100%" height="500px" frameBorder="0" scrolling="yes" src="https://rili-d.jin10.com/open.php"></iframe>*/}
-                    {/*</div>*/}
-                {/*</div>*/}
-
             </div>
         )
     }

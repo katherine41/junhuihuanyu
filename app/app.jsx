@@ -22,10 +22,13 @@ var App = React.createClass({
     getChildContext() {
                 return { muiTheme: getMuiTheme(baseTheme) };
             },
+    isLoggedIn:function () {
+      return true;
+    },
   render:function(){
     return(
         <div>
-            <TopNav/>
+            <TopNav isLoggedIn="true"/>
             <Provider store={store}>
                 <div>
                     {this.props.children}
