@@ -123,7 +123,6 @@ export const deleteArticle=(articleId)=>{
 };
 
 export const modifyArticle=(articleId)=>{
-    console.log(articleId);
 
     return (dispatch)=>{
         var articleHeader = $("#articleHeader").val();

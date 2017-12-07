@@ -24,9 +24,11 @@ var TopNav = React.createClass({
                             <li><Link to="/management/">管理</Link></li>
                             <li><Link to="/aboutUs/">关于我们</Link></li>
                         </ul>
-                        <ul className="nav navbar-nav pull-right">
+                        <ul id="loginRegisterNav" className="nav navbar-nav pull-right">
                             <li><Link to="/login/">登录</Link></li>
                             <li><Link to="/register/">注册</Link></li>
+                        </ul>
+                        <ul id="profileNav" className="nav navbar-nav pull-right">
                             <li><Link to="/profile/">用户信息</Link></li>
                         </ul>
                     </div>

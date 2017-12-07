@@ -17,7 +17,8 @@ var Login = React.createClass({
             contentType: "application/json",
             dataType: 'text',
             success: function(data) {
-                console.log("Login success",data)
+                console.log("Login success",data);
+                localStorage.setItem("user", JSON.stringify(data));
             },
             error:function(err){
                 console.log("Login error",err);

@@ -144,10 +144,6 @@ a:hover, a:visited{
     color:white;
 }
 
-.navbar-default .pull-right{
-    margin-right:40px;
-}
-
 /*bottom nav*/
 .bottomNav_container{
     position: fixed;
