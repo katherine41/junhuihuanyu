@@ -1,8 +1,17 @@
+@font-face {
+    font-family: "Ruizixiyuan";
+    src: url("/css/fonts/锐字工房云字库细圆GBK.ttf");
+}
+
+@font-face {
+    font-family: 'Barlow_thin';
+    src: url("/css/fonts/BarlowSemiCondensed-Thin.ttf");
+}
 body{
     position:relative;
     height: 100%;
     width: 100%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Barlow_thin','Ruizixiyuan', sans-serif;
     color: #333;
 }
 html, body, #app, #app>div {
