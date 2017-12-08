@@ -25,6 +25,7 @@ export const fetchUser=(userId)=>{
             url: env_variables.apiEndpoint + '/rest/user?userId='+userId,
             success: function (res) {
                 dispatch(completeUserFetch(res));
+                // localStorage.setItem("user", res);
                 $("#profileUsername").val(res.userName);
                 $("#profilePhone").val(res.phoneNumber);
             },
@@ -52,6 +53,7 @@ export const modifyUser=(userInfo)=>{
                     url: env_variables.apiEndpoint + '/rest/user?userId='+userInfo.userId,
                     success: function (res) {
                         dispatch(completeUserFetch(res));
+                        // localStorage.setItem("user", res);
                         $("#profileBeforeEdit").css("display","block");
                         $("#profileAfterEdit").css("display","none");
                         $("#editUserBtn").css("display","block");

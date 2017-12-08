@@ -3,6 +3,7 @@
  */
 var env_variables = {
     apiEndpoint: "http://aa5fe98a.ngrok.io",
+    // apiEndpoint:""
     formatDate:function (date){
         var dd = date.getDate();
         var mm = date.getMonth()+1; //January is 0!
@@ -25,7 +26,20 @@ var env_variables = {
         return yyyy+"-"+mm+"-"+dd+" "+hh+":"+min+":"+ss;
         // return yyyy+"-"+mm+"-"+dd;
     },
-    fmtMSS:function(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
-    // apiEndpoint:""
+    fmtMSS:function(s){return(s-(s%=60))/60+(9<s?':':':0')+s},
+    isLoggedIn:function () {
+        var isLoggedIn=true;
+        var localStorageUser=JSON.parse(localStorage.getItem("user"));
+        if(localStorageUser===null){
+            isLoggedIn="false";
+        }else{
+            isLoggedIn="true";
+        }
+        return isLoggedIn;
+    },
+    fetchUserRole:function () {
+        var localStorageUser=JSON.parse(localStorage.getItem("user"));
+        return localStorageUser.role;
+    }
 }
 module.exports = env_variables;

@@ -26,6 +26,12 @@ var Login = React.createClass({
             }
         });
     },
+    componentWillMount(){
+        var isLoggedIn=env_variables.isLoggedIn();
+        if(isLoggedIn==="true"){
+            window.location.hash="#/profile/";
+        }
+    },
     render:function(){
         return (
             <div className="login_container container" style={{backgroundImage:`url("../../image/login_back.jpg")`}}>

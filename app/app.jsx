@@ -5,8 +5,9 @@ var ReactDOM = require('react-dom');
 var TopNav = require('./components/TopNav');
 var BottomNav = require('./components/BottomNav');
 
- import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import env_variables from './components/environment.js';
 import '../public/css/style.css';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
@@ -22,20 +23,10 @@ var App = React.createClass({
     getChildContext() {
                 return { muiTheme: getMuiTheme(baseTheme) };
             },
-    isLoggedIn:function () {
-        var isLoggedIn=true;
-        var localStorageUser=JSON.parse(localStorage.getItem("user"));
-        if(localStorageUser===null){
-            isLoggedIn="false";
-        }else{
-            isLoggedIn="true";
-        }
-      return isLoggedIn;
-    },
   render:function(){
     return(
         <div>
-            <TopNav isLoggedIn={this.isLoggedIn()}/>
+            <TopNav isLoggedIn={env_variables.isLoggedIn()}/>
             <Provider store={store}>
                 <div>
                     {this.props.children}

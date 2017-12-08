@@ -1,5 +1,6 @@
 import 'react-trumbowyg/dist/trumbowyg.min.css';
 import '../../../public/css/Management.css';
+import env_variables from '../../components/environment.js';
 
 var React = require('react');
 var {Link} = require('react-router');
@@ -17,6 +18,12 @@ class Management extends React.Component {
                 $("#videoTab").addClass("active");
                 $("#articleTab").removeClass("active");
                 break;
+        }
+    }
+    componentWillMount(){
+        var fetchUserRole=env_variables.fetchUserRole();
+        if(fetchUserRole!=="ADMIN"){
+                window.location.hash="#/login/";
         }
     }
     componentDidMount(){

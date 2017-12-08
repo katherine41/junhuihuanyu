@@ -2,6 +2,8 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allActions from '../../actions/index';
+import env_variables from '../../components/environment.js';
+
 
 var React = require('react');
 
@@ -19,6 +21,19 @@ var Register = React.createClass({
         userInfo.userName=$("#profileUsername").val();
         userInfo.phoneNumber=$("#profilePhone").val();
         this.props.modifyUser(userInfo);
+    },
+    cancelEditUser:function(userInfo){
+        $("#profileBeforeEdit").css("display","block");
+        $("#profileAfterEdit").css("display","none");
+        $("#editUserBtn").css("display","block");
+        $("#profileUsername").val(userInfo.userName);
+        $("#profilePhone").val(userInfo.phoneNumber);
+    },
+    componentWillMount(){
+        var isLoggedIn=env_variables.isLoggedIn();
+        if(isLoggedIn==="false"){
+            window.location.hash="#/login/";
+        }
     },
     componentDidMount() {
         var that=this;
@@ -98,7 +113,7 @@ var Register = React.createClass({
                                 </div>
                             </div>
                             <div className="blockBtn" id="confirmEdit">确认修改</div>
-                            <div className="blockBtn" id="cancelEdit" >取消</div>
+                            <div className="blockBtn" id="cancelEdit" onClick={()=>this.cancelEditUser(this.props.user)}>取消</div>
                         </form>
                     </div>
 

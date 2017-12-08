@@ -1,11 +1,15 @@
 var React = require('react');
 var {Link} = require('react-router');
+import env_variables from '../components/environment.js';
+
 
 var TopNav = React.createClass({
 
     render:function(){
         const isLoggedIn = this.props.isLoggedIn;
+        const userRole = env_variables.fetchUserRole();
         let userMgtNav = null;
+        let mgtNav=null;
         if (isLoggedIn==="true") {
             userMgtNav =
                 <ul id="profileNav" className="nav navbar-nav pull-right">
@@ -18,6 +22,9 @@ var TopNav = React.createClass({
                     <li><Link to="/register/">注册</Link></li>
                 </ul>
             ;
+        }
+        if(userRole==="ADMIN"){
+            mgtNav=<li><Link to="/management/">管理</Link></li>;
         }
         return (
             <nav className="navbar navbar-default navbar-fixed-top">
@@ -35,8 +42,8 @@ var TopNav = React.createClass({
                             <li><a href="#">主页</a></li>
                             <li><Link to="/calendar/">财经日历</Link></li>
                             <li><Link to="/articles/">汇评</Link></li>
+                            {mgtNav}
                             <li><Link to="/videos/">视频解析</Link></li>
-                            <li><Link to="/management/">管理</Link></li>
                             <li><Link to="/aboutUs/">关于我们</Link></li>
                         </ul>
                         {userMgtNav}

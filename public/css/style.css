@@ -11,7 +11,7 @@ body{
     position:relative;
     height: 100%;
     width: 100%;
-    font-family: 'Barlow_thin','Ruizixiyuan', sans-serif;
+    font-family: 'Ruizixiyuan', sans-serif;
     color: #333;
 }
 html, body, #app, #app>div {

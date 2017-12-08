@@ -23,38 +23,50 @@ var IndexPage = React.createClass({
                 </div>
                 <div className="container" id="indexTop_container">
                     <div id="indexBlocksContainer">
-                        <div id="calendarBlock" className="indexBlocks">
-                            <div className="layer">
-                                <div className="innerText">
-                                    <p><img className="blockLogo" src="../../image/calendarLogo.svg"/>财经日历</p>
-                                    <p>ECONOMIC CALENDAR</p>
+                        <Link to="/calendar/">
+                            <div id="calendarBlock" className="indexBlocks">
+                                <div className="layer">
+                                    <div className="innerText">
+                                        <p><img className="blockLogo" src="../../image/calendarLogo.svg"/>财经日历</p>
+                                        <p>ECONOMIC CALENDAR</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="articleBlock" className="indexBlocks">
-                            <div className="layer">
-                                <div className="innerText">
-                                    <p><img className="blockLogo" src="../../image/articleLogo.svg"/>汇评</p>
-                                    <p>ARTICLES</p>
+                        </Link>
+
+                        <Link to="/articles/">
+                            <div id="articleBlock" className="indexBlocks">
+                                <div className="layer">
+                                    <div className="innerText">
+                                        <p><img className="blockLogo" src="../../image/articleLogo.svg"/>汇评</p>
+                                        <p>ARTICLES</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="videoBlock" className="indexBlocks">
-                            <div className="layer">
-                                <div className="innerText">
-                                    <p><img className="blockLogo" src="../../image/videoLogo.svg"/>视频解析</p>
-                                    <p>VIDEOS</p>
+                        </Link>
+
+                        <Link to="/videos/">
+                            <div id="videoBlock" className="indexBlocks">
+                                <div className="layer">
+                                    <div className="innerText">
+                                        <p><img className="blockLogo" src="../../image/videoLogo.svg"/>视频解析</p>
+                                        <p>VIDEOS</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="memberBlock" className="indexBlocks">
-                            <div className="layer">
-                                <div className="innerText">
-                                    <p><img className="blockLogo" src="../../image/memberLogo.svg"/>会员</p>
-                                    <p>MEMBER</p>
+                        </Link>
+
+                        <Link to="/login/">
+                            <div id="memberBlock" className="indexBlocks">
+                                <div className="layer">
+                                    <div className="innerText">
+                                        <p><img className="blockLogo" src="../../image/memberLogo.svg"/>会员</p>
+                                        <p>MEMBER</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
+
                         <div id="platformBlock" className="indexBlocks">
                             <div className="layer">
                                 <div className="innerText">
