@@ -1,12 +1,24 @@
 var React = require('react');
 var {Link} = require('react-router');
 
-// function UserMgtNav(){
-//     isLoggedIn
-// },
 var TopNav = React.createClass({
 
     render:function(){
+        const isLoggedIn = this.props.isLoggedIn;
+        let userMgtNav = null;
+        if (isLoggedIn==="true") {
+            userMgtNav =
+                <ul id="profileNav" className="nav navbar-nav pull-right">
+                    <li><Link to="/profile/">用户信息</Link></li>
+                </ul>;
+        } else {
+            userMgtNav =
+                <ul id="loginRegisterNav" className="nav navbar-nav pull-right">
+                    <li><Link to="/login/">登录</Link></li>
+                    <li><Link to="/register/">注册</Link></li>
+                </ul>
+            ;
+        }
         return (
             <nav className="navbar navbar-default navbar-fixed-top">
                 <div className="container-fluid">
@@ -27,13 +39,7 @@ var TopNav = React.createClass({
                             <li><Link to="/management/">管理</Link></li>
                             <li><Link to="/aboutUs/">关于我们</Link></li>
                         </ul>
-                        <ul id="loginRegisterNav" className="nav navbar-nav pull-right">
-                            <li><Link to="/login/">登录</Link></li>
-                            <li><Link to="/register/">注册{this.props.isLoggedIn}</Link></li>
-                        </ul>
-                        <ul id="profileNav" className="nav navbar-nav pull-right">
-                            <li><Link to="/profile/">用户信息</Link></li>
-                        </ul>
+                        {userMgtNav}
                     </div>
                 </div>
             </nav>

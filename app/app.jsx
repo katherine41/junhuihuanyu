@@ -23,12 +23,19 @@ var App = React.createClass({
                 return { muiTheme: getMuiTheme(baseTheme) };
             },
     isLoggedIn:function () {
-      return true;
+        var isLoggedIn=true;
+        var localStorageUser=JSON.parse(localStorage.getItem("user"));
+        if(localStorageUser===null){
+            isLoggedIn="false";
+        }else{
+            isLoggedIn="true";
+        }
+      return isLoggedIn;
     },
   render:function(){
     return(
         <div>
-            <TopNav isLoggedIn="true"/>
+            <TopNav isLoggedIn={this.isLoggedIn()}/>
             <Provider store={store}>
                 <div>
                     {this.props.children}
