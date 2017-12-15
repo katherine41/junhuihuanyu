@@ -2,7 +2,7 @@
  * Created by Katherine on 10/22/17.
  */
 var env_variables = {
-    apiEndpoint: "http://aa5fe98a.ngrok.io",
+    apiEndpoint: "http://82032607.ngrok.io",
     // apiEndpoint:""
     formatDate:function (date){
         var dd = date.getDate();
@@ -28,7 +28,7 @@ var env_variables = {
     },
     fmtMSS:function(s){return(s-(s%=60))/60+(9<s?':':':0')+s},
     isLoggedIn:function () {
-        var isLoggedIn=true;
+        var isLoggedIn="true";
         var localStorageUser=JSON.parse(localStorage.getItem("user"));
         if(localStorageUser===null){
             isLoggedIn="false";
@@ -38,8 +38,12 @@ var env_variables = {
         return isLoggedIn;
     },
     fetchUserRole:function () {
-        var localStorageUser=JSON.parse(localStorage.getItem("user"));
-        return localStorageUser.role;
+        if (localStorage.getItem("user") === null) {
+            return null;
+        }else{
+            var localStorageUser=JSON.parse(localStorage.getItem("user"));
+            return localStorageUser.role;
+        }
     }
 }
 module.exports = env_variables;

@@ -3,8 +3,13 @@
     cursor: pointer;
 }
 
+/*.mng_container .nav-tabs .active a{*/
+    /*background-color: #3a3a39;*/
+/*}*/
+
 .addNewWrapper{
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
+    border-top:2px solid #3e77a7;
     padding: 20px;
     margin-top: 0;
 }

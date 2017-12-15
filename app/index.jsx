@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 var IndexPage = require('./components/IndexPage.jsx');
 var Calendar = require('./components/Calendar.jsx');
 var Videos = require('./components/videos/Videos.jsx');
-var AVideo = require('./components/videos/AVideo.jsx');
+var AVideo = require('./components/videos/AVideo2.jsx');
 var Articles = require('./components/articles/Articles.jsx');
 var AnArticle = require('./components/articles/AnArticle.jsx');
 var ArticleCates = require('./components/articles/ArticleCates');

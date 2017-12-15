@@ -4,9 +4,7 @@ import {connect} from 'react-redux';
 import allActions from '../../actions/index';
 
 import 'react-trumbowyg/dist/trumbowyg.min.css';
-// import '../../node_modules/trumbowyg/dist/ui/trumbowyg.min.css';
 import Trumbowyg from 'react-trumbowyg';
-import { FormGroup,InputGroup,FormControl,Button } from 'react-bootstrap';
 
 var React = require('react');
 var {Link} = require('react-router');
@@ -73,20 +71,17 @@ var Management = React.createClass({
     },
     render() {
         return (
-            <div>
-                <h4>添加新文章</h4>
-                <FormGroup>
-                    <InputGroup>
-                        <InputGroup.Addon>标题</InputGroup.Addon>
-                        <FormControl type="text" id="articleHeader" placeholder="请输入文章标题"/>
-                    </InputGroup>
-                </FormGroup>
+            <form>
+                <div className="form-group">
+                    <div className="input-group">
+                        <span className="input-group-addon">标题</span>
+                        <input id="articleHeader" className="form-control" placeholder="请输入文章标题"/>
+                    </div>
+                </div>
                 <div className="form-group">
                     <div className="input-group">
                         <span className="input-group-addon">摘要</span>
                         <textarea id="articleSummary" className="form-control" rows="2" placeholder="请输入文章摘要"/>
-
-                        {/*<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">*/}
                     </div>
                 </div>
                 <div className="row">
@@ -115,7 +110,7 @@ var Management = React.createClass({
                            data=''
                            placeholder='请输入文章内容'
                 />
-                <Button bsStyle="primary" onClick={()=>this.props.addArticle()}>发布</Button>
+                <input type="button" onClick={()=>this.props.addArticle()} value="发布"/>
 
                 <div className="cateMgtContainer modal" id="cateMgtModal">
                     <div className="modal-content">
@@ -124,8 +119,7 @@ var Management = React.createClass({
                         <CategoryMgtList categories={this.props.categories} deleteCategory={this.props.deleteCategory} addCategory={this.props.addCategory}/>
                     </div>
                 </div>
-                {/*<div id="articleContainer"></div>*/}
-            </div>
+            </form>
         )
     }
 });

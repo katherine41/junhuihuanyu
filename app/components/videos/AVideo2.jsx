@@ -55,31 +55,31 @@ var AVideo = React.createClass({
         };
         var url=env_variables.apiEndpoint+"/rest/video/"+videoId+"/videostream";
         return (
-        <div>
-            <div className="contentTop"></div>
-            <div className="contentMiddle tutorialVideo_container container">
-                <div className="row">
-                    <div className="col-sm-7">
-                        <TitleLine titleNameChn={video.videoName} titleNameEng={formattedVideo.createdDate}/>
-                        <div className="videoContainer">
-                            <video controls controlsList="nodownload">
-                                <source src={url} type="video/mp4"/>
-                                Your browser does not support HTML5 video.
-                            </video>
+            <div>
+                <div className="contentTop"></div>
+                <div className="contentMiddle tutorialVideo_container container">
+                    <div className="row">
+                        <div className="col-sm-7">
+                            <TitleLine titleNameChn={video.videoName} titleNameEng={formattedVideo.createdDate}/>
+                            <div className="videoContainer">
+                                <video controls controlsList="nodownload">
+                                    <source src={url} type="video/mp4"/>
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-sm-1"></div>
-                    <div className="col-sm-3">
-                        <div className="relatedVideos_container">
-                            <TitleLine titleNameChn="相关视频" titleNameEng=""/>
-                            <RelatedList videos={this.props.videos}/>
+                        <div className="col-sm-1"></div>
+                        <div className="col-sm-3">
+                            <div className="relatedVideos_container">
+                                <TitleLine titleNameChn="相关视频" titleNameEng=""/>
+                                <RelatedList videos={this.props.videos}/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-sm-1"></div>
+                        <div className="col-sm-1"></div>
 
+                    </div>
                 </div>
             </div>
-        </div>
 
         )
     }

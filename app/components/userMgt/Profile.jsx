@@ -37,11 +37,12 @@ var Register = React.createClass({
     },
     componentDidMount() {
         var that=this;
-        var userId=JSON.parse(localStorage.getItem("user")).userId;
-        // userId
-        this.props.fetchCurrentUser(userId);
-        document.getElementById("editUserBtn").addEventListener('click',that.editUser);
-        document.getElementById("confirmEdit").addEventListener('click',that.confirmEditUser);
+        if (localStorage.getItem("user") !== null) {
+            var userId=JSON.parse(localStorage.getItem("user")).userId;
+            this.props.fetchCurrentUser(userId);
+            document.getElementById("editUserBtn").addEventListener('click',that.editUser);
+            document.getElementById("confirmEdit").addEventListener('click',that.confirmEditUser);
+        }
     },
     componentWillUnmount() {
         var that=this;

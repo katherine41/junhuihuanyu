@@ -6,6 +6,8 @@ var React = require('react');
 var {Link} = require('react-router');
 
 var TitleLine = require('../TitleLine');
+var PopupPanel = require('../PopupPanel');
+
 
 class Management extends React.Component {
     changeTab(tabName){
@@ -21,10 +23,10 @@ class Management extends React.Component {
         }
     }
     componentWillMount(){
-        var fetchUserRole=env_variables.fetchUserRole();
-        if(fetchUserRole!=="ADMIN"){
-                window.location.hash="#/login/";
-        }
+        // var fetchUserRole=env_variables.fetchUserRole();
+        // if(fetchUserRole!=="ADMIN"){
+        //         window.location.hash="#/login/";
+        // }
     }
     componentDidMount(){
         var currentPath=this.props.location.pathname;
@@ -39,6 +41,7 @@ class Management extends React.Component {
     render() {
         return (
             <div>
+                <PopupPanel/>
                 <div className="contentTop"></div>
                 <div className="contentMiddle mng_container container">
                     <TitleLine titleNameChn="管理" titleNameEng="MANAGEMENT"/>

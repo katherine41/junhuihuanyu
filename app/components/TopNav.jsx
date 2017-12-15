@@ -23,7 +23,7 @@ var TopNav = React.createClass({
                 </ul>
             ;
         }
-        if(userRole==="ADMIN"){
+        if(userRole==="ADMINISTRATOR"){
             mgtNav=<li><Link to="/management/">管理</Link></li>;
         }
         return (

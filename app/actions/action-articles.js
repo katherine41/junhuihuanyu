@@ -57,7 +57,7 @@ export const addArticle=()=>{
             content:articleContent
         };
 
-        if(articleHeader!==""){
+        if(articleHeader!==""&&articleSummary!==""&&articleContent!==""){
             actionFunctions.ajaxPostObj(articleObj,'/rest/article');
         }
     }

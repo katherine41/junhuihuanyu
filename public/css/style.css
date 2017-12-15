@@ -33,6 +33,10 @@ a:hover, a:visited{
     text-decoration: none;
 }
 
+.input-group-addon{
+    background-color: #eee;
+}
+
 /*background Image*/
 .contentTop,
 #indexTop,
@@ -49,7 +53,8 @@ a:hover, a:visited{
 .cateSelected,
 .blockBtn,
 .addNewWrapper label[for=videoCoverBtn],
-.addNewWrapper label[for=uploadVideoBtn]
+.addNewWrapper label[for=uploadVideoBtn],
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
 {
     background-color: #1E76AB;
     color:#fff
@@ -123,6 +128,43 @@ a:hover, a:visited{
     border-radius: 4px;
     cursor:pointer;
 }
+
+/*popupPanel*/
+.popupContainer{
+    display: block;
+    position: fixed;
+    z-index: 15;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popupContainer .modal-content{
+    background-color: rgba(255, 255, 255, 0.953);
+    margin: 25% auto;
+    padding: 8px 8px 20px 8px;
+    width: 360px;
+}
+
+.popupContainer h4{
+    text-align:center;
+    margin-top:20px;
+}
+.popupContainer .blockBtn{
+    width: 90%;
+    display:table;
+    margin: 5px auto;
+}
+
+/*.popupContainer .blockBtn:last-child{*/
+    /*background-color: #fff;*/
+    /*color: #1E76AB;*/
+/*}*/
+
 /*=====================top nav and bottom nav===============================*/
 .navbar-default{
     background-color: rgba(30, 118, 171, 0.96);
