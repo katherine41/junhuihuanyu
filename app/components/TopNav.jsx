@@ -8,12 +8,13 @@ var TopNav = React.createClass({
     render:function(){
         const isLoggedIn = this.props.isLoggedIn;
         const userRole = env_variables.fetchUserRole();
+        const userName = env_variables.fetchUsername();
         let userMgtNav = null;
         let mgtNav=null;
         if (isLoggedIn==="true") {
             userMgtNav =
                 <ul id="profileNav" className="nav navbar-nav pull-right">
-                    <li><Link to="/profile/">用户信息</Link></li>
+                    <li><Link to="/profile/">{userName}</Link></li>
                 </ul>;
         } else {
             userMgtNav =
@@ -30,7 +31,7 @@ var TopNav = React.createClass({
             <nav className="navbar navbar-default navbar-fixed-top">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="#">
+                        <a className="navbar-brand" href="/">
                             <div id="topLogoContainer">
                                 <img src="../../image/huanyulogo.png"/>
                             </div>
@@ -39,7 +40,7 @@ var TopNav = React.createClass({
 
                     <div>
                         <ul className="nav navbar-nav">
-                            <li><a href="#">主页</a></li>
+                            <li><a href="/">主页</a></li>
                             <li><Link to="/calendar/">财经日历</Link></li>
                             <li><Link to="/articles/">汇评</Link></li>
                             {mgtNav}

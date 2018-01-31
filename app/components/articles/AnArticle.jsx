@@ -45,6 +45,15 @@ var AnArticle = React.createClass({
             formattedPost.categoryId=post.articleCategory.id
         }
 
+			  let userRole = env_variables.fetchUserRole();
+			  let articleEditBtn=null;
+			  if(userRole==="ADMINISTRATOR"){
+				    articleEditBtn= <Link to={`/editArticle/${articleId}`}>
+                                    <span className="editArticleBtn pull-right">
+                                        <img src="../../image/edit.svg"/>
+                                    </span>
+            </Link>;
+			  }
         return (
             <div>
                 <div className="contentTop"></div>
@@ -54,11 +63,7 @@ var AnArticle = React.createClass({
                         <div className="page-header">
                             <h3>{formattedPost.title}<small><Link to={`/articleCates/${formattedPost.categoryId}`}>{formattedPost.category}</Link></small></h3>
                             <small>{formattedPost.createDate}</small>
-                            <Link to={`/editArticle/${articleId}`}>
-                                    <span className="editArticleBtn pull-right">
-                                        <img src="../../image/edit.svg"/>
-                                    </span>
-                            </Link>
+                          {articleEditBtn}
                         </div>
                         <div>
                             <div>{formattedPost.content}</div>

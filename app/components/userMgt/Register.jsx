@@ -14,7 +14,7 @@ var Register = React.createClass({
         };
         $.ajax({
             type:'POST',
-            url:env_variables.apiEndpoint+"/rest/user",
+            url:env_variables.apiEndpoint+"/rest/user/register",
             data: JSON.stringify(userInfo),
             contentType: "application/json",
             dataType: 'text',

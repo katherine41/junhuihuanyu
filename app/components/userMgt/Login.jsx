@@ -12,7 +12,7 @@ var Login = React.createClass({
         };
         $.ajax({
             type:'POST',
-            url:env_variables.apiEndpoint+"/login",
+            url:env_variables.apiEndpoint+"/rest/user/login",
             data: JSON.stringify(userInfo),
             contentType: "application/json",
             dataType: 'text',

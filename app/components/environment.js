@@ -2,8 +2,8 @@
  * Created by Katherine on 10/22/17.
  */
 var env_variables = {
-    apiEndpoint: "http://82032607.ngrok.io",
-    // apiEndpoint:""
+    apiEndpoint: "http://47.74.230.238",
+    // apiEndpoint:"",
     formatDate:function (date){
         var dd = date.getDate();
         var mm = date.getMonth()+1; //January is 0!
@@ -36,6 +36,14 @@ var env_variables = {
             isLoggedIn="true";
         }
         return isLoggedIn;
+    },
+	  fetchUsername:function(){
+			  if (localStorage.getItem("user") === null) {
+				    return null;
+			  }else{
+				    var localStorageUser=JSON.parse(localStorage.getItem("user"));
+				    return localStorageUser.userName;
+			  }
     },
     fetchUserRole:function () {
         if (localStorage.getItem("user") === null) {

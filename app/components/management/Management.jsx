@@ -23,10 +23,10 @@ class Management extends React.Component {
         }
     }
     componentWillMount(){
-        // var fetchUserRole=env_variables.fetchUserRole();
-        // if(fetchUserRole!=="ADMIN"){
-        //         window.location.hash="#/login/";
-        // }
+        var fetchUserRole=env_variables.fetchUserRole();
+        if(fetchUserRole!=="ADMINISTRATOR"){
+                window.location.hash="#/login/";
+        }
     }
     componentDidMount(){
         var currentPath=this.props.location.pathname;

@@ -2,6 +2,7 @@
  * Created by Katherine on 11/30/17.
  */
 import env_variables from '../components/environment.js';
+import actionFunctions from './actionFunctions';
 
 const startUserFetch=()=>{
     return {
@@ -48,23 +49,14 @@ export const modifyUser=(userInfo)=>{
             dataType: 'text',
             success: function(data) {
                 console.log("Put success",data);
-                $.ajax({
-                    type: 'GET',
-                    url: env_variables.apiEndpoint + '/rest/user?userId='+userInfo.userId,
-                    success: function (res) {
-                        dispatch(completeUserFetch(res));
-                        // localStorage.setItem("user", res);
-                        $("#profileBeforeEdit").css("display","block");
-                        $("#profileAfterEdit").css("display","none");
-                        $("#editUserBtn").css("display","block");
-                        $("#profileUsername").val(res.userName);
-                        $("#profilePhone").val(res.phoneNumber);
-                    },
-                    error: function (err) {
-                        console.log(err)
-                    }
-                });
-
+                localStorage.setItem("user", data);
+                $("#profileBeforeEdit").css("display","block");
+                $("#profileAfterEdit").css("display","none");
+                $("#editUserBtn").css("display","block");
+                var dataObj=JSON.parse(data);
+                dispatch(completeUserFetch(dataObj));
+                $("#profileUsername").val(dataObj.userName);
+                $("#profilePhone").val(dataObj.phoneNumber);
             },
             error:function(err){
                 console.log("Put error",err);
@@ -73,5 +65,14 @@ export const modifyUser=(userInfo)=>{
     }
 };
 
-
+export const logoutUser=()=>{
+    localStorage.removeItem("user");
+    var isLoggedIn=env_variables.isLoggedIn();
+    if(isLoggedIn==="false"){
+        window.location.hash="#/login/";
+    }
+    return (dispatch)=>{
+        dispatch(completeUserFetch({}));
+    }
+};
 

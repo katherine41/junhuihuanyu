@@ -3,6 +3,8 @@ import {addCategory} from './action-categories';
 import {deleteCategory} from './action-categories';
 import {fetchArticles} from './action-articles';
 import {fetchArticle} from './action-articles';
+import {fetchDeletedArticle} from './action-articles';
+import {clickDeletedArticle} from './action-articles';
 import {fetchArticleByCate} from './action-articles';
 import {addArticle} from './action-articles';
 import {deleteArticle} from './action-articles';
@@ -12,6 +14,7 @@ import {fetchVideo} from './action-videos';
 import {deleteVideo} from './action-videos';
 import {fetchUser} from './action-users';
 import {modifyUser} from './action-users';
+import {logoutUser} from './action-users';
 
 
 var allActions={
@@ -23,6 +26,7 @@ var allActions={
     articleAction:{
         fetchArticles:fetchArticles,
         fetchArticle:fetchArticle,
+		clickDeletedArticle:clickDeletedArticle,
         fetchArticleByCate:fetchArticleByCate,
         addArticle:addArticle,
         deleteArticle:deleteArticle,
@@ -35,7 +39,8 @@ var allActions={
     },
     userAction:{
         fetchCurrentUser:fetchUser,
-        modifyUser:modifyUser
+        modifyUser:modifyUser,
+        logoutUser:logoutUser
     }
 };
 export default allActions;

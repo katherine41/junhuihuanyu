@@ -86,7 +86,7 @@ var Register = React.createClass({
                                     <p>{this.props.user.role}</p>
                                 </div>
                             </div>
-                            <div className="blockBtn">退出登录</div>
+                            <div className="blockBtn" onClick={() => this.props.logoutUser()}>退出登录</div>
                         </form>
                         <form id="profileAfterEdit">
                             <div className="form-group row">
@@ -134,7 +134,8 @@ function mapStatsToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
         fetchCurrentUser:allActions.userAction.fetchCurrentUser,
-        modifyUser:allActions.userAction.modifyUser
+        modifyUser:allActions.userAction.modifyUser,
+        logoutUser:allActions.userAction.logoutUser
     },dispatch)
 }
 

@@ -52,6 +52,7 @@ a:hover, a:visited{
 .titleLine span,
 .cateSelected,
 .blockBtn,
+.blockBtn a,
 .addNewWrapper label[for=videoCoverBtn],
 .addNewWrapper label[for=uploadVideoBtn],
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
@@ -62,6 +63,7 @@ a:hover, a:visited{
 
 .cateSelected:hover,
 .blockBtn:hover,
+.blockBtn a:hover,
 .addNewWrapper label[for=videoCoverBtn]:hover,
 .addNewWrapper label[for=uploadVideoBtn]:hover{
     background-color: #185d86;

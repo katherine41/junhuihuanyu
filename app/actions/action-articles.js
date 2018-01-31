@@ -31,6 +31,14 @@ const completeArticleFetch=(article)=>{
     }
 };
 
+
+const passDeletingArticleId=(articleId)=>{
+	return {
+		type:'PASS_DELETINGARTICLE_ID',
+		payload:articleId
+	}
+};
+
 const getCurrentCate=(category)=>{
     return {
         type:'GET_CURRENT_CATEGORY',
@@ -56,9 +64,12 @@ export const addArticle=()=>{
             summary:articleSummary,
             content:articleContent
         };
-
-        if(articleHeader!==""&&articleSummary!==""&&articleContent!==""){
-            actionFunctions.ajaxPostObj(articleObj,'/rest/article');
+			if(articleHeader!==""&&articleSummary!==""&&articleContent!==""){
+				$("#articleHeader").val("");
+				$("#articleSummary").val("");
+				$("#react-trumbowyg").html("");
+				$("#addSuccessModal").css("display","block");
+				actionFunctions.ajaxPostObj(articleObj,'/rest/article');
         }
     }
 };
@@ -93,6 +104,11 @@ export const fetchArticle=(articleId)=>{
     }
 };
 
+export const clickDeletedArticle=(articleId)=>{
+	return (dispatch)=>{
+		dispatch(passDeletingArticleId(articleId));
+	}
+};
 
 export const fetchArticleByCate=(cateId)=>{
     return (dispatch)=>{
@@ -118,7 +134,20 @@ export const fetchArticleByCate=(cateId)=>{
 export const deleteArticle=(articleId)=>{
     console.log(articleId);
     return (dispatch)=>{
-        actionFunctions.ajaxDeleteObj(dispatch,completeArticlesFetch,'/rest/article/'+articleId,'/rest/article/all');
+		$.ajax({
+			type:'DELETE',
+			url:env_variables.apiEndpoint+'/rest/article/'+articleId,
+			contentType: "application/json",
+			dataType: 'text',
+			success: function(res) {
+				actionFunctions.ajaxGetFetch(dispatch,completeArticlesFetch,'/rest/article/all');
+				$("#addSuccessModal").css("display","none");
+				console.log("DELETE success",res)
+			},
+			error:function(err){
+				console.log("DELETE error",err);
+			}
+		});
     }
 };
 
