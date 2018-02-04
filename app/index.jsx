@@ -11,6 +11,7 @@ var Articles = require('./components/articles/Articles.jsx');
 var AnArticle = require('./components/articles/AnArticle.jsx');
 var ArticleCates = require('./components/articles/ArticleCates');
 var Management = require('./components/management/Management');
+var Training = require('./components/Training');
 var AboutUs = require('./components/AboutUs');
 var AddArticle = require('./components/management/AddArticle');
 var EditArticle = require('./components/articles/EditArticle');
@@ -41,6 +42,7 @@ ReactDOM.render(
                 <Route path="video" component={AddVideo}/>
             </Route>
             <Route path="aboutUs/" component={AboutUs}/>
+            <Route path="training/" component={Training}/>
             <Route path="login/" component={Login}/>
             <Route path="register/" component={Register}/>
             <Route path="profile/" component={Profile}/>

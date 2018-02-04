@@ -46,6 +46,7 @@ var TopNav = React.createClass({
                             {mgtNav}
                             <li><Link to="/videos/">视频解析</Link></li>
                             <li><Link to="/aboutUs/">关于我们</Link></li>
+                            <li><Link to="/training/">培训</Link></li>
                         </ul>
                         {userMgtNav}
                     </div>
