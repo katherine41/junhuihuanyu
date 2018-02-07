@@ -2,14 +2,14 @@ var React = require('react');
 var TopBanner = require('../common-components/TopBanner');
 var TitleLine = require('../common-components/TitleLine');
 
-import '../../../public/css/aboutUs.css';
+import '../../../public/css/staticpages.css';
 
 var AboutUs = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<TopBanner/>
-				<div id="aboutUsContainer" className="container">
+				<TopBanner bannerName="外汇资产配置，从我们开始"/>
+				<div className="staticPageContainer container" id="aboutUsContainer">
 					<TitleLine titleNameChn="关于我们" titleNameEng="ABOUT US"/>
 					<p>
 						骏寰科技有限公司，简称骏寰科技，2018年1月成立于重庆，公司核心团队由曾就职于陆金所、广发证券、阿里巴巴等一流公司的成员组成。依靠深厚的专业背景、严谨的风控意识、强大的产品研发能力，我们致力于为客户提供值得信赖的外汇金融服务。<br/>

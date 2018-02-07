@@ -32495,7 +32495,8 @@ var AnArticle = __webpack_require__(416);
 var ArticleCates = __webpack_require__(417);
 var Management = __webpack_require__(418);
 var Training = __webpack_require__(421);
-var AboutUs = __webpack_require__(422);
+var AboutUs = __webpack_require__(434);
+var ServicesArea = __webpack_require__(437);
 var AddArticle = __webpack_require__(427);
 var EditArticle = __webpack_require__(428);
 var AddVideo = __webpack_require__(429);
@@ -32533,6 +32534,7 @@ ReactDOM.render(React.createElement(
             React.createElement(Route, { path: 'video', component: AddVideo })
         ),
         React.createElement(Route, { path: 'aboutUs/', component: AboutUs }),
+        React.createElement(Route, { path: 'services/', component: ServicesArea }),
         React.createElement(Route, { path: 'training/', component: Training }),
         React.createElement(Route, { path: 'login/', component: Login }),
         React.createElement(Route, { path: 'register/', component: Register }),
@@ -48869,7 +48871,7 @@ exports = module.exports = __webpack_require__(26)(undefined);
 
 
 // module
-exports.push([module.i, "@font-face {\n    font-family: \"Ruizixiyuan\";\n    src: url(\"/css/fonts/锐字工房云字库细圆GBK.ttf\");\n}\n\n@font-face {\n    font-family: \"Zikutang\";\n    src: url(\"/css/fonts/腾祥智黑简-W3.ttf\");\n}\n\n@font-face {\n    font-family: 'Barlow_thin';\n    src: url(\"/css/fonts/BarlowSemiCondensed-Thin.ttf\");\n}\nbody {\n    overflow-x: hidden;\n    font-family: 'Ruizixiyuan', sans-serif;\n    /*font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/\n}\n\np {\n    line-height: 1.75;\n}\n\na {\n    color: #FFC107;\n}\n\na:hover {\n    color: #fec503;\n}\n\n.text-primary {\n    color: #FFC107 !important;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    font-weight: 700;\n    font-family: 'Zikutang', sans-serif;\n}\n\nsection {\n    padding: 100px 0;\n}\n\nsection h2.section-heading {\n    font-size: 40px;\n    margin-top: 0;\n    margin-bottom: 15px;\n}\n\nsection h3.section-subheading {\n    font-size: 16px;\n    font-weight: 400;\n    font-style: italic;\n    margin-bottom: 75px;\n    text-transform: none;\n    font-family: 'Ruizixiyuan', sans-serif;\n}\n\n@media (min-width: 768px) {\n    section {\n        padding: 150px 0;\n    }\n}\n\n.btn {\n    font-family: 'Ruizixiyuan', sans-serif;\n    font-weight: 700;\n}\n\n.btn-xl {\n    font-size: 18px;\n    padding: 20px 40px;\n}\n\n.btn-primary {\n    background-color: #FFC107;\n    border-color: #FFC107;\n}\n\n.btn-primary:active, .btn-primary:focus, .btn-primary:hover {\n    background-color: #fec810 !important;\n    border-color: #fec810 !important;\n    color: white;\n}\n\n.btn-primary:active, .btn-primary:focus {\n    box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;\n}\n\n::-moz-selection {\n    background: #FFC107;\n    text-shadow: none;\n}\n\n::selection {\n    background: #FFC107;\n    text-shadow: none;\n}\n\nimg::selection {\n    background: transparent;\n}\n\nimg::-moz-selection {\n    background: transparent;\n}\n\n#mainNav {\n    background-color: #212529;\n}\n\n#mainNav .navbar-toggler {\n    font-size: 12px;\n    right: 0;\n    padding: 13px;\n    text-transform: uppercase;\n    color: white;\n    border: 0;\n    background-color: #FFC107;\n    font-family: 'Ruizixiyuan', sans-serif;\n\n    /*font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/\n}\n\n#mainNav .navbar-brand {\n    color: #FFC107;\n    font-family: 'Zikutang', sans-serif;\n}\n\n#mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {\n    color: #fec503;\n}\n\n#mainNav .navbar-nav .nav-item .nav-link {\n    font-size: 90%;\n    font-weight: 400;\n    padding: 0.75em 0;\n    letter-spacing: 1px;\n    color: white;\n\n    font-family: 'Ruizixiyuan', sans-serif;\n\n    /*font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/\n}\n\n#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {\n    color: #FFC107;\n}\n\n@media (min-width: 992px) {\n    #mainNav {\n        padding-top: 10px;\n        padding-bottom: 10px;\n        -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;\n        -moz-transition: padding-top 0.3s, padding-bottom 0.3s;\n        transition: padding-top 0.3s, padding-bottom 0.3s;\n        border: none;\n        /*background-color: rgba(33, 37, 41, 0.47);*/\n    }\n    #mainNav .navbar-brand {\n        font-size: 1.75em;\n        -webkit-transition: all 0.3s;\n        -moz-transition: all 0.3s;\n        transition: all 0.3s;\n    }\n    #mainNav .navbar-nav .nav-item .nav-link {\n        padding: 1.1em 1em !important;\n    }\n    #mainNav.navbar-shrink {\n        padding-top: 0;\n        padding-bottom: 0;\n        background-color: #212529;\n    }\n    #mainNav.navbar-shrink .navbar-brand {\n        font-size: 1.25em;\n        padding: 12px 0;\n    }\n}\n\n.top-banner-container{\n    height: 360px;\n    background-repeat: no-repeat;\n    background-attachment: scroll;\n    background-position: center center;\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n    text-align: center;\n    margin-bottom: 40px;\n}\n\n\n.top-banner-container h2{\n    padding-top: 150px;\n    padding-bottom: 100px;\n    color: white;\n    font-size: 50px;\n    font-weight: 300;\n    line-height: 50px;\n    margin-bottom: 25px;\n    font-family: 'Zikutang', sans-serif;\n}\n\n/*title-line*/\n.titleLine {\n    margin: 0 auto 0 0;\n    display: table;\n}\n\n.titleLine span {\n    position: absolute;\n    width: 8px;\n    margin-top: 10px;\n    height: 24px;\n    background-color: #FFC107;\n}\n\n.titleLine h4 {\n    color: #3a3a3a;\n    font-size: 24px;\n    margin-left: 14px;\n    margin-bottom: 0;\n}\n\n.titleLine h4 small, .anArticle_container .page-header h3 small {\n    margin-left: 10px;\n    text-transform: uppercase;\n}\n\n.paragraphImg{\n    position: relative;\n    width: 80%;\n    margin: 0 auto;\n}\n\n.paragraphImg img{\n    width: 100%;\n}\n\n/*============page 1: landinge page=============*/\n\nheader.masthead {\n    text-align: center;\n    color: white;\n    background-repeat: no-repeat;\n    background-attachment: scroll;\n    background-position: top center;\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n}\n\nheader.masthead .intro-text {\n    padding-top: 150px;\n    padding-bottom: 100px;\n}\n\nheader.masthead .intro-text .intro-lead-in {\n    font-size: 22px;\n    line-height: 22px;\n    margin-bottom: 25px;\n    /*text-transform: uppercase;*/\n    font-family: 'Barlow_thin', sans-serif;\n}\n\nheader.masthead .intro-text .intro-heading {\n    font-size: 50px;\n    font-weight: 300;\n    line-height: 50px;\n    margin-bottom: 25px;\n    font-family: 'Zikutang', sans-serif;\n}\n\n@media (min-width: 768px) {\n    header.masthead .intro-text {\n        padding-top: 300px;\n        padding-bottom: 200px;\n    }\n    header.masthead .intro-text .intro-lead-in {\n        font-size: 40px;\n        line-height: 40px;\n        margin-bottom: 25px;\n    }\n    header.masthead .intro-text .intro-heading {\n        font-size: 75px;\n        line-height: 75px;\n        margin-bottom: 50px;\n    }\n}\n/*==============page 2: services================*/\n.service-heading {\n    margin: 15px 0;\n    text-transform: none;\n}\n\n.service-icons{\n    width: 120px;\n    height: 120px;\n    margin: 0 auto 40px auto;\n    background-color: #FFC107;\n    border-radius: 50%;\n}\n\n.service-icons img{\n    width: 100%;\n    padding: 20px;\n}\n\n\n#portfolio .portfolio-item {\n    right: 0;\n    margin: 0 0 15px;\n}\n\n#portfolio .portfolio-item .portfolio-link {\n    position: relative;\n    display: block;\n    max-width: 400px;\n    margin: 0 auto;\n    cursor: pointer;\n}\n\n#portfolio .portfolio-item .portfolio-link .portfolio-hover {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    -webkit-transition: all ease 0.5s;\n    -moz-transition: all ease 0.5s;\n    transition: all ease 0.5s;\n    opacity: 0;\n    background: rgba(254, 209, 54, 0.9);\n}\n\n#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {\n    opacity: 1;\n}\n\n#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {\n    font-size: 20px;\n    position: absolute;\n    top: 50%;\n    width: 100%;\n    height: 20px;\n    margin-top: -12px;\n    text-align: center;\n    color: white;\n}\n\n#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {\n    margin-top: -12px;\n}\n\n#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,\n#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {\n    margin: 0;\n}\n\n#portfolio .portfolio-item .portfolio-caption {\n    max-width: 400px;\n    margin: 0 auto;\n    padding: 25px;\n    text-align: center;\n    background-color: #fff;\n}\n\n#portfolio .portfolio-item .portfolio-caption h4 {\n    margin: 0;\n    text-transform: none;\n}\n\n#portfolio .portfolio-item .portfolio-caption p {\n    font-size: 16px;\n    font-style: italic;\n    margin: 0;\n    font-family: 'Ruizixiyuan', sans-serif;\n\n    /*font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/\n}\n\n#portfolio * {\n    z-index: 2;\n}\n\n@media (min-width: 767px) {\n    #portfolio .portfolio-item {\n        margin: 0 0 30px;\n    }\n}\n\n.timeline {\n    position: relative;\n    padding: 0;\n    list-style: none;\n}\n\n.timeline:before {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 40px;\n    width: 2px;\n    margin-left: -1.5px;\n    content: '';\n    background-color: #e9ecef;\n}\n\n.timeline > li {\n    position: relative;\n    min-height: 50px;\n    margin-bottom: 50px;\n}\n\n.timeline > li:after, .timeline > li:before {\n    display: table;\n    content: ' ';\n}\n\n.timeline > li:after {\n    clear: both;\n}\n\n.timeline > li .timeline-panel {\n    position: relative;\n    float: right;\n    width: 100%;\n    padding: 0 20px 0 100px;\n    text-align: left;\n}\n\n.timeline > li .timeline-panel:before {\n    right: auto;\n    left: -15px;\n    border-right-width: 15px;\n    border-left-width: 0;\n}\n\n.timeline > li .timeline-panel:after {\n    right: auto;\n    left: -14px;\n    border-right-width: 14px;\n    border-left-width: 0;\n}\n\n.timeline > li .timeline-image {\n    position: absolute;\n    z-index: 100;\n    left: 0;\n    width: 80px;\n    height: 80px;\n    margin-left: 0;\n    text-align: center;\n    color: white;\n    border: 7px solid #e9ecef;\n    border-radius: 100%;\n    background-color: #FFC107;\n}\n\n.timeline > li .timeline-image h4 {\n    font-size: 10px;\n    line-height: 14px;\n    margin-top: 12px;\n}\n\n.timeline > li.timeline-inverted > .timeline-panel {\n    float: right;\n    padding: 0 20px 0 100px;\n    text-align: left;\n}\n\n.timeline > li.timeline-inverted > .timeline-panel:before {\n    right: auto;\n    left: -15px;\n    border-right-width: 15px;\n    border-left-width: 0;\n}\n\n.timeline > li.timeline-inverted > .timeline-panel:after {\n    right: auto;\n    left: -14px;\n    border-right-width: 14px;\n    border-left-width: 0;\n}\n\n.timeline > li:last-child {\n    margin-bottom: 0;\n}\n\n.timeline .timeline-heading h4 {\n    margin-top: 0;\n    color: inherit;\n}\n\n.timeline .timeline-heading h4.subheading {\n    text-transform: none;\n}\n\n.timeline .timeline-body > ul,\n.timeline .timeline-body > p {\n    margin-bottom: 0;\n}\n\n@media (min-width: 768px) {\n    .timeline:before {\n        left: 50%;\n    }\n    .timeline > li {\n        min-height: 100px;\n        margin-bottom: 100px;\n    }\n    .timeline > li .timeline-panel {\n        float: left;\n        width: 41%;\n        padding: 0 20px 20px 30px;\n        text-align: right;\n    }\n    .timeline > li .timeline-image {\n        left: 50%;\n        width: 100px;\n        height: 100px;\n        margin-left: -50px;\n    }\n    .timeline > li .timeline-image h4 {\n        font-size: 13px;\n        line-height: 18px;\n        margin-top: 16px;\n    }\n    .timeline > li.timeline-inverted > .timeline-panel {\n        float: right;\n        padding: 0 30px 20px 20px;\n        text-align: left;\n    }\n}\n\n@media (min-width: 992px) {\n    .timeline > li {\n        min-height: 150px;\n    }\n    .timeline > li .timeline-panel {\n        padding: 0 20px 20px;\n    }\n    .timeline > li .timeline-image {\n        width: 150px;\n        height: 150px;\n        margin-left: -75px;\n    }\n    .timeline > li .timeline-image h4 {\n        font-size: 18px;\n        line-height: 26px;\n        margin-top: 30px;\n    }\n    .timeline > li.timeline-inverted > .timeline-panel {\n        padding: 0 20px 20px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .timeline > li {\n        min-height: 170px;\n    }\n    .timeline > li .timeline-panel {\n        padding: 0 20px 20px 100px;\n    }\n    .timeline > li .timeline-image {\n        width: 170px;\n        height: 170px;\n        margin-left: -85px;\n    }\n    .timeline > li .timeline-image h4 {\n        margin-top: 40px;\n    }\n    .timeline > li.timeline-inverted > .timeline-panel {\n        padding: 0 100px 20px 20px;\n    }\n}\n\n.team-member {\n    margin-bottom: 50px;\n    text-align: center;\n}\n\n.team-member img {\n    width: 225px;\n    height: 225px;\n    border: 7px solid #fff;\n}\n\n.team-member h4 {\n    margin-top: 25px;\n    margin-bottom: 0;\n    text-transform: none;\n}\n\n.team-member p {\n    margin-top: 0;\n}\n\n/*==================page 5: contact us=================*/\nsection#contact {\n    background-color: #212529;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n\nsection#contact .section-heading {\n    color: #fff;\n}\n\nsection#contact .form-group {\n    margin-bottom: 25px;\n}\n\nsection#contact .form-group input,\nsection#contact .form-group textarea {\n    padding: 20px;\n}\n\nsection#contact .form-group input.form-control {\n    height: auto;\n}\n\nsection#contact .form-group textarea.form-control {\n    height: 248px;\n}\n\nsection#contact .form-control:focus {\n    border-color: #FFC107;\n    box-shadow: none;\n}\n\n\nsection#contact :-ms-input-placeholder {\n    font-weight: 700;\n    color: #ced4da;\n}\n\nsection#contact #junhuanContact{\n    font-size: 14px;\n    list-style: none;\n    padding: 0;\n    display: table;\n    margin: 40px auto;\n}\n\nsection#contact #junhuanContact li{\n    margin: 4px;\n    display: inline;\n    padding: 8px;\n    background-color: #FFC107;\n}\n\nsection#contact #sendMessageButton i{\n    margin-left: 10px;\n}\n\n/*===================footer===================*/\nfooter {\n    padding: 25px 0;\n    text-align: center;\n}\n\nfooter span.copyright {\n    font-size: 90%;\n    line-height: 40px;\n    text-transform: none;\n}\n\nfooter ul.quicklinks {\n    font-size: 90%;\n    line-height: 40px;\n    margin-bottom: 0;\n    text-transform: none;\n}\n\nul.social-buttons {\n    margin-bottom: 0;\n}\n\nul.social-buttons li a {\n    font-size: 20px;\n    line-height: 40px;\n    display: block;\n    width: 40px;\n    height: 40px;\n    -webkit-transition: all 0.3s;\n    -moz-transition: all 0.3s;\n    transition: all 0.3s;\n    color: white;\n    border-radius: 100%;\n    outline: none;\n    background-color: #212529;\n}\n\nul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {\n    background-color: #FFC107;\n}\n", ""]);
+exports.push([module.i, "@font-face {\n    font-family: \"Ruizixiyuan\";\n    src: url(\"/css/fonts/锐字工房云字库细圆GBK.ttf\");\n}\n\n@font-face {\n    font-family: \"Zikutang\";\n    src: url(\"/css/fonts/腾祥智黑简-W3.ttf\");\n}\n\n@font-face {\n    font-family: 'Barlow_thin';\n    src: url(\"/css/fonts/BarlowSemiCondensed-Thin.ttf\");\n}\nbody {\n    overflow-x: hidden;\n    font-family: 'Ruizixiyuan', sans-serif;\n    /*font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/\n}\n\np {\n    line-height: 1.75;\n}\n\na {\n    color: #FFC107;\n}\n\na:hover {\n    color: #fec503;\n}\n\n.text-primary {\n    color: #FFC107 !important;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    font-weight: 700;\n    font-family: 'Zikutang', sans-serif;\n}\n\nsection {\n    padding: 100px 0;\n}\n\n/*section-heading in static page*/\n.section-heading {\n    font-size: 30px;\n    margin-top: 0;\n    margin-bottom: 15px;\n}\n\n.section-subheading {\n    font-size: 16px;\n    font-weight: 400;\n    margin-bottom: 30px;\n    text-transform: none;\n    font-family: 'Ruizixiyuan', sans-serif;\n}\n\n/*section-heading in <section>*/\nsection h2.section-heading {\n    font-size: 40px;\n    margin-top: 0;\n    margin-bottom: 15px;\n}\n\nsection h3.section-subheading {\n    font-size: 16px;\n    font-weight: 400;\n    font-style: italic;\n    margin-bottom: 75px;\n    text-transform: none;\n    font-family: 'Ruizixiyuan', sans-serif;\n}\n\n@media (min-width: 768px) {\n    section {\n        padding: 80px 0;\n    }\n}\n\n.btn {\n    font-family: 'Ruizixiyuan', sans-serif;\n    font-weight: 700;\n}\n\n.btn-xl {\n    font-size: 18px;\n    padding: 20px 40px;\n}\n\n.btn-primary {\n    background-color: #FFC107;\n    border-color: #FFC107;\n}\n\n.btn-primary:active, .btn-primary:focus, .btn-primary:hover {\n    background-color: #fec810 !important;\n    border-color: #fec810 !important;\n    color: white;\n}\n\n.btn-primary:active, .btn-primary:focus {\n    box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;\n}\n\n::-moz-selection {\n    background: #FFC107;\n    text-shadow: none;\n}\n\n::selection {\n    background: #FFC107;\n    text-shadow: none;\n}\n\nimg::selection {\n    background: transparent;\n}\n\nimg::-moz-selection {\n    background: transparent;\n}\n\n#mainNav {\n    background-color: #212529;\n}\n\n#mainNav .navbar-brand {\n    color: #FFC107;\n    font-family: 'Zikutang', sans-serif;\n}\n\n#mainNav .navbar-nav li a:hover, #mainNav .navbar-nav li a:active, #mainNav .navbar-nav li a:focus{\n    color: #eeeeee;\n    background-color: inherit;\n}\n\n@media (min-width: 992px) {\n    #mainNav {\n        padding-top: 10px;\n        padding-bottom: 10px;\n        -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;\n        -moz-transition: padding-top 0.3s, padding-bottom 0.3s;\n        transition: padding-top 0.3s, padding-bottom 0.3s;\n        border: none;\n        /*background-color: rgba(33, 37, 41, 0.47);*/\n    }\n    #mainNav .navbar-brand {\n        font-size: 1.75em;\n        -webkit-transition: all 0.3s;\n        -moz-transition: all 0.3s;\n        transition: all 0.3s;\n    }\n}\n\n.top-banner-container{\n    height: 360px;\n    background-repeat: no-repeat;\n    background-attachment: scroll;\n    background-position: center center;\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n    text-align: center;\n    margin-bottom: 40px;\n}\n\n\n.top-banner-container h2{\n    padding-top: 150px;\n    padding-bottom: 100px;\n    color: white;\n    font-size: 50px;\n    font-weight: 300;\n    line-height: 50px;\n    margin-bottom: 25px;\n    font-family: 'Zikutang', sans-serif;\n}\n\n/*title-line*/\n.titleLine {\n    margin: 0 auto 0 0;\n    display: table;\n}\n\n.titleLine span {\n    position: absolute;\n    width: 8px;\n    margin-top: 10px;\n    height: 24px;\n    background-color: #FFC107;\n}\n\n.titleLine h4 {\n    color: #3a3a3a;\n    font-size: 24px;\n    margin-left: 14px;\n    margin-bottom: 0;\n}\n\n.titleLine h4 small, .anArticle_container .page-header h3 small {\n    margin-left: 10px;\n    text-transform: uppercase;\n}\n\n.paragraphImg{\n    position: relative;\n    width: 80%;\n    margin: 0 auto;\n}\n\n.paragraphImg img{\n    width: 100%;\n}\n\n/*============page 1: landinge page=============*/\n\nheader.masthead {\n    text-align: center;\n    color: white;\n    background-repeat: no-repeat;\n    background-attachment: scroll;\n    background-position: top center;\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n}\n\nheader.masthead .intro-text {\n    padding-top: 150px;\n    padding-bottom: 100px;\n}\n\nheader.masthead .intro-text .intro-lead-in {\n    font-size: 22px;\n    line-height: 22px;\n    margin-bottom: 25px;\n    /*text-transform: uppercase;*/\n    font-family: 'Barlow_thin', sans-serif;\n}\n\nheader.masthead .intro-text .intro-heading {\n    font-size: 50px;\n    font-weight: 300;\n    line-height: 50px;\n    margin-bottom: 25px;\n    font-family: 'Zikutang', sans-serif;\n}\n\n@media (min-width: 768px) {\n    header.masthead .intro-text {\n        padding-top: 300px;\n        padding-bottom: 200px;\n    }\n    header.masthead .intro-text .intro-lead-in {\n        font-size: 40px;\n        line-height: 40px;\n        margin-bottom: 25px;\n    }\n    header.masthead .intro-text .intro-heading {\n        font-size: 75px;\n        line-height: 75px;\n        margin-bottom: 50px;\n    }\n}\n/*==============page 2: services================*/\n.service-heading {\n    margin: 15px 0;\n    text-transform: none;\n}\n\n.service-icons-wrapper{\n    width: 140px;\n    height: 140px;\n    padding: 8px;\n    margin: 0 auto 10px auto;\n    border: 1px solid #eeeeee;\n    border-radius: 50%;\n}\n\n.service-icons{\n    background: linear-gradient(to top, #FFC107 0%, #ffeb3b 100%);\n    /*background-color: #FFC107;*/\n    border-radius: 50%;\n}\n\n.service-icons img{\n    width: 100%;\n    padding: 20px;\n}\n\n\n.timeline {\n    position: relative;\n    padding: 0;\n    list-style: none;\n}\n\n.timeline:before {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 40px;\n    width: 2px;\n    margin-left: -1.5px;\n    content: '';\n    background-color: #e9ecef;\n}\n\n.timeline > li {\n    position: relative;\n    min-height: 50px;\n    margin-bottom: 50px;\n}\n\n.timeline > li:after, .timeline > li:before {\n    display: table;\n    content: ' ';\n}\n\n.timeline > li:after {\n    clear: both;\n}\n\n.timeline > li .timeline-panel {\n    position: relative;\n    float: right;\n    width: 100%;\n    padding: 0 20px 0 100px;\n    text-align: left;\n}\n\n.timeline > li .timeline-panel:before {\n    right: auto;\n    left: -15px;\n    border-right-width: 15px;\n    border-left-width: 0;\n}\n\n.timeline > li .timeline-panel:after {\n    right: auto;\n    left: -14px;\n    border-right-width: 14px;\n    border-left-width: 0;\n}\n\n.timeline > li .timeline-image {\n    position: absolute;\n    z-index: 100;\n    left: 0;\n    width: 80px;\n    height: 80px;\n    margin-left: 0;\n    text-align: center;\n    color: white;\n    border: 7px solid #e9ecef;\n    border-radius: 100%;\n    background-color: #FFC107;\n}\n\n.timeline > li .timeline-image h4 {\n    font-size: 10px;\n    line-height: 14px;\n    margin-top: 12px;\n}\n\n.timeline > li.timeline-inverted > .timeline-panel {\n    float: right;\n    padding: 0 20px 0 100px;\n    text-align: left;\n}\n\n.timeline > li.timeline-inverted > .timeline-panel:before {\n    right: auto;\n    left: -15px;\n    border-right-width: 15px;\n    border-left-width: 0;\n}\n\n.timeline > li.timeline-inverted > .timeline-panel:after {\n    right: auto;\n    left: -14px;\n    border-right-width: 14px;\n    border-left-width: 0;\n}\n\n.timeline > li:last-child {\n    margin-bottom: 0;\n}\n\n.timeline .timeline-heading h4 {\n    margin-top: 0;\n    color: inherit;\n}\n\n.timeline .timeline-heading h4.subheading {\n    text-transform: none;\n}\n\n.timeline .timeline-body > ul,\n.timeline .timeline-body > p {\n    margin-bottom: 0;\n}\n\n@media (min-width: 768px) {\n    .timeline:before {\n        left: 50%;\n    }\n    .timeline > li {\n        min-height: 100px;\n        margin-bottom: 100px;\n    }\n    .timeline > li .timeline-panel {\n        float: left;\n        width: 41%;\n        padding: 0 20px 20px 30px;\n        text-align: right;\n    }\n    .timeline > li .timeline-image {\n        left: 50%;\n        width: 100px;\n        height: 100px;\n        margin-left: -50px;\n    }\n    .timeline > li .timeline-image h4 {\n        font-size: 13px;\n        line-height: 18px;\n        margin-top: 16px;\n    }\n    .timeline > li.timeline-inverted > .timeline-panel {\n        float: right;\n        padding: 0 30px 20px 20px;\n        text-align: left;\n    }\n}\n\n@media (min-width: 992px) {\n    .timeline > li {\n        min-height: 150px;\n    }\n    .timeline > li .timeline-panel {\n        padding: 0 20px 20px;\n    }\n    .timeline > li .timeline-image {\n        width: 150px;\n        height: 150px;\n        margin-left: -75px;\n    }\n    .timeline > li .timeline-image h4 {\n        font-size: 18px;\n        line-height: 26px;\n        margin-top: 30px;\n    }\n    .timeline > li.timeline-inverted > .timeline-panel {\n        padding: 0 20px 20px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .timeline > li {\n        min-height: 170px;\n    }\n    .timeline > li .timeline-panel {\n        padding: 0 20px 20px 100px;\n    }\n    .timeline > li .timeline-image {\n        width: 170px;\n        height: 170px;\n        margin-left: -85px;\n    }\n    .timeline > li .timeline-image h4 {\n        margin-top: 40px;\n    }\n    .timeline > li.timeline-inverted > .timeline-panel {\n        padding: 0 100px 20px 20px;\n    }\n}\n\n.team-member {\n    margin-bottom: 50px;\n    text-align: center;\n}\n\n.team-member img {\n    width: 225px;\n    height: 225px;\n    border: 7px solid #fff;\n}\n\n.team-member h4 {\n    margin-top: 25px;\n    margin-bottom: 0;\n    text-transform: none;\n}\n\n.team-member p {\n    margin-top: 0;\n}\n\n/*==================page 5: contact us=================*/\nsection#contact {\n    background-color: #212529;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n\nsection#contact .section-heading {\n    color: #fff;\n}\n\nsection#contact .form-group {\n    margin-bottom: 25px;\n}\n\nsection#contact .form-group input,\nsection#contact .form-group textarea {\n    padding: 20px;\n}\n\nsection#contact .form-group input.form-control {\n    height: auto;\n}\n\nsection#contact .form-group textarea.form-control {\n    height: 248px;\n}\n\nsection#contact .form-control:focus {\n    border-color: #FFC107;\n    box-shadow: none;\n}\n\n\nsection#contact :-ms-input-placeholder {\n    font-weight: 700;\n    color: #ced4da;\n}\n\nsection#contact #junhuanContact{\n    font-size: 14px;\n    list-style: none;\n    padding: 0;\n    display: table;\n    margin: 40px auto;\n}\n\nsection#contact #junhuanContact li{\n    margin: 4px;\n    display: inline;\n    padding: 8px;\n    background-color: #FFC107;\n}\n\nsection#contact #sendMessageButton i{\n    margin-left: 10px;\n}\n\n/*===================footer===================*/\nfooter {\n    padding: 25px 0;\n    text-align: center;\n}\n\nfooter span.copyright {\n    font-size: 90%;\n    line-height: 40px;\n    text-transform: none;\n}\n\nfooter ul.quicklinks {\n    font-size: 90%;\n    line-height: 40px;\n    margin-bottom: 0;\n    text-transform: none;\n}\n\nul.social-buttons {\n    margin-bottom: 0;\n}\n\nul.social-buttons li a {\n    font-size: 20px;\n    line-height: 40px;\n    display: block;\n    width: 40px;\n    height: 40px;\n    -webkit-transition: all 0.3s;\n    -moz-transition: all 0.3s;\n    transition: all 0.3s;\n    color: white;\n    border-radius: 100%;\n    outline: none;\n    background-color: #212529;\n}\n\nul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {\n    background-color: #FFC107;\n}\n", ""]);
 
 // exports
 
@@ -48944,6 +48946,15 @@ var TopNavBar = React.createClass({
 								null,
 								React.createElement(
 									Link,
+									{ to: '/' },
+									'\u4E3B\u9875'
+								)
+							),
+							React.createElement(
+								'li',
+								null,
+								React.createElement(
+									Link,
 									{ to: '/aboutUs/' },
 									'\u5173\u4E8E\u6211\u4EEC'
 								)
@@ -48953,35 +48964,8 @@ var TopNavBar = React.createClass({
 								null,
 								React.createElement(
 									Link,
-									{ to: '/calendar/' },
-									'\u8D22\u7ECF\u65E5\u5386'
-								)
-							),
-							React.createElement(
-								'li',
-								null,
-								React.createElement(
-									Link,
-									{ to: '/articles/' },
-									'\u6C47\u8BC4'
-								)
-							),
-							React.createElement(
-								'li',
-								null,
-								React.createElement(
-									Link,
-									{ to: '/videos/' },
-									'\u89C6\u9891\u89E3\u6790'
-								)
-							),
-							React.createElement(
-								'li',
-								null,
-								React.createElement(
-									Link,
-									{ to: '/training/' },
-									'\u57F9\u8BAD'
+									{ to: '/services/' },
+									'\u4E1A\u52A1\u9886\u57DF'
 								)
 							)
 						)
@@ -49035,33 +49019,36 @@ module.exports = LandingPage;
 
 var React = __webpack_require__(1);
 
+var _require = __webpack_require__(16),
+    Link = _require.Link;
+
 var FirstPage = React.createClass({
-	displayName: "FirstPage",
+	displayName: 'FirstPage',
 
 	render: function render() {
 		return React.createElement(
-			"header",
-			{ className: "masthead", style: { backgroundImage: "url(\"../../image/background/landingBg.jpeg\")" } },
+			'header',
+			{ className: 'masthead', style: { backgroundImage: 'url("../../image/background/landingBg.jpeg")' } },
 			React.createElement(
-				"div",
-				{ className: "container" },
+				'div',
+				{ className: 'container' },
 				React.createElement(
-					"div",
-					{ className: "intro-text" },
+					'div',
+					{ className: 'intro-text' },
 					React.createElement(
-						"div",
-						{ className: "intro-lead-in" },
-						"Let forex trading realise dreams!"
+						'div',
+						{ className: 'intro-lead-in' },
+						'Let forex trading realise dreams!'
 					),
 					React.createElement(
-						"div",
-						{ className: "intro-heading text-uppercase" },
-						"\u9A8F\u5BF0\u79D1\u6280"
+						'div',
+						{ className: 'intro-heading text-uppercase' },
+						'\u9A8F\u5BF0\u79D1\u6280'
 					),
 					React.createElement(
-						"a",
-						{ className: "btn btn-primary btn-xl text-uppercase js-scroll-trigger", href: "#services" },
-						"\u70B9\u51FB\u8FDB\u5165"
+						Link,
+						{ className: 'btn btn-primary btn-xl text-uppercase js-scroll-trigger', to: '/aboutUs/' },
+						'\u5173\u4E8E\u6211\u4EEC'
 					)
 				)
 			)
@@ -49099,9 +49086,14 @@ var FirstPage = React.createClass({
 						{ className: "col-md-4" },
 						React.createElement(
 							"div",
-							{ className: "service-icons" },
-							React.createElement("img", { src: "../../image/icons/15.png" })
+							{ className: "service-icons-wrapper" },
+							React.createElement(
+								"div",
+								{ className: "service-icons" },
+								React.createElement("img", { src: "../../image/icons/15.png" })
+							)
 						),
+						React.createElement("hr", null),
 						React.createElement(
 							"h4",
 							{ className: "service-heading" },
@@ -49118,9 +49110,14 @@ var FirstPage = React.createClass({
 						{ className: "col-md-4" },
 						React.createElement(
 							"div",
-							{ className: "service-icons" },
-							React.createElement("img", { src: "../../image/icons/42.png" })
+							{ className: "service-icons-wrapper" },
+							React.createElement(
+								"div",
+								{ className: "service-icons" },
+								React.createElement("img", { src: "../../image/icons/training.svg" })
+							)
 						),
+						React.createElement("hr", null),
 						React.createElement(
 							"h4",
 							{ className: "service-heading" },
@@ -49137,9 +49134,14 @@ var FirstPage = React.createClass({
 						{ className: "col-md-4" },
 						React.createElement(
 							"div",
-							{ className: "service-icons" },
-							React.createElement("img", { src: "../../image/icons/98.png" })
+							{ className: "service-icons-wrapper" },
+							React.createElement(
+								"div",
+								{ className: "service-icons" },
+								React.createElement("img", { src: "../../image/icons/98.png" })
+							)
 						),
+						React.createElement("hr", null),
 						React.createElement(
 							"h4",
 							{ className: "service-heading" },
@@ -49224,7 +49226,7 @@ var ContactPage = React.createClass({
 						{ className: "col-lg-12" },
 						React.createElement(
 							"form",
-							{ id: "contactForm", name: "sentMessage", novalidate: true },
+							{ id: "contactForm", name: "sentMessage", noValidate: true },
 							React.createElement(
 								"div",
 								{ className: "row" },
@@ -53436,99 +53438,9 @@ var Training = React.createClass({
 module.exports = Training;
 
 /***/ }),
-/* 422 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(423);
-
-var React = __webpack_require__(1);
-var TopBanner = __webpack_require__(425);
-var TitleLine = __webpack_require__(426);
-
-var AboutUs = React.createClass({
-	displayName: 'AboutUs',
-
-	render: function render() {
-		return React.createElement(
-			'div',
-			null,
-			React.createElement(TopBanner, null),
-			React.createElement(
-				'div',
-				{ id: 'aboutUsContainer', className: 'container' },
-				React.createElement(TitleLine, { titleNameChn: '\u5173\u4E8E\u6211\u4EEC', titleNameEng: 'ABOUT US' }),
-				React.createElement(
-					'p',
-					null,
-					'\u9A8F\u5BF0\u79D1\u6280\u6709\u9650\u516C\u53F8\uFF0C\u7B80\u79F0\u9A8F\u5BF0\u79D1\u6280\uFF0C2018\u5E741\u6708\u6210\u7ACB\u4E8E\u91CD\u5E86\uFF0C\u516C\u53F8\u6838\u5FC3\u56E2\u961F\u7531\u66FE\u5C31\u804C\u4E8E\u9646\u91D1\u6240\u3001\u5E7F\u53D1\u8BC1\u5238\u3001\u963F\u91CC\u5DF4\u5DF4\u7B49\u4E00\u6D41\u516C\u53F8\u7684\u6210\u5458\u7EC4\u6210\u3002\u4F9D\u9760\u6DF1\u539A\u7684\u4E13\u4E1A\u80CC\u666F\u3001\u4E25\u8C28\u7684\u98CE\u63A7\u610F\u8BC6\u3001\u5F3A\u5927\u7684\u4EA7\u54C1\u7814\u53D1\u80FD\u529B\uFF0C\u6211\u4EEC\u81F4\u529B\u4E8E\u4E3A\u5BA2\u6237\u63D0\u4F9B\u503C\u5F97\u4FE1\u8D56\u7684\u5916\u6C47\u91D1\u878D\u670D\u52A1\u3002',
-					React.createElement('br', null),
-					'\u516C\u53F8\u81F4\u529B\u6210\u4E3A\u4E2D\u56FD\u6700\u4F18\u79C0\u7684\u5916\u6C47\u91D1\u878D\u670D\u52A1\u5546, \u65D7\u4E0B\u5305\u542B\u5916\u6C47\u5E73\u53F0\u642D\u5EFA\u677F\u5757\u3001\u667A\u80FDEA\u7814\u53D1\u677F\u5757\u3001\u5916\u6C47\u57F9\u8BAD\u677F\u5757\u4E09\u5927\u6838\u5FC3\u4E1A\u52A1, \u4E3A\u5916\u6C47\u5E73\u53F0\u3001\u5916\u6C47\u4EA4\u6613\u8005\u63D0\u4F9B\u5168\u6D41\u7A0B\u7684\u8D44\u91D1\u3001\u8D44\u4EA7\u7BA1\u7406\u670D\u52A1\u3002',
-					React.createElement('br', null),
-					'\u5728\u5916\u6C47\u5E73\u53F0\u4E91\u642D\u5EFA\u65B9\u9762\uFF0C\u6211\u4EEC\u63D0\u4F9B\u4E91\u670D\u52A1\u5668\u642D\u5EFA\u7BA1\u7406\u3001\u6570\u636E\u6E90\u53CALP\u63A5\u5165\u3001\u4E13\u5C5EAPP\u6253\u9020\u3001\u5BA2\u6237\u7BA1\u7406\u7CFB\u7EDF\u7B49\u4E00\u7AD9\u5F0F\u4E92\u8054\u7F51\u5916\u6C47\u91D1\u878D\u670D\u52A1\uFF1B\u5728\u667A\u80FDEA\u7814\u53D1\u65B9\u9762\uFF0C\u6211\u4EEC\u9762\u5411\u673A\u6784\u63D0\u4F9B\u5168\u6D41\u7A0B\u7684\u7A0B\u5E8F\u5F0F\u4EA4\u6613\u89E3\u51B3\u65B9\u6848\uFF1B\u5728\u5916\u6C47\u57F9\u8BAD\u65B9\u9762\uFF0C\u63D0\u4F9B\u8D22\u7ECF\u65E5\u5386\u3001\u5373\u65F6\u65B0\u95FB\u8D44\u8BAF\u3001\u4EA4\u6613\u7B56\u7565\u3001\u5B66\u4E60\u6587\u5E93\u548C\u7CBE\u54C1\u8BFE\u7A0B\u7B49\u6587\u5B57\u7C7B\u548C\u89C6\u9891\u7C7B\u57F9\u8BAD\u670D\u52A1\u3002',
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'div',
-					{ className: 'paragraphImg' },
-					React.createElement('img', { src: '../../image/paragraph/aboutUs.jpg' })
-				)
-			)
-		);
-	}
-
-});
-
-module.exports = AboutUs;
-
-/***/ }),
-/* 423 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(424);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(27)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!./aboutUs.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!./aboutUs.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 424 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(26)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "#aboutUsContainer{\n    width: 60%;\n    padding-bottom: 50px;\n}\n\n#aboutUsContainer p{\n    font-size: 18px;\n}", ""]);
-
-// exports
-
-
-/***/ }),
+/* 422 */,
+/* 423 */,
+/* 424 */,
 /* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53547,7 +53459,7 @@ var TopNavBar = React.createClass({
 			React.createElement(
 				"h2",
 				null,
-				"\u5916\u6C47\u8D44\u4EA7\u914D\u7F6E\uFF0C\u4ECE\u6211\u4EEC\u5F00\u59CB"
+				this.props.bannerName
 			)
 		);
 	}
@@ -54698,6 +54610,227 @@ function matchDispatchToProps(dispatch) {
 
 module.exports = (0, _reactRedux.connect)(mapStatsToProps, matchDispatchToProps)(Register);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+
+/***/ }),
+/* 434 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(435);
+
+var React = __webpack_require__(1);
+var TopBanner = __webpack_require__(425);
+var TitleLine = __webpack_require__(426);
+
+var AboutUs = React.createClass({
+	displayName: 'AboutUs',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(TopBanner, { bannerName: '\u5916\u6C47\u8D44\u4EA7\u914D\u7F6E\uFF0C\u4ECE\u6211\u4EEC\u5F00\u59CB' }),
+			React.createElement(
+				'div',
+				{ className: 'staticPageContainer container', id: 'aboutUsContainer' },
+				React.createElement(TitleLine, { titleNameChn: '\u5173\u4E8E\u6211\u4EEC', titleNameEng: 'ABOUT US' }),
+				React.createElement(
+					'p',
+					null,
+					'\u9A8F\u5BF0\u79D1\u6280\u6709\u9650\u516C\u53F8\uFF0C\u7B80\u79F0\u9A8F\u5BF0\u79D1\u6280\uFF0C2018\u5E741\u6708\u6210\u7ACB\u4E8E\u91CD\u5E86\uFF0C\u516C\u53F8\u6838\u5FC3\u56E2\u961F\u7531\u66FE\u5C31\u804C\u4E8E\u9646\u91D1\u6240\u3001\u5E7F\u53D1\u8BC1\u5238\u3001\u963F\u91CC\u5DF4\u5DF4\u7B49\u4E00\u6D41\u516C\u53F8\u7684\u6210\u5458\u7EC4\u6210\u3002\u4F9D\u9760\u6DF1\u539A\u7684\u4E13\u4E1A\u80CC\u666F\u3001\u4E25\u8C28\u7684\u98CE\u63A7\u610F\u8BC6\u3001\u5F3A\u5927\u7684\u4EA7\u54C1\u7814\u53D1\u80FD\u529B\uFF0C\u6211\u4EEC\u81F4\u529B\u4E8E\u4E3A\u5BA2\u6237\u63D0\u4F9B\u503C\u5F97\u4FE1\u8D56\u7684\u5916\u6C47\u91D1\u878D\u670D\u52A1\u3002',
+					React.createElement('br', null),
+					'\u516C\u53F8\u81F4\u529B\u6210\u4E3A\u4E2D\u56FD\u6700\u4F18\u79C0\u7684\u5916\u6C47\u91D1\u878D\u670D\u52A1\u5546, \u65D7\u4E0B\u5305\u542B\u5916\u6C47\u5E73\u53F0\u642D\u5EFA\u677F\u5757\u3001\u667A\u80FDEA\u7814\u53D1\u677F\u5757\u3001\u5916\u6C47\u57F9\u8BAD\u677F\u5757\u4E09\u5927\u6838\u5FC3\u4E1A\u52A1, \u4E3A\u5916\u6C47\u5E73\u53F0\u3001\u5916\u6C47\u4EA4\u6613\u8005\u63D0\u4F9B\u5168\u6D41\u7A0B\u7684\u8D44\u91D1\u3001\u8D44\u4EA7\u7BA1\u7406\u670D\u52A1\u3002',
+					React.createElement('br', null),
+					'\u5728\u5916\u6C47\u5E73\u53F0\u4E91\u642D\u5EFA\u65B9\u9762\uFF0C\u6211\u4EEC\u63D0\u4F9B\u4E91\u670D\u52A1\u5668\u642D\u5EFA\u7BA1\u7406\u3001\u6570\u636E\u6E90\u53CALP\u63A5\u5165\u3001\u4E13\u5C5EAPP\u6253\u9020\u3001\u5BA2\u6237\u7BA1\u7406\u7CFB\u7EDF\u7B49\u4E00\u7AD9\u5F0F\u4E92\u8054\u7F51\u5916\u6C47\u91D1\u878D\u670D\u52A1\uFF1B\u5728\u667A\u80FDEA\u7814\u53D1\u65B9\u9762\uFF0C\u6211\u4EEC\u9762\u5411\u673A\u6784\u63D0\u4F9B\u5168\u6D41\u7A0B\u7684\u7A0B\u5E8F\u5F0F\u4EA4\u6613\u89E3\u51B3\u65B9\u6848\uFF1B\u5728\u5916\u6C47\u57F9\u8BAD\u65B9\u9762\uFF0C\u63D0\u4F9B\u8D22\u7ECF\u65E5\u5386\u3001\u5373\u65F6\u65B0\u95FB\u8D44\u8BAF\u3001\u4EA4\u6613\u7B56\u7565\u3001\u5B66\u4E60\u6587\u5E93\u548C\u7CBE\u54C1\u8BFE\u7A0B\u7B49\u6587\u5B57\u7C7B\u548C\u89C6\u9891\u7C7B\u57F9\u8BAD\u670D\u52A1\u3002',
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'div',
+					{ className: 'paragraphImg' },
+					React.createElement('img', { src: '../../image/paragraph/aboutUs.jpg' })
+				)
+			)
+		);
+	}
+
+});
+
+module.exports = AboutUs;
+
+/***/ }),
+/* 435 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(436);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(27)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!./staticpages.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!./staticpages.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 436 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(26)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".staticPageContainer{\n    margin-bottom: 150px;\n}\n\nhr {\n    border: 0;\n    height: 1px;\n    background: #333;\n    background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%, hsla(0, 0%, 87%, 0.75)), color-stop(100%,hsla(0,0%,0%,0)));\n    background: -webkit-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0, 0%, 87%, 0.75) 50%, hsla(0,0%,0%,0) 100%);\n    background:    -moz-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0, 0%, 87%, 0.75) 50%, hsla(0,0%,0%,0) 100%);\n    background:     -ms-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0, 0%, 87%, 0.75) 50%, hsla(0,0%,0%,0) 100%);\n    background:      -o-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0, 0%, 87%, 0.75) 50%, hsla(0,0%,0%,0) 100%);\n    background:         linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0, 0%, 87%, 0.75) 50%, hsla(0,0%,0%,0) 100%);\n}\n/*============aboutusContainer=============*/\n#aboutUsContainer{\n    width: 60%;\n}\n\n#aboutUsContainer p{\n    font-size: 18px;\n}\n\n/*============servicesContainer=============*/\n#servicesContainer{\n    padding: 20px;\n}\n#servicesContainer .thumbnail{\n    padding: 0;\n    min-height: 320px;\n}\n\n#servicesContainer .thumbnail .serviceTopMargin{\n    height: 14px;\n    background-color: #FFC107;\n    margin-bottom: 20px;\n}\n\n#servicesContainer .thumbnail img{\n    width: 60px;\n}\n\n#servicesContainer .thumbnail .caption h4{\n    text-align: center;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 437 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(435);
+
+var React = __webpack_require__(1);
+var TopBanner = __webpack_require__(425);
+
+var ServicesArea = React.createClass({
+	displayName: 'ServicesArea',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(TopBanner, { bannerName: '\u5916\u6C47\u91D1\u878D\u4E00\u7AD9\u5F0F\u670D\u52A1' }),
+			React.createElement(
+				'div',
+				{ className: 'staticPageContainer container', id: 'servicesContainer' },
+				React.createElement(
+					'div',
+					{ className: 'row' },
+					React.createElement(
+						'div',
+						{ className: 'col-lg-12 text-center' },
+						React.createElement(
+							'h2',
+							{ className: 'section-heading text-uppercase' },
+							'\u7CBE\u51C6\u670D\u52A1'
+						),
+						React.createElement(
+							'h3',
+							{ className: 'section-subheading text-muted' },
+							'\u5916\u6C47\u884C\u4E1A\u5404\u54C1\u7C7B\u6D77\u91CF\u8D44\u8BAF'
+						)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'row' },
+					React.createElement(
+						'div',
+						{ className: 'col-sm-6 col-md-4' },
+						React.createElement(
+							'div',
+							{ className: 'thumbnail' },
+							React.createElement('div', { className: 'serviceTopMargin' }),
+							React.createElement('img', { src: '../../image/icons/service1.svg' }),
+							React.createElement(
+								'div',
+								{ className: 'caption' },
+								React.createElement(
+									'h4',
+									null,
+									'\u79C1\u4EBA\u5BA2\u6237\u63A8\u8350'
+								),
+								React.createElement('hr', null),
+								React.createElement(
+									'p',
+									null,
+									'\u901A\u8FC7\u6211\u4EEC\u7684\u5B9A\u5236\u91D1\u878D\u89E3\u51B3\u65B9\u6848\uFF0C\u79C1\u4EBA\u5BA2\u6237\u3001\u4F01\u4E1A\u548C\u673A\u6784\u5747\u53EF\u53D7\u76CA\u4E8E\u6211\u4EEC\u7684\u91D1\u878D\u79D1\u6280\u4E13\u957F\u3002\u6211\u4EEC\u63A8\u8350\u5BA2\u6237\u5728\u745E\u58EB\u745E\u8BAF\u94F6\u884C\u8FDB\u884C\u5916\u6C47\u4EA4\u6613\uFF0C\u745E\u8BAF\u67093\u79CD\u5907\u53D7\u8D5E\u8A89\u7684\u4EA4\u6613\u5E73\u53F0\u53EF\u4F9B\u9009\u62E9\uFF0C\u8FD9\u4E9B\u878D\u5408\u745E\u8BAF\u5353\u8D8A\u6D41\u52A8\u6027\u548C\u6267\u884C\u7684\u5E73\u53F0\u53EF\u5B9E\u73B0\u5176\u5B83\u7ECF\u7EAA\u5546\u65E0\u6CD5\u63D0\u4F9B\u7684\u9AD8\u7EA7\u7B56\u7565\u548C\u8BA2\u5355\u7C7B\u578B\u3002'
+								)
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-sm-6 col-md-4' },
+						React.createElement(
+							'div',
+							{ className: 'thumbnail' },
+							React.createElement('div', { className: 'serviceTopMargin' }),
+							React.createElement('img', { src: '../../image/icons/product.svg' }),
+							React.createElement(
+								'div',
+								{ className: 'caption' },
+								React.createElement(
+									'h4',
+									null,
+									'\u4ECB\u7ECD\u9A8F\u5BF0\u79D1\u6280\u4EA7\u54C1'
+								),
+								React.createElement('hr', null),
+								React.createElement(
+									'p',
+									null,
+									'\u63A8\u5E7F\u9A8F\u5BF0\u79D1\u6280\u4EA7\u54C1\uFF0C\u6211\u4EEC\u63D0\u4F9B\u6781\u5177\u5438\u5F15\u529B\u7684\u5B9A\u5236\u916C\u91D1\u65B9\u6848\u3001\u9AD8\u7EA7\u5BA2\u6237\u8FFD\u8E2A\u7CFB\u7EDF(\u5408\u4F5C\u4F19\u4F34\u94FE\u63A5)\u3001\u81EA\u52A8\u4F63\u91D1\u62A5\u544A\u3001\u200B\u5FEB\u901F\u5728\u7EBF\u5F00\u6237\u5904\u7406\u3001\u54C1\u79CD\u4E30\u5BCC\u3001\u4EA4\u6613\u6761\u4EF6\u6781\u5177\u7ADE\u4E89\u529B\u7684\u91D1\u878D\u4EA7\u54C1\u3001\u5F3A\u5927\u4E14\u7528\u6237\u53CB\u597D\u7684\u4EA4\u6613\u5E73\u53F0\u3001\u5168\u5929\u63D0\u4F9B\u72EC\u5BB6\u5E02\u573A\u7814\u7A76\u3001\u4E13\u804C\u591A\u8BED\u79CD\u5BA2\u6237\u652F\u6301\u56E2\u961F\u3002'
+								)
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-sm-6 col-md-4' },
+						React.createElement(
+							'div',
+							{ className: 'thumbnail' },
+							React.createElement('div', { className: 'serviceTopMargin' }),
+							React.createElement('img', { src: '../../image/icons/service3.svg' }),
+							React.createElement(
+								'div',
+								{ className: 'caption' },
+								React.createElement(
+									'h4',
+									null,
+									'\u4E13\u4E1A\u5916\u6C47\u57F9\u8BAD'
+								),
+								React.createElement('hr', null),
+								React.createElement(
+									'p',
+									null,
+									'\u4F9D\u6258\u5927\u6570\u636E\u5206\u6790\u548C\u4E91\u8BA1\u7B97\u6280\u672F\uFF0C\u6211\u4EEC\u63D0\u4F9B\u8D22\u7ECF\u65E5\u5386\u3001\u5373\u65F6\u65B0\u95FB\u8D44\u8BAF\u3001\u4EA4\u6613\u7B56\u7565\u3001\u5B66\u4E60\u6587\u5E93\u548C\u7CBE\u54C1\u8BFE\u7A0B\u7B49\u6587\u5B57\u7C7B\u548C\u89C6\u9891\u7C7B\u57F9\u8BAD\u670D\u52A1\u3002'
+								)
+							)
+						)
+					)
+				)
+			)
+		);
+	}
+
+});
+
+module.exports = ServicesArea;
 
 /***/ })
 /******/ ]);
