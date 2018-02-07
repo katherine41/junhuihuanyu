@@ -1,82 +1,82 @@
-/*====================videos page===========================*/
-.videos_container .col-sm-3{
-    padding:6px 5px;
-}
+/*!*====================videos page===========================*!*/
+/*.videos_container .col-sm-3{*/
+    /*padding:6px 5px;*/
+/*}*/
 
-.videos_container .thumbnail, .relatedVideos_container .thumbnail{
-    padding:0;
-    margin:0;
-    text-align: center;
-}
+/*.videos_container .thumbnail, .relatedVideos_container .thumbnail{*/
+    /*padding:0;*/
+    /*margin:0;*/
+    /*text-align: center;*/
+/*}*/
 
-.videoLengthDiv{
-    position:absolute;
-    right:6px;
-    margin-top:-24px;
-    padding: 4px 6px;
-    background-color: rgba(20, 20, 19, 0.71);
-    height:24px;
-    font-size:12px;
-    color:#fff;
-}
+/*.videoLengthDiv{*/
+    /*position:absolute;*/
+    /*right:6px;*/
+    /*margin-top:-24px;*/
+    /*padding: 4px 6px;*/
+    /*background-color: rgba(20, 20, 19, 0.71);*/
+    /*height:24px;*/
+    /*font-size:12px;*/
+    /*color:#fff;*/
+/*}*/
 
-.deleteVideoBtn{
-    cursor: pointer;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    padding: 5px;
-    border-radius: 0 0 0 5px;
-}
-.deleteVideoBtn img{
-    width: 18px;
-}
+/*.deleteVideoBtn{*/
+    /*cursor: pointer;*/
+    /*background-color: #fff;*/
+    /*border-top: 1px solid #ddd;*/
+    /*border-right: 1px solid #ddd;*/
+    /*padding: 5px;*/
+    /*border-radius: 0 0 0 5px;*/
+/*}*/
+/*.deleteVideoBtn img{*/
+    /*width: 18px;*/
+/*}*/
 
-/*====================a video page===========================*/
-.tutorialVideo_container video{
-    width: 100%;
-    height: auto;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    border-radius: 6px;
-}
+/*!*====================a video page===========================*!*/
+/*.tutorialVideo_container video{*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
+    /*border-radius: 6px;*/
+/*}*/
 
-.tutorialVideo_container .videos_container{
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #eee;
-}
+/*.tutorialVideo_container .videos_container{*/
+    /*margin-top: 20px;*/
+    /*padding: 20px;*/
+    /*background-color: #eee;*/
+/*}*/
 
-/*large*/
-.videoCoverImgContainer{
-    background-image: url("../../public/image/star.jpg");
-    width: 100%;
-    height: 140px;
-}
+/*!*large*!*/
+/*.videoCoverImgContainer{*/
+    /*background-image: url("../../public/image/star.jpg");*/
+    /*width: 100%;*/
+    /*height: 140px;*/
+/*}*/
 
-/*mid*/
-@media screen and (max-width: 991px) {
-    .videoCoverImgContainer{
-        width: 100%;
-        height: 110px;
-    }
-}
+/*!*mid*!*/
+/*@media screen and (max-width: 991px) {*/
+    /*.videoCoverImgContainer{*/
+        /*width: 100%;*/
+        /*height: 110px;*/
+    /*}*/
+/*}*/
 
-/*small*/
-@media screen and (max-width: 767px) {
-    .videoCoverImgContainer{
-        width: 100%;
-        height: 140px;
-    }
-}
+/*!*small*!*/
+/*@media screen and (max-width: 767px) {*/
+    /*.videoCoverImgContainer{*/
+        /*width: 100%;*/
+        /*height: 140px;*/
+    /*}*/
+/*}*/
 
-/*====================related videos block===========================*/
-.relatedVideos_container .thumbnail{
-    margin-bottom: 10px;
-}
+/*!*====================related videos block===========================*!*/
+/*.relatedVideos_container .thumbnail{*/
+    /*margin-bottom: 10px;*/
+/*}*/
 
-.relatedVideos_container .caption{
-    padding:0;
-}
-.relatedVideos_container .caption p{
-    display: none;
-}
+/*.relatedVideos_container .caption{*/
+    /*padding:0;*/
+/*}*/
+/*.relatedVideos_container .caption p{*/
+    /*display: none;*/
+/*}*/

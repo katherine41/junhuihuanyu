@@ -1,0 +1,8 @@
+#aboutUsContainer{
+    width: 60%;
+    padding-bottom: 50px;
+}
+
+#aboutUsContainer p{
+    font-size: 18px;
+}

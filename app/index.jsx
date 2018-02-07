@@ -2,8 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory}=require('react-router');
 var App = require('./app.jsx');
-import 'bootstrap/dist/css/bootstrap.css';
-var IndexPage = require('./components/IndexPage.jsx');
+var LandingPage = require('./components/LandingPage.jsx');
 var Calendar = require('./components/Calendar.jsx');
 var Videos = require('./components/videos/Videos.jsx');
 var AVideo = require('./components/videos/AVideo2.jsx');
@@ -12,7 +11,7 @@ var AnArticle = require('./components/articles/AnArticle.jsx');
 var ArticleCates = require('./components/articles/ArticleCates');
 var Management = require('./components/management/Management');
 var Training = require('./components/Training');
-var AboutUs = require('./components/AboutUs');
+var AboutUs = require('./components/aboutus-components/AboutUs');
 var AddArticle = require('./components/management/AddArticle');
 var EditArticle = require('./components/articles/EditArticle');
 var AddVideo = require('./components/management/AddVideo');
@@ -46,7 +45,7 @@ ReactDOM.render(
             <Route path="login/" component={Login}/>
             <Route path="register/" component={Register}/>
             <Route path="profile/" component={Profile}/>
-            <IndexRoute component={IndexPage}/>
+            <IndexRoute component={LandingPage}/>
         </Route>
     </Router>,
   document.getElementById('app')

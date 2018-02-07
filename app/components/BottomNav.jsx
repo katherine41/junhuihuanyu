@@ -1,5 +1,5 @@
 var React = require('react');
-import '../../public/css/style.css';
+// import '../../public/css/style.css';
 
 
 var BottomNav = React.createClass({

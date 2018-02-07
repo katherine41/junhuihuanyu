@@ -1,5 +1,5 @@
 var React = require('react');
-import '../../../public/css/style.css';
+// import '../../../public/css/style.css';
 import env_variables from '../../components/environment.js';
 
 var Register = React.createClass({
