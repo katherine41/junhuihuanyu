@@ -8,11 +8,14 @@ var Videos = require('./components/videos/Videos.jsx');
 var AVideo = require('./components/videos/AVideo2.jsx');
 var Articles = require('./components/articles/Articles.jsx');
 var AnArticle = require('./components/articles/AnArticle.jsx');
+// var AricleElement = require('./components/articlesElements/ArticleElement.jsx');
 var ArticleCates = require('./components/articles/ArticleCates');
 var Management = require('./components/management/Management');
 var Training = require('./components/Training');
+// static pages
 var AboutUs = require('./components/staticpage-components/AboutUs');
 var ServicesArea = require('./components/staticpage-components/ServicesArea');
+var MarketInfo = require('./components/staticpage-components/MarketInfo');
 var AddArticle = require('./components/management/AddArticle');
 var EditArticle = require('./components/articles/EditArticle');
 var AddVideo = require('./components/management/AddVideo');
@@ -28,7 +31,7 @@ ReactDOM.render(
         <Route path="/" component={App}>
             <Route path="calendar/" component={Calendar}/>
             <Route path="articles/">
-                <IndexRoute component={Articles}/>
+                <IndexRoute component={MarketInfo}/>
                 <Route path=":topicId" component={AnArticle}/>
             </Route>
             <Route path="articleCates/:cateId" component={ArticleCates}/>
@@ -43,6 +46,7 @@ ReactDOM.render(
             </Route>
             <Route path="aboutUs/" component={AboutUs}/>
             <Route path="services/" component={ServicesArea}/>
+            {/*<Route path="articles/" component={MarketInfo}/>*/}
             <Route path="training/" component={Training}/>
             <Route path="login/" component={Login}/>
             <Route path="register/" component={Register}/>

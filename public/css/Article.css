@@ -1,44 +1,52 @@
-/*!*article category block*!*/
-/*.articleCategory_container{*/
-    /*padding: 9px;*/
-    /*margin-bottom: 30px;*/
-/*}*/
-/*!*====================articles page===========================*!*/
-/*!*inside of article blog*!*/
-/*.articleBlog h3{*/
-    /*padding-bottom: 10px;*/
-    /*border-bottom: 1px solid rgba(221, 221, 221, 0.81);*/
-/*}*/
+/*article category block*/
 
-/*.articleBlog h3 small{*/
-    /*margin-left: 10px;*/
-/*}*/
+.articleCategory_container{
+    padding: 9px;
+    margin-bottom: 30px;
+}
+.anArticle_container a {
+    color: #212529;
+}
 
-/*.articleBlog .article_cate_btn{*/
-    /*margin-top: 16px;*/
-/*}*/
+.anArticle_container a:hover {
+    color: #06090a;
+}
+/*====================articles page===========================*/
+/*inside of article blog*/
+.articleBlog h3{
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.81);
+}
 
-/*.articleBlog .blockBtn{*/
-    /*position:absolute;*/
-    /*margin-top: -10px;*/
-    /*margin-right: 30px;*/
-    /*right:0;*/
-/*}*/
-/*!*====================An Article page===========================*!*/
-/*.anArticle_container .page-header {*/
-    /*margin-top:0;*/
-/*}*/
+.articleBlog h3 small{
+    margin-left: 10px;
+}
 
-/*.anArticle_container .page-header h3{*/
-    /*margin:0;*/
-    /*padding:0;*/
-/*}*/
+.articleBlog .article_cate_btn{
+    margin-top: 16px;
+}
 
-/*!*edit button, delete button*!*/
-/*.anArticle_container .editArticleBtn, .articleBlog .deleteArticleBtn{*/
-    /*margin-right: 10px;*/
-    /*cursor: pointer;*/
-/*}*/
-/*.anArticle_container .editArticleBtn img, .articleBlog .deleteArticleBtn img{*/
-    /*width: 18px;*/
-/*}*/
+.articleBlog .blockBtn{
+    position:absolute;
+    margin-top: -10px;
+    margin-right: 30px;
+    right:0;
+}
+/*====================An Article page===========================*/
+.anArticle_container .page-header {
+    margin-top:0;
+}
+
+.anArticle_container .page-header h3{
+    margin:0;
+    padding:0;
+}
+
+/*edit button, delete button*/
+.anArticle_container .editArticleBtn, .articleBlog .deleteArticleBtn{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.anArticle_container .editArticleBtn img, .articleBlog .deleteArticleBtn img{
+    width: 18px;
+}

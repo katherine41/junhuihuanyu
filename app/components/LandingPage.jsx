@@ -2,8 +2,8 @@ var React = require('react');
 var FirstPage = require('./index-components/FirstPage');
 var SecondPage = require('./index-components/SecondPage');
 // var ThirdPage = require('./index-components/ThirdPage');
-// var ArticlesPage = require('./index-components/ArticlesPage');
-// var StudyPage = require('./index-components/StudyPage');
+var ArticlesPage = require('./index-components/ArticlesPage');
+var StudyPage = require('./index-components/StudyPage');
 var ContactPage = require('./index-components/ContactPage');
 
 
@@ -14,8 +14,8 @@ var LandingPage = React.createClass({
 				<FirstPage/>
 				<SecondPage/>
 				{/*<ThirdPage/>*/}
-				{/*<ArticlesPage/>*/}
-				{/*<StudyPage/>*/}
+				<ArticlesPage/>
+				<StudyPage/>
 				<ContactPage/>
 			</div>
 		)
