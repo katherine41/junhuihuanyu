@@ -110,7 +110,7 @@ var Management = React.createClass({
                            data=''
                            placeholder='请输入文章内容'
                 />
-                <input type="button" onClick={()=>this.props.addArticle()} value="发布"/>
+                <input type="button" className="btn btn-primary" onClick={()=>this.props.addArticle()} value="发布"/>
 
                 <div className="cateMgtContainer modal" id="cateMgtModal">
                     <div className="modal-content">

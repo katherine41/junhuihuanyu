@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory}=require('react-router');
 var App = require('./app.jsx');
 var LandingPage = require('./components/LandingPage.jsx');
-var Calendar = require('./components/Calendar.jsx');
+var Calendar = require('./components/staticpage-components/Calendar.jsx');
 var Videos = require('./components/videos/Videos.jsx');
 var AVideo = require('./components/videos/AVideo2.jsx');
 var Articles = require('./components/articles/Articles.jsx');
@@ -31,7 +31,7 @@ ReactDOM.render(
         <Route path="/" component={App}>
             <Route path="calendar/" component={Calendar}/>
             <Route path="articles/">
-                <IndexRoute component={MarketInfo}/>
+                <IndexRoute component={Articles}/>
                 <Route path=":topicId" component={AnArticle}/>
             </Route>
             <Route path="articleCates/:cateId" component={ArticleCates}/>
@@ -46,7 +46,7 @@ ReactDOM.render(
             </Route>
             <Route path="aboutUs/" component={AboutUs}/>
             <Route path="services/" component={ServicesArea}/>
-            {/*<Route path="articles/" component={MarketInfo}/>*/}
+            <Route path="marketInfo/" component={MarketInfo}/>
             <Route path="training/" component={Training}/>
             <Route path="login/" component={Login}/>
             <Route path="register/" component={Register}/>

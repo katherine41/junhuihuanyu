@@ -10,6 +10,8 @@ var ArticleList = require('./ArticleList');
 var CategoryList = require('./CategoryList');
 var RelatedArticlesList = require('./RelatedArticlesList');
 var TitleLine = require('../TitleLine');
+var TopBanner = require('../common-components/TopBanner');
+var subtitleName = "汇聚金融投资行业最快、最准、最全的数据和资讯，为广大金融投资者提供第一手的财经数据、国际动态、市场观察，我们立志成为业内最实用、最便捷的财经信息服务机构。";
 
 //=======================component details================================
 var Articles = React.createClass({
@@ -20,11 +22,12 @@ var Articles = React.createClass({
     render: function () {
         return (
             <div>
-                <div className="contentTop"></div>
+                <TopBanner bannerName="汇市资讯" subtitleName={subtitleName}/>
+                {/*<div className="contentTop"></div>*/}
                 <div className="contentMiddle article_container container">
                     <div className="row">
                         <div className="col-sm-8">
-                            <TitleLine titleNameChn="汇评" titleNameEng="ARTICLES"/>
+                            {/*<TitleLine titleNameChn="汇评" titleNameEng="ARTICLES"/>*/}
                             <ArticleList posts={this.props.articles} clickDeletedArticle={this.props.clickDeletedArticle} deleteArticle={this.props.deleteArticle} deletedArticleId={this.props.deletedArticleId}/>
                         </div>
                         <div className="col-sm-4">

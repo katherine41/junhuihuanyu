@@ -61,7 +61,7 @@ var AnArticle = React.createClass({
                 <div className="row">
                     <div className="col-sm-8">
                         <div className="page-header">
-                            <h3>{formattedPost.title}<small><Link to={`/articleCates/${formattedPost.categoryId}`}>{formattedPost.category}</Link></small></h3>
+                            <h3>{formattedPost.title}<small>分类：<Link to={`/articleCates/${formattedPost.categoryId}`}>{formattedPost.category}</Link></small></h3>
                             <small>{formattedPost.createDate}</small>
                           {articleEditBtn}
                         </div>
