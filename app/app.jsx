@@ -20,7 +20,7 @@ import '../public/css/common.css';
 
 // var BottomNav = require('./components/BottomNav');
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import env_variables from './components/environment.js';
 
 
 const store=createStore(allReducers,redux.compose(
@@ -32,7 +32,7 @@ var App = React.createClass({
   render:function(){
     return(
         <div>
-            <TopNavBar id="page-top"/>
+            <TopNavBar id="page-top" isLoggedIn={env_variables.isLoggedIn()}/>
             <Provider store={store}>
                 <div>
                     {this.props.children}

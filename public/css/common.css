@@ -140,8 +140,8 @@ img::-moz-selection {
 /*yello background*/
 .titleLine span,
 .cateSelected,
-.blockBtn,
-.blockBtn a,
+/*.blockBtn,*/
+/*.blockBtn a,*/
 .addNewWrapper label[for=videoCoverBtn],
 .addNewWrapper label[for=uploadVideoBtn],
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
@@ -151,8 +151,8 @@ img::-moz-selection {
 }
 
 .cateSelected:hover,
-.blockBtn:hover,
-.blockBtn a:hover,
+/*.blockBtn:hover,*/
+/*.blockBtn a:hover,*/
 .addNewWrapper label[for=videoCoverBtn]:hover,
 .addNewWrapper label[for=uploadVideoBtn]:hover{
     background-color: #ffa621;
@@ -351,7 +351,7 @@ header.masthead .intro-text .intro-heading {
 }
 
 .service-icons{
-    background: linear-gradient(to top, #FFC107 0%, #ffeb3b 100%);
+    background: linear-gradient(to bottom, #ffeb3b 0%, #ffa904 100%);
     /*background-color: #FFC107;*/
     border-radius: 50%;
 }

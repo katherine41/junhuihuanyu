@@ -1,6 +1,6 @@
 var React = require('react');
 
-var TopNavBar = React.createClass({
+var TopBanner = React.createClass({
 	render:function(){
 		return (
 			<div className="top-banner-container" style={{backgroundImage: `url("../../image/background/bannerImg.jpeg")`}}>
@@ -13,4 +13,4 @@ var TopNavBar = React.createClass({
 });
 
 
-module.exports = TopNavBar;
+module.exports = TopBanner;

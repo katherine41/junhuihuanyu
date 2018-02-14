@@ -19,7 +19,7 @@ var PopupPanel = React.createClass({
 				popupContentObj.header = '确认删除此文章？';
 				popupContentObj.btn1 = '确认';
 				popupContentObj.btn2 = '取消';
-				popupBtnContent = <button type="button" className="btn btn-primary blockBtn" onClick={()=>this.props.deleteArticle(this.props.deletedArticleId)}>
+				popupBtnContent = <button type="button" className="btn btn-primary" onClick={()=>this.props.deleteArticle(this.props.deletedArticleId)}>
 					{popupContentObj.btn1}
 				</button>;
 				break;
@@ -27,7 +27,7 @@ var PopupPanel = React.createClass({
 				popupContentObj.header = '添加成功！';
 				popupContentObj.btn1 = '查看所有文章';
 				popupContentObj.btn2 = '继续添加';
-				popupBtnContent = <button type="button" className="btn btn-primary blockBtn" >
+				popupBtnContent = <button type="button" className="btn btn-primary" >
 					<Link to="/articles/">{popupContentObj.btn1}</Link>
 				</button>;
 		}
@@ -37,7 +37,7 @@ var PopupPanel = React.createClass({
                 <span className="pull-right closeModalBtn"  onClick={()=>this.closePopupModal()}>x</span>
                 <h4>{popupContentObj.header}</h4>
 				{popupBtnContent}
-                <button type="button" className="btn btn-primary blockBtn" onClick={()=>this.closePopupModal()}>
+                <button type="button" className="btn btn-primary" onClick={()=>this.closePopupModal()}>
 					{popupContentObj.btn2}
                 </button>
             </div>

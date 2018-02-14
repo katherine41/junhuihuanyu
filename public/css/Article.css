@@ -11,6 +11,10 @@
 .anArticle_container a:hover {
     color: #06090a;
 }
+
+.articleCategory_container h4{
+    font-size: 18px;
+}
 /*====================articles page===========================*/
 /*inside of article blog*/
 .articleBlog h3{

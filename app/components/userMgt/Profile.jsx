@@ -53,7 +53,7 @@ var Register = React.createClass({
         return (
             <div className="profile_container">
                 <div className="profilePanel">
-                    <div className="profileHeader" style={{backgroundImage:`url("../../image/profileBack.jpg")`}}>
+                    <div className="profileHeader" style={{backgroundImage:`url("../../image/background/bannerImg.jpeg")`}}>
                     </div>
                     <div id="profleContent">
                         <span className="editUserBtn pull-right" id="editUserBtn">
@@ -86,7 +86,7 @@ var Register = React.createClass({
                                     <p>{this.props.user.role}</p>
                                 </div>
                             </div>
-                            <div className="blockBtn" onClick={() => this.props.logoutUser()}>退出登录</div>
+                            <div className="btn btn-primary" onClick={() => this.props.logoutUser()}>退出登录</div>
                         </form>
                         <form id="profileAfterEdit">
                             <div className="form-group row">
@@ -113,8 +113,8 @@ var Register = React.createClass({
                                     <p id="profileUserCate">{this.props.user.role}</p>
                                 </div>
                             </div>
-                            <div className="blockBtn" id="confirmEdit">确认修改</div>
-                            <div className="blockBtn" id="cancelEdit" onClick={()=>this.cancelEditUser(this.props.user)}>取消</div>
+                            <div className="btn btn-primary" id="confirmEdit">确认修改</div>
+                            <div className="btn btn-primary" id="cancelEdit" onClick={()=>this.cancelEditUser(this.props.user)}>取消</div>
                         </form>
                     </div>
 

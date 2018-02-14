@@ -89,7 +89,7 @@ var AddVideo = React.createClass({
                         <div id="progressBar" className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"> </div>
                     </div>
 
-                    <input className="blockBtn" type='button' id='submitVideo' value='上传视频'/>
+                    <input className="btn btn-primary" type='button' id='submitVideo' value='上传视频'/>
                 </form>
             </div>
         )

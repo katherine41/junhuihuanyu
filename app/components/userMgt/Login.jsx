@@ -34,7 +34,7 @@ var Login = React.createClass({
     },
     render:function(){
         return (
-            <div className="login_container container" style={{backgroundImage:`url("../../image/login_back.jpg")`}}>
+            <div className="login_container container" style={{backgroundImage:`url("../../image/background/loginbg1.jpeg")`}}>
                 <div className="loginPanel">
                     <div className="page-header">
                         <h1>骏汇寰宇 <small>登录</small></h1>
@@ -46,7 +46,7 @@ var Login = React.createClass({
                         <div className="form-group">
                             <input type="password" className="form-control" id="loginUserPassword" placeholder="密码"/>
                         </div>
-                        <div className="blockBtn" onClick={()=>this.loginUser()}>登录</div>
+                        <div className="btn btn-primary" onClick={()=>this.loginUser()}>登录</div>
                     </form>
                 </div>
             </div>
