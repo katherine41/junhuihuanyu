@@ -30,6 +30,20 @@ var PopupPanel = React.createClass({
 				popupBtnContent = <button type="button" className="btn btn-primary" >
 					<Link to="/articles/">{popupContentObj.btn1}</Link>
 				</button>;
+				break;
+			case 'editArticle':
+				popupContentObj.header = '修改成功！';
+				popupContentObj.btn1 = '查看文章';
+				popupContentObj.btn2 = '继续修改';
+				popupBtnContent = <button type="button" className="btn btn-primary" >
+					<Link to={`/articles/${this.props.articleId}`}>{popupContentObj.btn1}</Link>
+				</button>;
+				break;
+			default:
+				popupContentObj.header = '';
+				popupContentObj.btn2 = '取消';
+				popupBtnContent = "";
+
 		}
         return (
         <div className="popupContainer modal" id="addSuccessModal">

@@ -552,3 +552,13 @@ height:150px;
     margin: 5px auto;
     color: #f7f7f9;
 }
+
+.popupContainer .btn-primary{
+    width: 90%;
+    display:table;
+    margin: 5px auto;
+}
+
+.popupContainer .btn-primary a{
+    color: white;
+}

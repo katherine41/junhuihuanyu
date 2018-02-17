@@ -8,7 +8,6 @@ var React = require('react');
 var IndexArticles = require('../articles/IndexArticles');
 var ArticlesPage = React.createClass({
 	componentDidMount:function () {
-		// this.props.fetchArticles();
 		var cateId=6;
 		this.props.fetchArticleByCate(cateId);
 	},
@@ -16,6 +15,11 @@ var ArticlesPage = React.createClass({
 		return (
 			<section id="indexArticles">
 				<div className="container">
+					<div className="row">
+						<div className="col-lg-12 text-center">
+							<h2 className="section-heading text-uppercase">独家新闻汇评</h2>
+						</div>
+					</div>
 					<IndexArticles posts={this.props.articles}/>
 				</div>
 			</section>
@@ -26,15 +30,13 @@ var ArticlesPage = React.createClass({
 
 function mapStatsToProps(state){
 	return {
-		articles:state.articles,
+		articles:state.indexNews,
 	}
 }
 
 function matchDispatchToProps(dispatch){
 	return bindActionCreators({
-		// fetchArticles:allActions.articleAction.fetchArticles,
-		fetchArticleByCate:allActions.articleAction.fetchArticleByCate,
-
+		fetchArticleByCate:allActions.articleAction.fetchIndexNews,
 	},dispatch)
 }
 

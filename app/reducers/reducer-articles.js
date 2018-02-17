@@ -22,6 +22,9 @@ export default function (state = initialArticles,action) {
             break;
         case "COMPLETE_ARTICLES_FETCH":
             console.log("All Articles",action.payload);
+			action.payload.sort(function(a,b){
+				return b.articleId - a.articleId;
+			});
             return action.payload;
             break;
     }

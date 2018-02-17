@@ -17,6 +17,34 @@ const completeArticlesFetch=(articles)=>{
     }
 };
 
+const startIndexNewsFetch=()=>{
+	return {
+		type:'START_INDEX_NEWS_FETCH',
+		payload:[]
+	}
+};
+
+const completeIndexNewsFetch=(articles)=>{
+	return {
+		type:'COMPLETE_INDEX_NEWS_FETCH',
+		payload:articles
+	}
+};
+
+const startIndexStudyFetch=()=>{
+	return {
+		type:'START_INDEX_STUDY_FETCH',
+		payload:[]
+	}
+};
+
+const completeIndexStudyFetch=(articles)=>{
+	return {
+		type:'COMPLETE_INDEX_STUDY_FETCH',
+		payload:articles
+	}
+};
+
 const startArticleFetch=()=>{
     return {
         type:'START_CURRENTARTICLE_FETCH',
@@ -108,6 +136,7 @@ export const clickDeletedArticle=(articleId)=>{
 	return (dispatch)=>{
 		dispatch(passDeletingArticleId(articleId));
 	}
+
 };
 
 export const fetchArticleByCate=(cateId)=>{
@@ -129,6 +158,48 @@ export const fetchArticleByCate=(cateId)=>{
             }
         });
     }
+};
+
+export const fetchIndexNews=(cateId)=>{
+	return (dispatch)=>{
+		dispatch(startIndexNewsFetch());
+		$.ajax({
+			type: 'GET',
+			url: env_variables.apiEndpoint + "/rest/article/category/"+cateId,
+			success: function (res) {
+				var categoryName=res.categoryName;
+				res.articles.forEach(function(item){
+					item.articleCategory={"categoryName":categoryName,"id":cateId}
+				});
+				dispatch(completeIndexNewsFetch(res.articles));
+				dispatch(getCurrentCate({"categoryName":categoryName,"id":cateId}));
+			},
+			error: function (err) {
+				console.log(err)
+			}
+		});
+	}
+};
+
+export const fetchIndexStudy=(cateId)=>{
+	return (dispatch)=>{
+		dispatch(startIndexStudyFetch());
+		$.ajax({
+			type: 'GET',
+			url: env_variables.apiEndpoint + "/rest/article/category/"+cateId,
+			success: function (res) {
+				var categoryName=res.categoryName;
+				res.articles.forEach(function(item){
+					item.articleCategory={"categoryName":categoryName,"id":cateId}
+				});
+				dispatch(completeIndexStudyFetch(res.articles));
+				dispatch(getCurrentCate({"categoryName":categoryName,"id":cateId}));
+			},
+			error: function (err) {
+				console.log(err)
+			}
+		});
+	}
 };
 
 export const deleteArticle=(articleId)=>{
@@ -170,9 +241,10 @@ export const modifyArticle=(articleId)=>{
             summary:articleSummary,
             content:articleContent
         };
-        console.log(articleObj);
+        console.log("Updated article", articleObj);
         if(articleHeader!==""){
             actionFunctions.ajaxPutObj(articleObj,'/rest/article/'+articleId);
-        }
+			$("#addSuccessModal").css("display","block");
+		}
     }
 };

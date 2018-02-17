@@ -135,3 +135,12 @@
 #progressBar{
     width: 0%;
 }
+
+/*edit article*/
+.editArticle_container .btn-primary{
+    margin-right: 10px;
+}
+
+.editArticle_container .btn-primary a{
+    color: white;
+}

@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import allActions from '../../actions/index';
 
 var React = require('react');
+var {Link} = require('react-router');
+var PopupPanel = require('../common-components/PopupPanel');
+
 import '../../../public/css/Management.css';
 import Trumbowyg from 'react-trumbowyg';
 
@@ -55,6 +58,7 @@ class EditArticle extends React.Component{
         // var articleId=this.props.article.articleId;
         return (
         <div>
+            <PopupPanel articleId={articleId}/>
             <div className="contentTop"></div>
             <div className="contentMiddle editArticle_container container">
                 <TitleLine titleNameChn="编辑文章" titleNameEng="EDIT"/>
@@ -101,8 +105,8 @@ class EditArticle extends React.Component{
                            data=''
                            placeholder='请输入文章内容'
                 />
-                <button className="btn btn-default" type="button" onClick={()=>this.props.modifyArticle(articleId)}>保存修改</button>
-                <button className="btn btn-default" type="button">取消</button>
+                <button className="btn btn-primary" type="button" onClick={()=>this.props.modifyArticle(articleId)}>保存修改</button>
+                <button className="btn btn-primary" type="button"><Link to={`/articles/${articleId}`}>取消</Link></button>
             </div>
         </div>
         );

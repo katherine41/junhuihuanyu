@@ -7,7 +7,8 @@ var TitleLine = require('../TitleLine');
 
 function CategoryItem(props) {
     if(props.currentCateId==props.categoryId){
-        return (
+		console.log(props.cateNum);
+		return (
             <Link to={`/articleCates/${props.categoryId}`}>
                 <li className="list-group-item cateSelected">
                     <span className="badge">{props.cateNum}</span>
@@ -31,6 +32,7 @@ function CategoryItem(props) {
 var CategoryList = React.createClass({
     render: function () {
     var categories=this.props.categories;
+    // console.log("categories",categories);
     var cateId=this.props.currentCateId;
     const listItems=categories.map(
         function (category) {

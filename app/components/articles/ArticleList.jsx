@@ -3,7 +3,7 @@
  */
 var React = require('react');
 var {Link} = require('react-router');
-var PopupPanel = require('../PopupPanel');
+var PopupPanel = require('../common-components/PopupPanel');
 import ReactHtmlParser from 'react-html-parser';
 import env_variables from '../../components/environment';
 

@@ -2,8 +2,9 @@ import {fetchCategory} from './action-categories';
 import {addCategory} from './action-categories';
 import {deleteCategory} from './action-categories';
 import {fetchArticles} from './action-articles';
+import {fetchIndexNews} from './action-articles';
+import {fetchIndexStudy} from './action-articles';
 import {fetchArticle} from './action-articles';
-import {fetchDeletedArticle} from './action-articles';
 import {clickDeletedArticle} from './action-articles';
 import {fetchArticleByCate} from './action-articles';
 import {addArticle} from './action-articles';
@@ -25,6 +26,8 @@ var allActions={
     },
     articleAction:{
         fetchArticles:fetchArticles,
+		fetchIndexNews:fetchIndexNews,
+		fetchIndexStudy:fetchIndexStudy,
         fetchArticle:fetchArticle,
 		clickDeletedArticle:clickDeletedArticle,
         fetchArticleByCate:fetchArticleByCate,

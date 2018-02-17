@@ -6,7 +6,7 @@ var React = require('react');
 var {Link} = require('react-router');
 
 var TitleLine = require('../TitleLine');
-var PopupPanel = require('../PopupPanel');
+var PopupPanel = require('../common-components/PopupPanel');
 
 
 class Management extends React.Component {
